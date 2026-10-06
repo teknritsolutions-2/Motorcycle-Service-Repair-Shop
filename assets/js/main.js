@@ -17,12 +17,29 @@
     return './';
   };
 
+  const PreferenceStorage = {
+    get(key) {
+      try {
+        return window.localStorage.getItem(key);
+      } catch {
+        return null;
+      }
+    },
+    set(key, value) {
+      try {
+        window.localStorage.setItem(key, value);
+      } catch {
+        // Preferences remain available for the current page when storage is restricted.
+      }
+    }
+  };
+
   /* ----------------------------------------
      THEME MANAGEMENT
   ---------------------------------------- */
   const ThemeManager = {
     init() {
-      const saved = localStorage.getItem('moto-theme');
+      const saved = PreferenceStorage.get('moto-theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const theme = saved || (prefersDark ? 'dark' : 'light');
       this.apply(theme);
@@ -31,7 +48,7 @@
 
     apply(theme) {
       document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('moto-theme', theme);
+      PreferenceStorage.set('moto-theme', theme);
       this.updateIcons(theme);
     },
 
@@ -66,7 +83,7 @@
   ---------------------------------------- */
   const RTLManager = {
     init() {
-      const saved = localStorage.getItem('moto-dir');
+      const saved = PreferenceStorage.get('moto-dir');
       const dir = saved || 'ltr';
       this.apply(dir);
       this.bindToggle();
@@ -74,7 +91,7 @@
 
     apply(dir) {
       document.documentElement.setAttribute('dir', dir);
-      localStorage.setItem('moto-dir', dir);
+      PreferenceStorage.set('moto-dir', dir);
       this.updateButtons(dir);
     },
 
@@ -114,6 +131,9 @@
 
       if (!this.drawer) return;
 
+      this.drawer.setAttribute('aria-hidden', 'true');
+      this.drawer.inert = true;
+
       this.openBtn?.addEventListener('click', () => this.open());
       this.closeBtn?.addEventListener('click', () => this.close());
       this.overlay?.addEventListener('click', () => this.close());
@@ -122,23 +142,148 @@
         if (e.key === 'Escape' && this.drawer.classList.contains('active')) {
           this.close();
         }
+
+        if (e.key === 'Tab' && this.drawer.classList.contains('active')) {
+          const focusable = [...this.drawer.querySelectorAll('a[href], button:not([disabled]), input, select, textarea')]
+            .filter(el => !el.hasAttribute('hidden'));
+          if (!focusable.length) return;
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      });
+
+      this.drawer.querySelectorAll('a[href]').forEach(link => {
+        link.addEventListener('click', () => this.close(false));
       });
     },
 
     open() {
       this.drawer.classList.add('active');
       this.overlay.classList.add('active');
+      this.drawer.removeAttribute('aria-hidden');
+      this.drawer.inert = false;
       document.body.style.overflow = 'hidden';
       this.closeBtn?.focus();
       this.openBtn?.setAttribute('aria-expanded', 'true');
     },
 
-    close() {
+    close(restoreFocus = true) {
       this.drawer.classList.remove('active');
       this.overlay.classList.remove('active');
+      this.drawer.setAttribute('aria-hidden', 'true');
+      this.drawer.inert = true;
       document.body.style.overflow = '';
       this.openBtn?.setAttribute('aria-expanded', 'false');
-      this.openBtn?.focus();
+      if (restoreFocus) this.openBtn?.focus();
+    }
+  };
+
+  /* ----------------------------------------
+     SHARED NAVIGATION + FOOTER ENHANCEMENT
+  ---------------------------------------- */
+  const SharedChrome = {
+    init() {
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+      document.querySelectorAll('.navbar__nav').forEach(nav => {
+        const homeLink = nav.querySelector('a[href$="index.html"]');
+        if (!homeLink || nav.querySelector('.nav-home')) return;
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'nav-home';
+        const isHome = currentPage === 'index.html' || currentPage === 'home2.html';
+        wrapper.innerHTML = `
+          <button class="navbar__link nav-home__trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="homeVariants"${isHome ? ' aria-current="page"' : ''}>
+            <span>Home</span>
+            <svg aria-hidden="true" viewBox="0 0 16 16"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-home__menu" id="homeVariants">
+            <a href="index.html"${currentPage === 'index.html' ? ' aria-current="page"' : ''}><span>01</span> Home 1</a>
+            <a href="home2.html"${currentPage === 'home2.html' ? ' aria-current="page"' : ''}><span>02</span> Home 2</a>
+          </div>`;
+        homeLink.replaceWith(wrapper);
+
+        const trigger = wrapper.querySelector('.nav-home__trigger');
+        const setOpen = open => trigger.setAttribute('aria-expanded', String(open));
+        wrapper.addEventListener('mouseenter', () => setOpen(true));
+        wrapper.addEventListener('mouseleave', () => setOpen(false));
+        wrapper.addEventListener('focusin', () => setOpen(true));
+        wrapper.addEventListener('focusout', event => {
+          if (!wrapper.contains(event.relatedTarget)) setOpen(false);
+        });
+        trigger.addEventListener('click', () => setOpen(trigger.getAttribute('aria-expanded') !== 'true'));
+        trigger.addEventListener('keydown', event => {
+          if (event.key === 'ArrowDown') {
+            event.preventDefault();
+            setOpen(true);
+            wrapper.querySelector('.nav-home__menu a')?.focus();
+          }
+        });
+        wrapper.addEventListener('keydown', event => {
+          if (event.key === 'Escape') {
+            setOpen(false);
+            trigger.focus();
+          }
+        });
+        document.addEventListener('click', event => {
+          if (!wrapper.contains(event.target)) setOpen(false);
+        });
+      });
+
+      document.querySelectorAll('.drawer__nav').forEach(nav => {
+        const homeLink = nav.querySelector('a[href$="index.html"]');
+        if (homeLink && !nav.querySelector('a[href$="home2.html"]')) {
+          homeLink.childNodes.forEach(node => {
+            if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) node.textContent = ' Home 1';
+          });
+          if (!homeLink.querySelector('svg')) homeLink.textContent = 'Home 1';
+          const home2 = homeLink.cloneNode(false);
+          home2.href = 'home2.html';
+          home2.textContent = 'Home 2';
+          home2.removeAttribute('aria-current');
+          if (currentPage === 'home2.html') home2.setAttribute('aria-current', 'page');
+          homeLink.after(home2);
+        }
+
+        if (!nav.querySelector('a[href$="faq.html"]')) {
+          const faqLink = document.createElement('a');
+          faqLink.href = 'faq.html';
+          faqLink.className = 'drawer__link';
+          faqLink.textContent = 'FAQ';
+          if (currentPage === 'faq.html') faqLink.setAttribute('aria-current', 'page');
+          const divider = nav.querySelector('.drawer__divider');
+          if (divider) divider.after(faqLink);
+          else nav.append(faqLink);
+        }
+      });
+
+      document.querySelectorAll('.footer__col-title').forEach(title => {
+        if (title.textContent.trim() !== 'Explore') return;
+        const column = title.parentElement;
+        if (column.querySelector('a[href$="home2.html"]')) return;
+        const home1 = document.createElement('a');
+        home1.href = 'index.html';
+        home1.className = 'footer__link';
+        home1.textContent = 'Home 1';
+        if (currentPage === 'index.html') home1.setAttribute('aria-current', 'page');
+        const home2 = home1.cloneNode(true);
+        home2.href = 'home2.html';
+        home2.textContent = 'Home 2';
+        home2.removeAttribute('aria-current');
+        if (currentPage === 'home2.html') home2.setAttribute('aria-current', 'page');
+        title.after(home1, home2);
+      });
+
+      document.querySelectorAll('.footer__copy').forEach(copy => {
+        copy.innerHTML = copy.innerHTML.replace(/2024|2025|2026/g, String(new Date().getFullYear()));
+      });
     }
   };
 
@@ -179,10 +324,16 @@
       const triggers = document.querySelectorAll('.faq-item__trigger');
       if (!triggers.length) return;
 
-      triggers.forEach(trigger => {
+      triggers.forEach((trigger, index) => {
+        const item = trigger.closest('.faq-item');
+        const content = item.querySelector('.faq-item__content');
+        trigger.id ||= `faq-trigger-${index + 1}`;
+        content.id ||= `faq-panel-${index + 1}`;
+        trigger.setAttribute('aria-controls', content.id);
+        content.setAttribute('aria-labelledby', trigger.id);
+        content.setAttribute('role', 'region');
+
         trigger.addEventListener('click', () => {
-          const item = trigger.closest('.faq-item');
-          const content = item.querySelector('.faq-item__content');
           const icon = trigger.querySelector('.faq-item__icon');
           const isActive = item.classList.contains('active');
 
@@ -231,7 +382,7 @@
 
       const getVisibleCount = () => {
         const w = window.innerWidth;
-        if (w >= 1024) return 3;
+        if (w >= 1100) return 3;
         if (w >= 768) return 2;
         return 1;
       };
@@ -256,6 +407,8 @@
         nextBtn.disabled = current >= maxIndex;
         prevBtn.style.opacity = current === 0 ? '0.4' : '1';
         nextBtn.style.opacity = current >= maxIndex ? '0.4' : '1';
+        const controls = prevBtn.closest('.reviews-slider__controls');
+        if (controls) controls.hidden = cards.length <= visible;
       };
 
       prevBtn.addEventListener('click', () => {
@@ -310,23 +463,70 @@
       const form = document.getElementById('appointmentForm');
       if (!form) return;
 
+      const dateField = form.querySelector('#preferredDate');
+      const now = new Date();
+      const pad = value => String(value).padStart(2, '0');
+      const today = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+      if (dateField) dateField.min = today;
+
+      const rules = {
+        fullName: value => value.trim().length >= 2 || 'Enter your full name.',
+        phone: value => {
+          const input = value.trim();
+          const digitCount = input.replace(/\D/g, '').length;
+          return (/^\+?[0-9][0-9\s().-]*$/.test(input) && digitCount >= 7 && digitCount <= 15) || 'Enter a valid phone number with 7–15 digits; spaces, brackets, periods and hyphens are allowed.';
+        },
+        email: value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()) || 'Enter a valid email address.',
+        brand: value => Boolean(value) || 'Select a motorcycle brand.',
+        model: value => value.trim().length >= 1 || 'Enter the motorcycle model.',
+        year: value => {
+          const year = Number(value);
+          return (/^\d{4}$/.test(value) && year >= 1900 && year <= now.getFullYear() + 1) || `Enter a plausible year between 1900 and ${now.getFullYear() + 1}.`;
+        },
+        serviceType: value => ['routine-servicing', 'oil-filter', 'tyre-replacement', 'brake-servicing', 'chain-service', 'battery-service', 'diagnostics', 'general-inspection', 'multiple-services'].includes(value) || 'Select a valid service.',
+        preferredDate: value => (Boolean(value) && value >= today) || 'Choose today or a future date.',
+        preferredTime: value => Boolean(value) || 'Select a preferred time window.',
+        issueDescription: value => value.trim().length >= 5 || 'Describe the requested work or issue in a few words.'
+      };
+
+      const showError = (field, message = '') => {
+        const group = field.closest('.form-group') || field.parentElement;
+        let error = group.querySelector('.form-error');
+        if (!error) {
+          error = document.createElement('span');
+          error.className = 'form-error';
+          error.id = `${field.id}-error`;
+          group.append(error);
+        }
+        error.textContent = message;
+        error.hidden = !message;
+        field.setAttribute('aria-invalid', message ? 'true' : 'false');
+        field.setAttribute('aria-describedby', error.id);
+      };
+
+      const validateField = field => {
+        const rule = rules[field.id];
+        if (!rule) return true;
+        const result = rule(field.value);
+        const valid = result === true;
+        showError(field, valid ? '' : result);
+        return valid;
+      };
+
+      Object.keys(rules).forEach(id => {
+        const field = form.querySelector(`#${id}`);
+        field?.addEventListener(field.tagName === 'SELECT' || field.type === 'date' ? 'change' : 'input', () => validateField(field));
+      });
+
       form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        // Basic validation
-        const required = form.querySelectorAll('[required]');
-        let valid = true;
-
-        required.forEach(field => {
-          if (!field.value.trim()) {
-            field.style.borderColor = '#D94040';
-            valid = false;
-          } else {
-            field.style.borderColor = '';
-          }
-        });
-
-        if (!valid) return;
+        const fields = Object.keys(rules).map(id => form.querySelector(`#${id}`)).filter(Boolean);
+        const valid = fields.map(validateField).every(Boolean);
+        if (!valid) {
+          fields.find(field => field.getAttribute('aria-invalid') === 'true')?.focus();
+          return;
+        }
 
         // Show confirmation message
         const msg = document.getElementById('formMessage');
@@ -335,16 +535,15 @@
           msg.style.display = 'block';
           msg.innerHTML = `
             <strong>Service request prepared.</strong><br>
-            Your appointment request is ready for workshop confirmation. 
-            The workshop will review your request and confirm availability. 
-            Requested dates and times are subject to workshop schedule.
+            The information passed this page's validation, but this static demonstration does not transmit it or create an appointment.
+            Use a verified workshop contact channel once one is published; your preferred date and time still require confirmation.
           `;
           msg.setAttribute('role', 'alert');
           msg.setAttribute('aria-live', 'polite');
         }
 
-        // Reset form
-        form.reset();
+        // Keep the prepared details visible so they can be reviewed or copied.
+        fields.forEach(field => showError(field));
 
         // Scroll message into view
         msg?.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -589,6 +788,16 @@
       const serviceKey = params.get('service') || 'routine-servicing';
       const service = this.services[serviceKey];
 
+      const imageMap = {
+        'routine-servicing': ['routine-service.webp', 'Technicians carrying out a routine motorcycle service in a workshop bay', 1600, 1067],
+        'oil-filter': ['oil-service.webp', 'Mechanic adding fresh engine oil during a motorcycle service', 1600, 1067],
+        'tyre-replacement': ['tyre-service.webp', 'Mechanic working on a motorcycle wheel during tyre service', 1600, 1067],
+        'brake-servicing': ['brake-service.webp', 'Close view of a motorcycle brake disc and caliper', 1600, 1067],
+        'chain-service': ['chain-service.webp', 'Close view of a motorcycle drive chain and rear wheel', 1600, 1200],
+        'battery-service': ['battery-service.webp', 'Digital multimeter prepared for an electrical system test', 1600, 2400],
+        'diagnostics': ['diagnostics.webp', 'Technician inspecting motorcycle wiring and control cables', 1600, 1067]
+      };
+
       if (!service) {
         container.innerHTML = '<p>Service not found. Please select a service from the list.</p>';
         return;
@@ -615,24 +824,47 @@
       });
 
       // Build content
+      const [imageName, imageAlt, imageWidth, imageHeight] = imageMap[serviceKey];
+      const related = Object.entries(this.services)
+        .filter(([key]) => key !== serviceKey)
+        .slice(0, 3)
+        .map(([key, item]) => `<a href="service-details.html?service=${key}">${item.title}<span aria-hidden="true">→</span></a>`)
+        .join('');
       let html = `
+        <figure class="service-detail-visual reveal">
+          <img src="${getBasePath()}assets/images/${imageName}" alt="${imageAlt}" width="${imageWidth}" height="${imageHeight}" loading="lazy" decoding="async">
+        </figure>
+        <div class="service-detail-section">
+        <p class="eyebrow">Inspection checklist</p>
         <h2>What Is Checked</h2>
-        <ul>
+        <ul class="detail-checklist">
           ${service.checks.map(item => `<li>${item}</li>`).join('')}
         </ul>
-
+        </div>
+        <div class="service-detail-section service-detail-section--warning">
+        <p class="eyebrow">Rider warning signs</p>
         <h2>Typical Signs This Service May Be Needed</h2>
         <ul>
           ${service.signs.map(item => `<li>${item}</li>`).join('')}
         </ul>
-
+        </div>
+        <div class="service-detail-section">
+        <p class="eyebrow">Workshop action</p>
         <h2>What May Be Replaced or Adjusted</h2>
         <ul>
           ${service.replaced.map(item => `<li>${item}</li>`).join('')}
         </ul>
-
+        </div>
+        <div class="workshop-note">
+        <p class="eyebrow">Service note</p>
         <h2>Service Notes</h2>
         <p>${service.notes}</p>
+        </div>
+        <div class="related-services">
+          <p class="eyebrow">Continue exploring</p>
+          <h2>Related services</h2>
+          <div>${related}</div>
+        </div>
       `;
 
       container.innerHTML = html;
@@ -643,6 +875,7 @@
      INITIALIZE
   ---------------------------------------- */
   document.addEventListener('DOMContentLoaded', () => {
+    SharedChrome.init();
     ThemeManager.init();
     RTLManager.init();
     Drawer.init();

@@ -220,11 +220,6 @@
   background: var(--border-light);
 }
 
-/* Map */
-[data-theme="dark"] .map-container {
-  border-color: var(--border-light);
-}
-
 /* Slider controls */
 [data-theme="dark"] .reviews-slider__btn {
   border-color: var(--border-color);
@@ -311,4 +306,43 @@
   background: rgba(39, 174, 96, 0.15);
   color: #5CD88A;
   border-color: rgba(39, 174, 96, 0.25);
+}
+
+/* Final production components */
+[data-theme="dark"] .nav-home__menu {
+  background: #1e201f;
+  border-color: #333633;
+}
+
+[data-theme="dark"] .nav-home__menu a {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .nav-home__menu a:hover,
+[data-theme="dark"] .nav-home__menu a:focus-visible,
+[data-theme="dark"] .nav-home__menu a[aria-current="page"] {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .form-error {
+  color: #ff9b8f;
+}
+
+[data-theme="dark"] .form-input[aria-invalid="true"],
+[data-theme="dark"] .form-select[aria-invalid="true"],
+[data-theme="dark"] .form-textarea[aria-invalid="true"] {
+  border-color: #ff7768;
+  box-shadow: 0 0 0 3px rgba(255,119,104,.12);
+}
+
+[data-theme="dark"] .workshop-note {
+  background: #0f1110;
+}
+
+[data-theme="dark"] .process-stop > span {
+  background: var(--bg-primary);
+}
+
+[data-theme="dark"] .feedback-ledger__grid {
+  background: var(--border-color);
 }

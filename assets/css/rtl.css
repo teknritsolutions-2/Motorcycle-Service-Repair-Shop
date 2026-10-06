@@ -59,3 +59,39 @@
 [dir="rtl"] .footer__bottom {
   direction: rtl;
 }
+
+/* Final production components */
+[dir="rtl"] .nav-home__menu {
+  inset-inline-start: 0;
+  inset-inline-end: auto;
+}
+
+[dir="rtl"] .job-row b,
+[dir="rtl"] .related-services a span,
+[dir="rtl"] .text-link span {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .panorama-hero__shade {
+  background: linear-gradient(-90deg, rgba(11,12,11,.94) 0%, rgba(11,12,11,.76) 42%, rgba(11,12,11,.12) 80%), linear-gradient(0deg, rgba(11,12,11,.82), transparent 55%);
+}
+
+[dir="rtl"] .workshop-booking__overlay {
+  background: linear-gradient(-90deg, rgba(15,17,16,.94), rgba(15,17,16,.55) 60%, rgba(15,17,16,.2));
+}
+
+[dir="rtl"] .panorama-hero__index {
+  right: auto;
+  left: max(2rem, calc((100vw - var(--content-max)) / 2 + var(--gutter-desktop)));
+}
+
+@media (max-width: 768px) {
+  [dir="rtl"] .panorama-hero__shade {
+    background: linear-gradient(0deg, rgba(11,12,11,.97), rgba(11,12,11,.74) 60%, rgba(11,12,11,.2));
+  }
+
+  [dir="rtl"] .workshop-booking__overlay {
+    background: rgba(15,17,16,.78);
+  }
+}
