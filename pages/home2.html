@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#171815">
+  <link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="../assets/brand/site.webmanifest">
   <title>Workshop Edition — MotoWorkshop</title>
   <meta name="description" content="A workshop-first motorcycle service experience covering practical repairs, inspections, diagnostics and multi-brand maintenance.">
   <link rel="preload" as="image" href="../assets/images/lift-service.webp" type="image/webp">
@@ -16,11 +19,14 @@
   <header class="navbar" role="banner">
     <div class="navbar__inner">
       <a href="index.html" class="navbar__brand" aria-label="MotoWorkshop Home">
-        <div class="navbar__brand-icon" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="16" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="18" r="6" stroke="var(--accent)" stroke-width="2"/><path d="M18 2v6M18 28v6M2 18h6M28 18h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <img class="navbar__brand-icon" src="../assets/brand/logo-mark.svg" alt="" width="48" height="48">
         <div class="navbar__brand-text">MotoWorkshop<span>Service &amp; Repair</span></div>
       </a>
       <nav class="navbar__nav" aria-label="Main navigation">
-        <a href="index.html" class="navbar__link">Home</a>
+        <div class="nav-home">
+          <button class="navbar__link nav-home__trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="homeVariants" aria-current="page"><span>Home</span><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-home__menu" id="homeVariants"><a href="index.html"><span>01</span> Home 1</a><a href="home2.html" aria-current="page"><span>02</span> Home 2</a></div>
+        </div>
         <a href="about.html" class="navbar__link">About</a>
         <a href="services.html" class="navbar__link">Services</a>
         <a href="brands.html" class="navbar__link">Brands</a>
@@ -130,7 +136,7 @@
     </section>
   </main>
 
-  <footer class="footer" role="contentinfo"><div class="container"><div class="footer__grid"><div><a href="index.html" class="navbar__brand"><div class="navbar__brand-icon"><svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="16" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="18" r="6" stroke="var(--accent)" stroke-width="2"/></svg></div><div class="navbar__brand-text">MotoWorkshop<span>Service &amp; Repair</span></div></a><p class="footer__brand-desc">Independent motorcycle servicing, practical repairs and diagnostics for road-going motorcycles.</p></div><div><h4 class="footer__col-title">Workshop</h4><a href="about.html" class="footer__link">About</a><a href="contact.html" class="footer__link">Contact</a><a href="contact.html#booking" class="footer__link">Book Service</a></div><div><h4 class="footer__col-title">Services</h4><a href="service-details.html?service=routine-servicing" class="footer__link">Routine Service</a><a href="service-details.html?service=oil-filter" class="footer__link">Oil Change</a><a href="service-details.html?service=tyre-replacement" class="footer__link">Tyres</a><a href="service-details.html?service=brake-servicing" class="footer__link">Brakes</a><a href="service-details.html?service=diagnostics" class="footer__link">Diagnostics</a></div><div><h4 class="footer__col-title">Explore</h4><a href="index.html" class="footer__link">Home 1</a><a href="home2.html" class="footer__link" aria-current="page">Home 2</a><a href="brands.html" class="footer__link">Brands</a><a href="pricing.html" class="footer__link">Pricing</a><a href="reviews.html" class="footer__link">Reviews</a><a href="faq.html" class="footer__link">FAQ</a><a href="privacy.html" class="footer__link">Privacy</a><a href="terms.html" class="footer__link">Terms</a></div></div><div class="footer__bottom"><p class="footer__copy">&copy; 2026 MotoWorkshop. All rights reserved.</p><button class="btn--back-to-top" id="backToTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg></button></div></div></footer>
+  <footer class="footer" role="contentinfo"><div class="container"><div class="footer__grid"><div><a href="index.html" class="navbar__brand"><img class="navbar__brand-icon" src="../assets/brand/logo-mark.svg" alt="" width="48" height="48"><div class="navbar__brand-text">MotoWorkshop<span>Service &amp; Repair</span></div></a><p class="footer__brand-desc">Independent motorcycle servicing, practical repairs and diagnostics for road-going motorcycles.</p></div><div><h4 class="footer__col-title">Workshop</h4><a href="about.html" class="footer__link">About</a><a href="contact.html" class="footer__link">Contact</a><a href="contact.html#booking" class="footer__link">Book Service</a></div><div><h4 class="footer__col-title">Services</h4><a href="service-details.html?service=routine-servicing" class="footer__link">Routine Service</a><a href="service-details.html?service=oil-filter" class="footer__link">Oil Change</a><a href="service-details.html?service=tyre-replacement" class="footer__link">Tyres</a><a href="service-details.html?service=brake-servicing" class="footer__link">Brakes</a><a href="service-details.html?service=diagnostics" class="footer__link">Diagnostics</a></div><div><h4 class="footer__col-title">Explore</h4><a href="index.html" class="footer__link">Home 1</a><a href="home2.html" class="footer__link" aria-current="page">Home 2</a><a href="brands.html" class="footer__link">Brands</a><a href="pricing.html" class="footer__link">Pricing</a><a href="reviews.html" class="footer__link">Reviews</a><a href="faq.html" class="footer__link">FAQ</a><a href="privacy.html" class="footer__link">Privacy</a><a href="terms.html" class="footer__link">Terms</a></div></div><div class="footer__bottom"><p class="footer__copy">&copy; 2026 MotoWorkshop. All rights reserved.</p><button class="btn--back-to-top" id="backToTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg></button></div></div></footer>
   <script src="../assets/js/main.js"></script>
 </body>
 </html>

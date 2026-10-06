@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="title desc">
+  <title id="title">MotoWorkshop mechanical monogram</title>
+  <desc id="desc">An angular workshop frame containing an interconnected M and W linkage.</desc>
+  <g fill="none" stroke="#C45D32" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M15 4h18l11 11v18L33 44H15L4 33V15L15 4Z" stroke-width="3"/>
+    <path d="M11.5 31V17l8.3 9 8.4-9 8.3 9v5" stroke-width="3.4"/>
+    <path d="M11.5 31h5.2l3.1-5 4.2 6 4.2-6 3.1 5h5.2" stroke-width="2.4"/>
+  </g>
+  <circle cx="11.5" cy="31" r="2.4" fill="#C45D32"/>
+  <circle cx="36.5" cy="31" r="2.4" fill="#C45D32"/>
+</svg>

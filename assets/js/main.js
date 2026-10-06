@@ -193,24 +193,32 @@
       const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
       document.querySelectorAll('.navbar__nav').forEach(nav => {
-        const homeLink = nav.querySelector('a[href$="index.html"]');
-        if (!homeLink || nav.querySelector('.nav-home')) return;
+        let wrapper = nav.querySelector('.nav-home');
 
-        const wrapper = document.createElement('div');
-        wrapper.className = 'nav-home';
-        const isHome = currentPage === 'index.html' || currentPage === 'home2.html';
-        wrapper.innerHTML = `
-          <button class="navbar__link nav-home__trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="homeVariants"${isHome ? ' aria-current="page"' : ''}>
-            <span>Home</span>
-            <svg aria-hidden="true" viewBox="0 0 16 16"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="nav-home__menu" id="homeVariants">
-            <a href="index.html"${currentPage === 'index.html' ? ' aria-current="page"' : ''}><span>01</span> Home 1</a>
-            <a href="home2.html"${currentPage === 'home2.html' ? ' aria-current="page"' : ''}><span>02</span> Home 2</a>
-          </div>`;
-        homeLink.replaceWith(wrapper);
+        /* Backward-compatible fallback for any future page that omits the static menu. */
+        if (!wrapper) {
+          const homeLink = nav.querySelector('a[href$="index.html"]');
+          if (!homeLink) return;
+          wrapper = document.createElement('div');
+          wrapper.className = 'nav-home';
+          const isHome = currentPage === 'index.html' || currentPage === 'home2.html';
+          wrapper.innerHTML = `
+            <button class="navbar__link nav-home__trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="homeVariants"${isHome ? ' aria-current="page"' : ''}>
+              <span>Home</span>
+              <svg aria-hidden="true" viewBox="0 0 16 16"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="nav-home__menu" id="homeVariants">
+              <a href="index.html"${currentPage === 'index.html' ? ' aria-current="page"' : ''}><span>01</span> Home 1</a>
+              <a href="home2.html"${currentPage === 'home2.html' ? ' aria-current="page"' : ''}><span>02</span> Home 2</a>
+            </div>`;
+          homeLink.replaceWith(wrapper);
+        }
+
+        if (wrapper.dataset.menuBound === 'true') return;
+        wrapper.dataset.menuBound = 'true';
 
         const trigger = wrapper.querySelector('.nav-home__trigger');
+        if (!trigger) return;
         const setOpen = open => trigger.setAttribute('aria-expanded', String(open));
         wrapper.addEventListener('mouseenter', () => setOpen(true));
         wrapper.addEventListener('mouseleave', () => setOpen(false));
@@ -261,6 +269,63 @@
           const divider = nav.querySelector('.drawer__divider');
           if (divider) divider.after(faqLink);
           else nav.append(faqLink);
+        }
+      });
+
+      document.querySelectorAll('.footer').forEach(footer => {
+        if (!footer.querySelector('.footer__action')) {
+          const action = document.createElement('div');
+          action.className = 'footer__action';
+          action.innerHTML = `
+            <div class="container footer__action-inner">
+              <div><p class="eyebrow">Workshop bookings</p><h2>Keep the motorcycle ready for the next ride.</h2></div>
+              <div class="footer__action-links"><a href="services.html" class="btn btn--footer-secondary">View Services</a><a href="contact.html#booking" class="btn btn--primary">Book Service</a></div>
+            </div>`;
+          footer.prepend(action);
+        }
+
+        const serviceTitle = [...footer.querySelectorAll('.footer__col-title')]
+          .find(title => title.textContent.trim() === 'Services');
+        if (serviceTitle) {
+          const column = serviceTitle.parentElement;
+          const required = [
+            ['service-details.html?service=chain-service', 'Chain'],
+            ['service-details.html?service=battery-service', 'Battery']
+          ];
+          required.forEach(([href, label]) => {
+            if (column.querySelector(`a[href="${href}"]`)) return;
+            const link = document.createElement('a');
+            link.href = href;
+            link.className = 'footer__link';
+            link.textContent = label;
+            column.append(link);
+          });
+          const diagnostics = column.querySelector('a[href="service-details.html?service=diagnostics"]');
+          if (diagnostics) column.append(diagnostics);
+        }
+
+        const workshopTitle = [...footer.querySelectorAll('.footer__col-title')]
+          .find(title => title.textContent.trim() === 'Workshop');
+        if (workshopTitle && !workshopTitle.parentElement.querySelector('a[href$="faq.html"]')) {
+          const faq = document.createElement('a');
+          faq.href = 'faq.html';
+          faq.className = 'footer__link';
+          faq.textContent = 'FAQ';
+          workshopTitle.parentElement.append(faq);
+        }
+
+        const grid = footer.querySelector('.footer__grid');
+        const exploreTitle = [...footer.querySelectorAll('.footer__col-title')]
+          .find(title => title.textContent.trim() === 'Explore');
+        if (grid && exploreTitle && !grid.querySelector('.footer__legal')) {
+          const legal = document.createElement('div');
+          legal.className = 'footer__legal';
+          legal.innerHTML = '<h4 class="footer__col-title">Legal</h4>';
+          ['privacy.html', 'terms.html'].forEach(file => {
+            const link = exploreTitle.parentElement.querySelector(`a[href$="${file}"]`);
+            if (link) legal.append(link);
+          });
+          grid.append(legal);
         }
       });
 

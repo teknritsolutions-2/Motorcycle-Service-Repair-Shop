@@ -37,6 +37,7 @@ Example: `pages/service-details.html?service=brake-servicing`
 - Light/dark theme preference stored in `localStorage`
 - LTR/RTL preference stored in `localStorage`
 - Sticky desktop navigation with an accessible Home 1/Home 2 dropdown
+- Custom mechanical MW brand mark, matching SVG favicon, theme color and web manifest
 - Focus-managed mobile drawer with Escape and overlay dismissal
 - Reduced-motion-aware reveal effects
 - Responsive review slider: 3/2/1 visible items at desktop/tablet/mobile widths
@@ -52,11 +53,15 @@ Example: `pages/service-details.html?service=brake-servicing`
 ├── 404.html
 ├── pages/
 ├── assets/
+│   ├── brand/
+│   │   ├── logo-mark.svg
+│   │   ├── favicon.svg
+│   │   └── site.webmanifest
 │   ├── css/
 │   │   ├── style.css
 │   │   ├── dark-mode.css
 │   │   └── rtl.css
-│   ├── images/
+│   ├── images/ (optimized WebP photography)
 │   └── js/main.js
 └── documentation/ARCHITECTURE.md
 ```

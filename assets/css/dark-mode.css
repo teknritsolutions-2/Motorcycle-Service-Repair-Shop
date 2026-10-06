@@ -346,3 +346,61 @@
 [data-theme="dark"] .feedback-ledger__grid {
   background: var(--border-color);
 }
+
+/* Final identity pass */
+[data-theme="dark"] .page-hero {
+  background:
+    linear-gradient(90deg, transparent 0 74%, rgba(196, 93, 50, .13) 74% 74.15%, transparent 74.15%),
+    var(--bg-secondary);
+}
+
+[data-theme="dark"] .services__grid .service-card:first-child,
+[data-theme="dark"] .services__grid .service-card:first-child:hover {
+  background: #111 url('../images/routine-service.webp') center 42% / cover no-repeat;
+}
+
+[data-theme="dark"] .services__grid .service-card:first-child::before {
+  background: linear-gradient(90deg, rgba(9,10,9,.96), rgba(9,10,9,.62) 60%, rgba(9,10,9,.2));
+}
+
+[data-theme="dark"] .benefit-card,
+[data-theme="dark"] .quick-service-item,
+[data-theme="dark"] .services__grid .service-card:not(:first-child),
+[data-theme="dark"] .contact-info-card {
+  background: transparent;
+}
+
+[data-theme="dark"] .estimate-table tr {
+  background: var(--bg-card);
+}
+
+[data-theme="dark"] .location-placeholder {
+  background:
+    radial-gradient(circle at center, transparent 0 72px, rgba(255,255,255,.1) 73px 74px, transparent 75px),
+    linear-gradient(90deg, transparent 49.9%, var(--border-light) 50%, transparent 50.1%),
+    linear-gradient(0deg, transparent 49.9%, var(--border-light) 50%, transparent 50.1%),
+    var(--bg-secondary);
+  background-size: auto, 72px 72px, 72px 72px, auto;
+}
+
+[data-theme="dark"] .form-panel {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+  border-block-start-color: var(--accent);
+}
+
+[data-theme="dark"] .footer {
+  background:
+    linear-gradient(90deg, transparent 49.96%, rgba(255,255,255,.025) 50%, transparent 50.04%),
+    #0D0E0D;
+}
+
+[data-theme="dark"] .footer__action {
+  background: #171918;
+  border-color: #2b2e2c;
+}
+
+[data-theme="dark"] .brand-card:nth-child(-n + 3),
+[data-theme="dark"] .brand-card:nth-child(n + 7) {
+  background-image: linear-gradient(180deg, rgba(196,93,50,.12), transparent 52%);
+}

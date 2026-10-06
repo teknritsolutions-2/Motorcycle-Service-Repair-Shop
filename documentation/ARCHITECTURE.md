@@ -22,6 +22,12 @@ The stylesheet system is designed to provide high visual polish, complete respon
 - Headings: `Barlow Condensed`, with `Arial Narrow` and sans-serif fallbacks.
 - Body: `Inter`, followed by native system sans-serif fonts.
 
+### Brand assets
+
+- `assets/brand/logo-mark.svg`: compact angular MW linkage mark used in the navbar, drawer, footer and 404 treatment.
+- `assets/brand/favicon.svg`: small-format derivative used by every public HTML document.
+- `assets/brand/site.webmanifest`: project-relative manifest for browser metadata.
+
 ---
 
 ## 2. JavaScript Modular Architecture
@@ -32,7 +38,7 @@ All clientside logic is encapsulated within a self-executing IIFE in `assets/js/
 
 1. `ThemeManager`: Manages light/dark themes, syncs with `localStorage`, listens to system preference updates, and sets `data-theme` attribute on `<html>`.
 2. `RTLManager`: Toggles LTR/RTL reading direction via the `dir` attribute on `<html>`, updating button label and local storage.
-3. `SharedChrome`: Adds the accessible Home 1 / Home 2 navigation menu, keeps drawer and footer routes consistent, and updates the copyright year.
+3. `SharedChrome`: Enhances the HTML-authored Home 1 / Home 2 menu, keeps drawer and footer routes consistent, builds the shared footer action/columns, and updates the copyright year.
 4. `Drawer`: Controls the mobile navigation, overlay, body scroll lock, Escape behavior, focus containment, and focus restoration.
 5. `RevealAnimations`: Orchestrates scroll-triggered animations with an instant fallback for reduced-motion preferences.
 6. `FAQAccordion`: Handles accordion expansion, keyboard interaction, and ARIA states.
