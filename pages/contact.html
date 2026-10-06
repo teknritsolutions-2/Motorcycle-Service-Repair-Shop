@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Book Service — MotoWorkshop</title>
+  <meta name="description" content="Book a motorcycle service appointment, visit our workshop, or contact our technician team for routine maintenance, brake repairs, and diagnostics.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- NAVBAR -->
+  <header class="navbar" role="banner">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__brand" aria-label="MotoWorkshop Home">
+        <div class="navbar__brand-icon">
+          <svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="16" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="18" r="6" stroke="var(--accent)" stroke-width="2"/><line x1="18" y1="2" x2="18" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18" y1="28" x2="18" y2="34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="2" y1="18" x2="8" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="28" y1="18" x2="34" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="navbar__brand-text">MotoWorkshop<span>Service & Repair</span></div>
+      </a>
+      <nav class="navbar__nav" aria-label="Main navigation">
+        <a href="index.html" class="navbar__link">Home</a>
+        <a href="about.html" class="navbar__link">About</a>
+        <a href="services.html" class="navbar__link">Services</a>
+        <a href="brands.html" class="navbar__link">Brands</a>
+        <a href="pricing.html" class="navbar__link">Pricing</a>
+        <a href="reviews.html" class="navbar__link">Reviews</a>
+        <a href="contact.html" class="navbar__link" aria-current="page">Contact</a>
+      </nav>
+      <div class="navbar__actions">
+        <button class="navbar__toggle-btn" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="navbar__toggle-btn" data-rtl-toggle aria-label="Switch to RTL" aria-pressed="false"><span class="rtl-label" style="font-size:12px;font-weight:700;letter-spacing:.03em">RTL</span></button>
+        <a href="#booking" class="btn btn--primary btn--sm navbar__cta">Book Service</a>
+        <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="drawer" id="mobileDrawer" aria-label="Mobile navigation">
+    <div class="drawer__header">
+      <div class="navbar__brand-text">MotoWorkshop</div>
+      <button class="drawer__close" id="drawerCloseBtn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <nav class="drawer__nav" aria-label="Mobile navigation links">
+      <a href="index.html" class="drawer__link">Home</a>
+      <a href="about.html" class="drawer__link">About</a>
+      <a href="services.html" class="drawer__link">Services</a>
+      <a href="brands.html" class="drawer__link">Brands</a>
+      <a href="pricing.html" class="drawer__link">Pricing</a>
+      <a href="reviews.html" class="drawer__link">Reviews</a>
+      <a href="contact.html" class="drawer__link" aria-current="page">Contact</a>
+      <div class="drawer__divider"></div>
+      <div class="drawer__controls">
+        <button class="navbar__toggle-btn" data-theme-toggle aria-label="Switch theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg>
+          <span>Theme</span>
+        </button>
+        <button class="navbar__toggle-btn" data-rtl-toggle aria-label="Switch RTL">
+          <span>RTL Mode</span>
+        </button>
+      </div>
+      <div class="drawer__footer">
+        <a href="#booking" class="btn btn--primary drawer__cta">Book Service</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main id="main">
+    <!-- COMPACT HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Workshop Visits & Appointments</p>
+        <h1 class="page-hero__title">Contact & Book Service</h1>
+        <p class="page-hero__desc">Submit your motorcycle details and requested service date below, visit our workshop during business hours, or call our team for urgent inquiries.</p>
+      </div>
+    </section>
+
+    <!-- SECTION: WORKSHOP DETAILS -->
+    <section class="section">
+      <div class="container">
+        <div class="contact-info reveal">
+          <div class="contact-info-card">
+            <div class="contact-info-card__icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h3 class="contact-info-card__title">Workshop Location</h3>
+            <p class="contact-info-card__text">
+              <strong>Bay 4, 18 Industrial Park Road</strong><br>
+              Eastside Industrial Estate<br>
+              Rider parking and service drop-off bay at front
+            </p>
+          </div>
+
+          <div class="contact-info-card">
+            <div class="contact-info-card__icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3 class="contact-info-card__title">Operating Hours</h3>
+            <p class="contact-info-card__text">
+              <strong>Mon – Fri:</strong> 8:00 AM – 6:00 PM<br>
+              <strong>Saturday:</strong> 8:30 AM – 3:30 PM<br>
+              <strong>Sunday:</strong> Closed (Workshop Maintenance)
+            </p>
+          </div>
+
+          <div class="contact-info-card">
+            <div class="contact-info-card__icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <h3 class="contact-info-card__title">Direct Contacts</h3>
+            <p class="contact-info-card__text">
+              <strong>Phone:</strong> (555) 019-2834<br>
+              <strong>WhatsApp:</strong> (555) 019-2835<br>
+              <strong>Email:</strong> service@motoworkshop.local
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: APPOINTMENT FORM -->
+    <section class="section" id="booking" style="background: var(--bg-surface);">
+      <div class="container container--narrow">
+        <div class="section-header reveal">
+          <p class="eyebrow">Appointment Request</p>
+          <h2 class="section-title">Schedule a Workshop Visit</h2>
+          <p class="section-subtitle">Fill in your motorcycle details and preferred date. We will review workshop capacity and confirm your slot.</p>
+        </div>
+
+        <div class="reveal" style="background: var(--bg-card); padding: 2.5rem 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border-light); box-shadow: var(--shadow-sm);">
+          <form id="appointmentForm" novalidate>
+            <!-- Row 1: Name and Phone -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fullName" class="form-label">Full Name <span style="color:var(--accent)">*</span></label>
+                <input type="text" id="fullName" name="fullName" class="form-input" placeholder="Enter your full name" required>
+              </div>
+              <div class="form-group">
+                <label for="phone" class="form-label">Phone Number <span style="color:var(--accent)">*</span></label>
+                <input type="tel" id="phone" name="phone" class="form-input" placeholder="e.g. +1 (555) 019-2834" required>
+              </div>
+            </div>
+
+            <!-- Row 2: Email and Mileage -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email" class="form-label">Email Address <span style="color:var(--accent)">*</span></label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="e.g. rider@example.com" required>
+              </div>
+              <div class="form-group">
+                <label for="mileage" class="form-label">Motorcycle Mileage / Odometer (Optional)</label>
+                <input type="text" id="mileage" name="mileage" class="form-input" placeholder="e.g. 18,500 km">
+              </div>
+            </div>
+
+            <!-- Row 3: Brand, Model, Year -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.25rem;">
+              <div class="form-group">
+                <label for="brand" class="form-label">Motorcycle Make <span style="color:var(--accent)">*</span></label>
+                <select id="brand" name="brand" class="form-select" required>
+                  <option value="" disabled selected>Select brand</option>
+                  <option value="Honda">Honda</option>
+                  <option value="Yamaha">Yamaha</option>
+                  <option value="Suzuki">Suzuki</option>
+                  <option value="Kawasaki">Kawasaki</option>
+                  <option value="KTM">KTM</option>
+                  <option value="Royal Enfield">Royal Enfield</option>
+                  <option value="TVS">TVS</option>
+                  <option value="Bajaj">Bajaj</option>
+                  <option value="Hero">Hero MotoCorp</option>
+                  <option value="BMW">BMW Motorrad</option>
+                  <option value="Other">Other Make</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="model" class="form-label">Motorcycle Model <span style="color:var(--accent)">*</span></label>
+                <input type="text" id="model" name="model" class="form-input" placeholder="e.g. Duke 250, CB500X" required>
+              </div>
+              <div class="form-group">
+                <label for="year" class="form-label">Model Year <span style="color:var(--accent)">*</span></label>
+                <input type="text" id="year" name="year" class="form-input" placeholder="e.g. 2021" required>
+              </div>
+            </div>
+
+            <!-- Row 4: Service Required -->
+            <div class="form-group">
+              <label for="serviceType" class="form-label">Service Required <span style="color:var(--accent)">*</span></label>
+              <select id="serviceType" name="serviceType" class="form-select" required>
+                <option value="" disabled selected>Select service</option>
+                <option value="routine-servicing">Routine Servicing & Multi-Point Check</option>
+                <option value="oil-filter">Engine Oil & Filter Change</option>
+                <option value="tyre-replacement">Tyre Replacement & Valve Inspection</option>
+                <option value="brake-servicing">Brake Servicing (Pads / Fluid / Calipers)</option>
+                <option value="chain-service">Chain Adjustment, Cleaning & Lubrication</option>
+                <option value="battery-service">Battery Testing & Replacement</option>
+                <option value="diagnostics">Engine & Electrical Fault Diagnostics</option>
+                <option value="general-inspection">General Pre-Purchase or Trip Inspection</option>
+                <option value="multiple-services">Multiple Services / General Repairs</option>
+              </select>
+            </div>
+
+            <!-- Row 5: Preferred Date and Preferred Time -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="preferredDate" class="form-label">Preferred Date <span style="color:var(--accent)">*</span></label>
+                <input type="date" id="preferredDate" name="preferredDate" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label for="preferredTime" class="form-label">Preferred Time Window <span style="color:var(--accent)">*</span></label>
+                <select id="preferredTime" name="preferredTime" class="form-select" required>
+                  <option value="" disabled selected>Select time window</option>
+                  <option value="morning">Morning Drop-off (8:00 AM – 11:00 AM)</option>
+                  <option value="midday">Midday Drop-off (11:00 AM – 2:00 PM)</option>
+                  <option value="afternoon">Afternoon Drop-off (2:00 PM – 5:00 PM)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Row 6: Description of issues / notes -->
+            <div class="form-group">
+              <label for="issueDescription" class="form-label">Issue Description & Rider Notes <span style="color:var(--accent)">*</span></label>
+              <textarea id="issueDescription" name="issueDescription" class="form-textarea" placeholder="Describe the noise, warning light, handling feel, or specific service required" required></textarea>
+            </div>
+
+            <!-- Notice on appointment confirmation -->
+            <p style="font-size: var(--fs-small); color: var(--text-muted); margin-bottom: 1.5rem;">
+              <strong>Please Note:</strong> Submitting this form prepares your service request. Requested dates and times are subject to workshop bay and technician schedule availability. Our workshop team will review your request and contact you directly via phone or email to confirm your drop-off window.
+            </p>
+
+            <button type="submit" class="btn btn--primary btn--lg" style="width: 100%;">Submit Appointment Request</button>
+
+            <!-- Success/Alert container -->
+            <div class="form-message" id="formMessage" role="alert" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: WORKSHOP LOCATION / MAP -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Workshop Location</p>
+          <h2 class="section-title">How to Find Us</h2>
+          <p class="section-subtitle">Located conveniently off the eastern ring distributor with dedicated motorcycle entry and roll-in bay.</p>
+        </div>
+
+        <div class="reveal" style="display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 960px; margin: 0 auto;">
+          <!-- Map container -->
+          <div style="width: 100%; height: 380px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-light); background: var(--bg-surface); position: relative;">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537363153166!3d-37.81720997975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sMelbourne%20VIC!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="MotoWorkshop Location Map">
+            </iframe>
+          </div>
+
+          <!-- Drop-off Instructions -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
+            <div style="padding: 1.25rem; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+              <h4 style="font-size: var(--fs-body); font-weight: 700; margin-bottom: 0.35rem; color: var(--accent);">Motorcycle Roll-In Bay</h4>
+              <p style="font-size: var(--fs-small); color: var(--text-secondary); margin: 0;">Ride directly into the designated drop-off lane marked at Bay 4. Our service advisor will receive your bike and keys.</p>
+            </div>
+            <div style="padding: 1.25rem; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+              <h4 style="font-size: var(--fs-body); font-weight: 700; margin-bottom: 0.35rem; color: var(--accent);">Early Key Drop Box</h4>
+              <p style="font-size: var(--fs-small); color: var(--text-secondary); margin: 0;">Dropping off before 8:00 AM? Park in the rider bays, secure your helmet, and deposit keys in the secure drop box beside reception.</p>
+            </div>
+            <div style="padding: 1.25rem; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+              <h4 style="font-size: var(--fs-body); font-weight: 700; margin-bottom: 0.35rem; color: var(--accent);">Waiting Lounge</h4>
+              <p style="font-size: var(--fs-small); color: var(--text-secondary); margin: 0;">Fast jobs (chain adjustments, battery tests) can be waited on in our clean reception area with Wi-Fi and workshop viewing window.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="navbar__brand" aria-hidden="true">
+            <div class="navbar__brand-icon" style="color:var(--text-inverse)"><svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="16" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="18" r="6" stroke="var(--accent)" stroke-width="2"/><line x1="18" y1="2" x2="18" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18" y1="28" x2="18" y2="34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="2" y1="18" x2="8" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="28" y1="18" x2="34" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div class="navbar__brand-text" style="color:var(--white)">MotoWorkshop<span style="color:var(--text-inverse-secondary)">Service & Repair</span></div>
+          </div>
+          <p class="footer__brand-desc">Independent motorcycle workshop providing servicing, maintenance, repair and diagnostics for everyday motorcycles.</p>
+        </div>
+        <div>
+          <h4 class="footer__col-title">Workshop</h4>
+          <a href="about.html" class="footer__link">About</a>
+          <a href="contact.html" class="footer__link">Contact</a>
+          <a href="contact.html#booking" class="footer__link">Book Service</a>
+        </div>
+        <div>
+          <h4 class="footer__col-title">Services</h4>
+          <a href="service-details.html?service=routine-servicing" class="footer__link">Routine Service</a>
+          <a href="service-details.html?service=oil-filter" class="footer__link">Oil Change</a>
+          <a href="service-details.html?service=tyre-replacement" class="footer__link">Tyres</a>
+          <a href="service-details.html?service=brake-servicing" class="footer__link">Brakes</a>
+          <a href="service-details.html?service=diagnostics" class="footer__link">Diagnostics</a>
+        </div>
+        <div>
+          <h4 class="footer__col-title">Explore</h4>
+          <a href="brands.html" class="footer__link">Brands</a>
+          <a href="pricing.html" class="footer__link">Pricing</a>
+          <a href="reviews.html" class="footer__link">Reviews</a>
+          <a href="faq.html" class="footer__link">FAQ</a>
+          <a href="privacy.html" class="footer__link">Privacy</a>
+          <a href="terms.html" class="footer__link">Terms</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2024 MotoWorkshop. All rights reserved.</p>
+        <button class="btn--back-to-top" id="backToTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

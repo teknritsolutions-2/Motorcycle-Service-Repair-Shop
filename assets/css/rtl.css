@@ -1,0 +1,61 @@
+/* ============================================
+   RTL OVERRIDES
+   Applied via dir="rtl" on <html>
+   ============================================ */
+
+/* Drawer slide direction */
+[dir="rtl"] .drawer {
+  inset-inline-end: 0;
+  inset-inline-start: auto;
+}
+
+/* Hero eyebrow line */
+[dir="rtl"] .hero__eyebrow::before {
+  margin-inline-end: 0;
+}
+
+/* Service card link arrow */
+[dir="rtl"] .service-card__link svg {
+  transform: scaleX(-1);
+}
+
+/* Reviews slider buttons */
+[dir="rtl"] .reviews-slider__btn svg {
+  transform: scaleX(-1);
+}
+
+/* Back to top arrow is fine as-is */
+
+/* Legal content list markers */
+[dir="rtl"] .legal-content ul {
+  padding-inline-start: 1.5rem;
+  padding-inline-end: 0;
+}
+
+/* Service detail list bullets */
+[dir="rtl"] .service-detail-main ul {
+  padding-inline-start: 0;
+}
+
+/* Adjust form select arrow for RTL */
+[dir="rtl"] .form-select {
+  background-position: left 14px center;
+}
+
+/* Sidebar link arrow */
+[dir="rtl"] .sidebar-service-link .arrow {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+/* Table alignment in RTL */
+[dir="rtl"] table,
+[dir="rtl"] th,
+[dir="rtl"] td {
+  text-align: right;
+}
+
+/* Footer alignment */
+[dir="rtl"] .footer__bottom {
+  direction: rtl;
+}

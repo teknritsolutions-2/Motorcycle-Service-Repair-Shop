@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brands Serviced — MotoWorkshop</title>
+  <meta name="description" content="Independent servicing and repair for Honda, Yamaha, Suzuki, Kawasaki, KTM, Royal Enfield, Bajaj, TVS, Hero, and BMW motorcycles.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- NAVBAR -->
+  <header class="navbar" role="banner">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__brand" aria-label="MotoWorkshop Home">
+        <div class="navbar__brand-icon">
+          <svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="16" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="18" r="6" stroke="var(--accent)" stroke-width="2"/><line x1="18" y1="2" x2="18" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18" y1="28" x2="18" y2="34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="2" y1="18" x2="8" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="28" y1="18" x2="34" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="navbar__brand-text">MotoWorkshop<span>Service & Repair</span></div>
+      </a>
+      <nav class="navbar__nav" aria-label="Main navigation">
+        <a href="index.html" class="navbar__link">Home</a>
+        <a href="about.html" class="navbar__link">About</a>
+        <a href="services.html" class="navbar__link">Services</a>
+        <a href="brands.html" class="navbar__link" aria-current="page">Brands</a>
+        <a href="pricing.html" class="navbar__link">Pricing</a>
+        <a href="reviews.html" class="navbar__link">Reviews</a>
+        <a href="contact.html" class="navbar__link">Contact</a>
+      </nav>
+      <div class="navbar__actions">
+        <button class="navbar__toggle-btn" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="navbar__toggle-btn" data-rtl-toggle aria-label="Switch to RTL" aria-pressed="false"><span class="rtl-label" style="font-size:12px;font-weight:700;letter-spacing:.03em">RTL</span></button>
+        <a href="contact.html#booking" class="btn btn--primary btn--sm navbar__cta">Book Service</a>
+        <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="drawer" id="mobileDrawer" aria-label="Mobile navigation">
+    <div class="drawer__header">
+      <div class="navbar__brand-text">MotoWorkshop</div>
+      <button class="drawer__close" id="drawerCloseBtn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <nav class="drawer__nav" aria-label="Mobile navigation links">
+      <a href="index.html" class="drawer__link">Home</a>
+      <a href="about.html" class="drawer__link">About</a>
+      <a href="services.html" class="drawer__link">Services</a>
+      <a href="brands.html" class="drawer__link" aria-current="page">Brands</a>
+      <a href="pricing.html" class="drawer__link">Pricing</a>
+      <a href="reviews.html" class="drawer__link">Reviews</a>
+      <a href="contact.html" class="drawer__link">Contact</a>
+      <div class="drawer__divider"></div>
+      <div class="drawer__controls">
+        <button class="navbar__toggle-btn" data-theme-toggle aria-label="Switch theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg>
+          <span>Theme</span>
+        </button>
+        <button class="navbar__toggle-btn" data-rtl-toggle aria-label="Switch RTL">
+          <span>RTL Mode</span>
+        </button>
+      </div>
+      <div class="drawer__footer">
+        <a href="contact.html#booking" class="btn btn--primary drawer__cta">Book Service</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main id="main">
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Makes & Models</p>
+        <h1 class="page-hero__title">Motorcycles We Service</h1>
+        <p class="page-hero__desc">We provide skilled mechanical care, scheduled servicing, and diagnostics for popular Japanese, European, and domestic motorcycle makes. Service capability varies by model, parts availability, and fault type.</p>
+      </div>
+    </section>
+
+    <!-- BRANDS GRID SECTION -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Workshop Coverage</p>
+          <h2 class="section-title">Common Makes We Work On</h2>
+          <p class="section-subtitle">From daily commuter bikes to single and twin-cylinder roadsters, adventure commuters, and nakeds.</p>
+        </div>
+
+        <div class="brands__grid">
+          <!-- Honda -->
+          <div class="brand-card reveal">
+            <div>
+              <div class="brand-card__name">Honda</div>
+              <p style="font-size: var(--fs-small); color: var(--text-secondary); margin-top: 0.5rem; margin-bottom: 0.75rem;">
+                CB series, Hornet, Unicorn, Shine, H'ness CB350, Activa scooters, CBR250/300.
+              </p>
+              <span style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); background: var(--bg-surface); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border-light);">
+                Routine • Brakes • Fluids • Valve Check
+              </span>
+            </div>
+          </div>
+
+          <!-- Yamaha -->
+          <div class="brand-card reveal reveal-delay-1">
+            <div>
+              <div class="brand-card__name">Yamaha</div>
+              <p style="font-size: var(--fs-small); color: var(--text-secondary); margin-top: 0.5rem; margin-bottom: 0.75rem;">
+                FZ series, MT-15, FZ-X, R15, Aerox 155, RayZR scooters.
+              </p>
+              <span style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); background: var(--bg-surface); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border-light);">
+                Chain • Diagnostics • Clutch • Tyres
+              </span>
+            </div>
+          </div>
+
+          <!-- Suzuki -->
+          <div class="brand-card reveal reveal-delay-2">
+            <div>
+              <div class="brand-card__name">Suzuki</div>
+              <p style="font-size: var(--fs-small); color: var(--text-secondary); margin-top: 0.5rem; margin-bottom: 0.75rem;">
+                Gixxer 150/250, Access 125, Burgman Street, V-Strom SX 250.
+              </p>
+              <span style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); background: var(--bg-surface); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border-light);">
+                Oil Service • Brakes • Belt/Drive Check
+              </span>
+            </div>
+          </div>
+
+          <!-- Kawasaki -->
+          <div class="brand-card reveal">
+            <div>
+              <div class="brand-card__name">Kawasaki</div>
+              <p style="font-size: var(--fs-small); color: var(--text-secondary); margin-top: 0.5rem; margin-bottom: 0.75rem;">
+                Ninja 300/400/650, Z400/Z650, Versys 300/650, Vulcan S.
+              </p>
+              <span style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); background: var(--bg-surface); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border-light);">
+                Periodic Service • Pads • Chain & Sprockets
+              </span>
+            </div>
+          </div>
+
+          <!-- KTM -->
+          <div class="brand-card reveal reveal-delay-1">
+            <div>
+              <div class="brand-card__name">KTM</div>
+              <p style="font-size: var(--fs-small); color: var(--text-secondary); margin-top: 0.5rem; margin-bottom: 0.75rem;">
+                Duke 200/250/390, RC 200/390, 250/390 Adventure.
+              </p>
+              <span style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); background: var(--bg-surface); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border-light);">
+                Cooling System • Diagnostics • Electrical
+              </span>
+            </div>
+          </div>
+
+          <!-- Royal Enfield -->
+          <div class="brand-card reveal reveal-delay-2">
+            <div>
+              <div class="brand-card__name">Royal Enfield</div>
+              <p style="font-size: var(--fs-small); color: var(--text-secondary); margin-top: 0.5rem; margin-bottom: 0.75rem;">
+                Classic 350, Hunter 350, Meteor 350, Himalayan 411/450, Interceptor 650.
+              </p>
+              <span style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); background: var(--bg-surface); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border-light);">
+                Valve Clearances • Tappets • Spoke & Wheel
+              </span>
+            </div>
+          </div>
+
+          <!-- TVS -->
+          <div class="brand-card reveal">
+            <div>
+              <div class="brand-card__name">TVS</div>
+              <p style="font-size: var(--fs-small); color: var(--text-secondary); margin-top: 0.5rem; margin-bottom: 0.75rem;">
+                Apache RTR 160/180/200 4V, RR 310, Ronin, Jupiter, Ntorq 125.
+              </p>
+              <span style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); background: var(--bg-surface); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border-light);">
+                FI Tuning • Brake Fluid Flush • Tyres
+              </span>
+            </div>
+          </div>
+
+          <!-- Bajaj -->
+          <div class="brand-card reveal reveal-delay-1">
+            <div>
+              <div class="brand-card__name">Bajaj</div>
+              <p style="font-size: var(--fs-small); color: var(--text-secondary); margin-top: 0.5rem; margin-bottom: 0.75rem;">
+                Pulsar series (150, NS200, RS200, N250), Dominar 250/400, Avenger series.
+              </p>
+              <span style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); background: var(--bg-surface); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border-light);">
+                Chain Service • Carb/FI Check • Electricals
+              </span>
+            </div>
+          </div>
+
+          <!-- Hero -->
+          <div class="brand-card reveal reveal-delay-2">
+            <div>
+              <div class="brand-card__name">Hero MotoCorp</div>
+              <p style="font-size: var(--fs-small); color: var(--text-secondary); margin-top: 0.5rem; margin-bottom: 0.75rem;">
+                Xpulse 200 4V, Karizma XMR, Xtreme 160R/200S, Splendor, Passion, Destini.
+              </p>
+              <span style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); background: var(--bg-surface); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border-light);">
+                Routine Lube • Cable Adjust • Suspension
+              </span>
+            </div>
+          </div>
+
+          <!-- BMW Motorrad -->
+          <div class="brand-card reveal">
+            <div>
+              <div class="brand-card__name">BMW Motorrad</div>
+              <p style="font-size: var(--fs-small); color: var(--text-secondary); margin-top: 0.5rem; margin-bottom: 0.75rem;">
+                G 310 R, G 310 GS, G 310 RR, F 750 / 850 GS, F 900 R / XR.
+              </p>
+              <span style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); background: var(--bg-surface); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border-light);">
+                Inspection • Oil & Filters • Brake Overhauls
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- IMPORTANT NOTE / DISCLAIMER -->
+        <div class="reveal" style="margin-top: 3rem; padding: 2rem; background: var(--bg-surface); border: 1px solid var(--border-light); border-left: 4px solid var(--accent); border-radius: var(--radius-md);">
+          <h3 style="font-size: var(--fs-h4); margin-bottom: 0.75rem;">Service Capability & Independence Notice</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-size: var(--fs-body);">
+            Service capability varies by specific model, year, parts availability, and the nature of the mechanical or electrical fault. If you are uncertain whether we can service your specific motorcycle or acquire appropriate parts, please contact the workshop before bringing your bike in.
+          </p>
+          <p style="color: var(--text-muted); font-size: var(--fs-small); margin: 0;">
+            <strong>Independent Workshop Notice:</strong> MotoWorkshop is an independent motorcycle service facility. We are not an authorized dealership, franchise, or official affiliate of Honda, Yamaha, Suzuki, Kawasaki, KTM, Royal Enfield, TVS, Bajaj, Hero, BMW, or any other vehicle manufacturer. All manufacturer names, trademarks, and model designations are used purely to identify vehicle compatibility for maintenance and repair services.
+          </p>
+        </div>
+
+        <!-- WORKSHOP APPROACH TO DIFFERENT MAKES -->
+        <div class="reveal" style="margin-top: 4rem;">
+          <h3 style="font-size: var(--fs-h3); margin-bottom: 1.5rem; text-align: center;">How We Approach Different Makes</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+            <div style="padding: 1.5rem; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+              <h4 style="font-size: var(--fs-h4); margin-bottom: 0.5rem; color: var(--accent);">Correct Fluid Specifications</h4>
+              <p style="font-size: var(--fs-small); color: var(--text-secondary); margin: 0;">We match manufacturer oil viscosity (10W-40, 15W-50, etc.), JASO MA/MA2 motorcycle wet-clutch standards, and correct DOT brake fluids.</p>
+            </div>
+            <div style="padding: 1.5rem; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+              <h4 style="font-size: var(--fs-h4); margin-bottom: 0.5rem; color: var(--accent);">Torque Specs by the Book</h4>
+              <p style="font-size: var(--fs-small); color: var(--text-secondary); margin: 0;">Caliper bolts, axle nuts, pinch bolts, and spark plugs are tightened to correct torque ratings using calibrated torque wrenches.</p>
+            </div>
+            <div style="padding: 1.5rem; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+              <h4 style="font-size: var(--fs-h4); margin-bottom: 0.5rem; color: var(--accent);">Quality Replacement Parts</h4>
+              <p style="font-size: var(--fs-small); color: var(--text-secondary); margin: 0;">We source reliable OEM or reputable aftermarket parts (filters, sprockets, pads, chains) and discuss options with you first.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHARED FINAL CTA -->
+    <section class="booking-cta">
+      <div class="container">
+        <div class="booking-cta__inner">
+          <p class="eyebrow" style="color:var(--accent)">Book an Appointment</p>
+          <h2>Ready to get your bike checked?</h2>
+          <p>Book a service appointment and let our technicians take care of the maintenance your motorcycle needs.</p>
+          <a href="contact.html#booking" class="btn btn--primary btn--lg">Book Service</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="navbar__brand" aria-hidden="true">
+            <div class="navbar__brand-icon" style="color:var(--text-inverse)"><svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="16" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="18" r="6" stroke="var(--accent)" stroke-width="2"/><line x1="18" y1="2" x2="18" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18" y1="28" x2="18" y2="34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="2" y1="18" x2="8" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="28" y1="18" x2="34" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div class="navbar__brand-text" style="color:var(--white)">MotoWorkshop<span style="color:var(--text-inverse-secondary)">Service & Repair</span></div>
+          </div>
+          <p class="footer__brand-desc">Independent motorcycle workshop providing servicing, maintenance, repair and diagnostics for everyday motorcycles.</p>
+        </div>
+        <div>
+          <h4 class="footer__col-title">Workshop</h4>
+          <a href="about.html" class="footer__link">About</a>
+          <a href="contact.html" class="footer__link">Contact</a>
+          <a href="contact.html#booking" class="footer__link">Book Service</a>
+        </div>
+        <div>
+          <h4 class="footer__col-title">Services</h4>
+          <a href="service-details.html?service=routine-servicing" class="footer__link">Routine Service</a>
+          <a href="service-details.html?service=oil-filter" class="footer__link">Oil Change</a>
+          <a href="service-details.html?service=tyre-replacement" class="footer__link">Tyres</a>
+          <a href="service-details.html?service=brake-servicing" class="footer__link">Brakes</a>
+          <a href="service-details.html?service=diagnostics" class="footer__link">Diagnostics</a>
+        </div>
+        <div>
+          <h4 class="footer__col-title">Explore</h4>
+          <a href="brands.html" class="footer__link">Brands</a>
+          <a href="pricing.html" class="footer__link">Pricing</a>
+          <a href="reviews.html" class="footer__link">Reviews</a>
+          <a href="faq.html" class="footer__link">FAQ</a>
+          <a href="privacy.html" class="footer__link">Privacy</a>
+          <a href="terms.html" class="footer__link">Terms</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2024 MotoWorkshop. All rights reserved.</p>
+        <button class="btn--back-to-top" id="backToTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

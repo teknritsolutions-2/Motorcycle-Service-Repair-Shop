@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Details — MotoWorkshop</title>
+  <meta name="description" content="Detailed workshop scope, inspection checklists, signs needed, and maintenance notes for our professional motorcycle services.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- NAVBAR -->
+  <header class="navbar" role="banner">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__brand" aria-label="MotoWorkshop Home">
+        <div class="navbar__brand-icon">
+          <svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="16" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="18" r="6" stroke="var(--accent)" stroke-width="2"/><line x1="18" y1="2" x2="18" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18" y1="28" x2="18" y2="34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="2" y1="18" x2="8" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="28" y1="18" x2="34" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="navbar__brand-text">MotoWorkshop<span>Service & Repair</span></div>
+      </a>
+      <nav class="navbar__nav" aria-label="Main navigation">
+        <a href="index.html" class="navbar__link">Home</a>
+        <a href="about.html" class="navbar__link">About</a>
+        <a href="services.html" class="navbar__link" aria-current="page">Services</a>
+        <a href="brands.html" class="navbar__link">Brands</a>
+        <a href="pricing.html" class="navbar__link">Pricing</a>
+        <a href="reviews.html" class="navbar__link">Reviews</a>
+        <a href="contact.html" class="navbar__link">Contact</a>
+      </nav>
+      <div class="navbar__actions">
+        <button class="navbar__toggle-btn" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="navbar__toggle-btn" data-rtl-toggle aria-label="Switch to RTL" aria-pressed="false"><span class="rtl-label" style="font-size:12px;font-weight:700;letter-spacing:.03em">RTL</span></button>
+        <a href="contact.html#booking" class="btn btn--primary btn--sm navbar__cta">Book Service</a>
+        <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="drawer" id="mobileDrawer" aria-label="Mobile navigation">
+    <div class="drawer__header">
+      <div class="navbar__brand-text">MotoWorkshop</div>
+      <button class="drawer__close" id="drawerCloseBtn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <nav class="drawer__nav" aria-label="Mobile navigation links">
+      <a href="index.html" class="drawer__link">Home</a>
+      <a href="about.html" class="drawer__link">About</a>
+      <a href="services.html" class="drawer__link" aria-current="page">Services</a>
+      <a href="brands.html" class="drawer__link">Brands</a>
+      <a href="pricing.html" class="drawer__link">Pricing</a>
+      <a href="reviews.html" class="drawer__link">Reviews</a>
+      <a href="contact.html" class="drawer__link">Contact</a>
+      <div class="drawer__divider"></div>
+      <div class="drawer__controls">
+        <button class="navbar__toggle-btn" data-theme-toggle aria-label="Switch theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg>
+          <span>Theme</span>
+        </button>
+        <button class="navbar__toggle-btn" data-rtl-toggle aria-label="Switch RTL">
+          <span>RTL Mode</span>
+        </button>
+      </div>
+      <div class="drawer__footer">
+        <a href="contact.html#booking" class="btn btn--primary drawer__cta">Book Service</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main id="main">
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Service Scope & Checklist</p>
+        <h1 class="page-hero__title">Routine Servicing</h1>
+        <p class="page-hero__desc">A general inspection and maintenance session designed to keep your motorcycle running smoothly between major services. Our technicians methodically work through the key systems of your motorcycle to identify wear, leaks, or developing faults early.</p>
+        <div class="page-hero__actions">
+          <a href="services.html" class="btn btn--secondary btn--sm">&larr; Back to Services</a>
+          <a href="contact.html#booking" class="btn btn--primary btn--sm">Book This Service</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE DETAIL SECTION -->
+    <section class="section">
+      <div class="container">
+        <div class="service-detail-content">
+          <!-- MAIN CONTENT -->
+          <div class="service-detail-main" id="serviceDetailContent">
+            <h2>What Is Checked</h2>
+            <ul>
+              <li>Basic fluid levels inspection (engine oil, brake fluid, coolant where applicable)</li>
+              <li>Fastener and bolt torque check on high-stress chassis points</li>
+              <li>Tyre tread depth, profile condition, and cold tyre inflation pressure</li>
+              <li>Front and rear brake pad wear, rotor condition, and lever/pedal travel</li>
+              <li>Drive chain tension, alignment, sprocket tooth wear, and lubrication</li>
+              <li>Battery terminal condition, voltage check, and charging response</li>
+              <li>General condition inspection: fork seals, suspension movement, and wheel bearings</li>
+              <li>Full lighting and signal inspection (headlamp, brake light, indicators, horn)</li>
+              <li>Throttle and clutch cable free-play and smooth operation</li>
+            </ul>
+
+            <h2>Typical Signs This Service May Be Needed</h2>
+            <ul>
+              <li>Motorcycle has reached its general service mileage or time interval</li>
+              <li>Subtle changes in handling, braking feel, or chain drive response</li>
+              <li>Preparing for an upcoming long road trip, commute cycle, or seasonal start</li>
+              <li>Bike has been stored or ridden through harsh weather conditions</li>
+            </ul>
+
+            <h2>What May Be Replaced or Adjusted</h2>
+            <ul>
+              <li>Items requiring replacement are identified during inspection and discussed with the owner before any work proceeds.</li>
+              <li>Common adjustments include chain slack, clutch cable free play, tyre pressures, and throttle cable play.</li>
+              <li>Replacement items such as spark plugs, oil filter, air filter, or brake pads are quoted before fitment.</li>
+            </ul>
+
+            <h2>Service & Inspection Notes</h2>
+            <p>Routine servicing is a comprehensive physical inspection and adjustment procedure. It is not a substitute for manufacturer-specified major overhaul intervals. We inspect with calibrated tools and provide clear findings. No work beyond the agreed scope is undertaken without prior customer approval. Completion time depends on bike condition and parts required.</p>
+
+            <div style="margin-top: 2.5rem; padding: 1.5rem; background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+              <h3 style="font-size: var(--fs-h4); margin-bottom: 0.5rem;">Have questions about your motorcycle?</h3>
+              <p style="margin-bottom: 1rem; color: var(--text-secondary);">Bring your bike by our workshop or book an appointment online. Our technicians will inspect your motorcycle and explain all findings clearly.</p>
+              <a href="contact.html#booking" class="btn btn--primary">Book Service Appointment</a>
+            </div>
+          </div>
+
+          <!-- SIDEBAR -->
+          <aside class="service-detail-sidebar">
+            <div class="sidebar-card">
+              <h3 class="sidebar-card__title">All Workshop Services</h3>
+              <a href="service-details.html?service=routine-servicing" class="sidebar-service-link active">
+                <span>Routine Servicing</span>
+                <span class="arrow">&rarr;</span>
+              </a>
+              <a href="service-details.html?service=oil-filter" class="sidebar-service-link">
+                <span>Engine Oil & Filter</span>
+                <span class="arrow">&rarr;</span>
+              </a>
+              <a href="service-details.html?service=tyre-replacement" class="sidebar-service-link">
+                <span>Tyre Replacement</span>
+                <span class="arrow">&rarr;</span>
+              </a>
+              <a href="service-details.html?service=brake-servicing" class="sidebar-service-link">
+                <span>Brake Servicing</span>
+                <span class="arrow">&rarr;</span>
+              </a>
+              <a href="service-details.html?service=chain-service" class="sidebar-service-link">
+                <span>Chain Adjustment & Lube</span>
+                <span class="arrow">&rarr;</span>
+              </a>
+              <a href="service-details.html?service=battery-service" class="sidebar-service-link">
+                <span>Battery Testing & Service</span>
+                <span class="arrow">&rarr;</span>
+              </a>
+              <a href="service-details.html?service=diagnostics" class="sidebar-service-link">
+                <span>Diagnostics & Electrical</span>
+                <span class="arrow">&rarr;</span>
+              </a>
+            </div>
+
+            <div class="sidebar-card">
+              <h3 class="sidebar-card__title">Workshop Hours & Drop-off</h3>
+              <p style="font-size: var(--fs-small); color: var(--text-secondary); margin-bottom: 0.75rem;">
+                <strong>Monday – Friday:</strong> 8:00 AM – 6:00 PM<br>
+                <strong>Saturday:</strong> 8:30 AM – 3:30 PM<br>
+                <strong>Sunday:</strong> Closed
+              </p>
+              <p style="font-size: var(--fs-small); color: var(--text-muted); margin-bottom: 1.25rem;">
+                Early morning key drop-off available by arrangement. Please call ahead or indicate in your booking request.
+              </p>
+              <a href="contact.html#booking" class="btn btn--primary btn--sm" style="width: 100%; text-align: center;">Request Appointment</a>
+            </div>
+
+            <div class="sidebar-card" style="background: var(--bg-surface); border-left: 3px solid var(--accent);">
+              <h3 class="sidebar-card__title" style="font-size: var(--fs-body);">Transparent Estimation</h3>
+              <p style="font-size: var(--fs-small); color: var(--text-secondary); margin: 0;">
+                We always discuss findings and provide an estimate before replacing parts or undertaking additional repairs. No surprise work.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHARED FINAL CTA -->
+    <section class="booking-cta">
+      <div class="container">
+        <div class="booking-cta__inner">
+          <p class="eyebrow" style="color:var(--accent)">Get Started</p>
+          <h2>Ready to get your bike checked?</h2>
+          <p>Book a service appointment and let our technicians take care of the maintenance your motorcycle needs.</p>
+          <a href="contact.html#booking" class="btn btn--primary btn--lg">Book Service</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="navbar__brand" aria-hidden="true">
+            <div class="navbar__brand-icon" style="color:var(--text-inverse)"><svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="16" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="18" r="6" stroke="var(--accent)" stroke-width="2"/><line x1="18" y1="2" x2="18" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18" y1="28" x2="18" y2="34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="2" y1="18" x2="8" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="28" y1="18" x2="34" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div class="navbar__brand-text" style="color:var(--white)">MotoWorkshop<span style="color:var(--text-inverse-secondary)">Service & Repair</span></div>
+          </div>
+          <p class="footer__brand-desc">Independent motorcycle workshop providing servicing, maintenance, repair and diagnostics for everyday motorcycles.</p>
+        </div>
+        <div>
+          <h4 class="footer__col-title">Workshop</h4>
+          <a href="about.html" class="footer__link">About</a>
+          <a href="contact.html" class="footer__link">Contact</a>
+          <a href="contact.html#booking" class="footer__link">Book Service</a>
+        </div>
+        <div>
+          <h4 class="footer__col-title">Services</h4>
+          <a href="service-details.html?service=routine-servicing" class="footer__link">Routine Service</a>
+          <a href="service-details.html?service=oil-filter" class="footer__link">Oil Change</a>
+          <a href="service-details.html?service=tyre-replacement" class="footer__link">Tyres</a>
+          <a href="service-details.html?service=brake-servicing" class="footer__link">Brakes</a>
+          <a href="service-details.html?service=diagnostics" class="footer__link">Diagnostics</a>
+        </div>
+        <div>
+          <h4 class="footer__col-title">Explore</h4>
+          <a href="brands.html" class="footer__link">Brands</a>
+          <a href="pricing.html" class="footer__link">Pricing</a>
+          <a href="reviews.html" class="footer__link">Reviews</a>
+          <a href="faq.html" class="footer__link">FAQ</a>
+          <a href="privacy.html" class="footer__link">Privacy</a>
+          <a href="terms.html" class="footer__link">Terms</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2024 MotoWorkshop. All rights reserved.</p>
+        <button class="btn--back-to-top" id="backToTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

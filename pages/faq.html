@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions — MotoWorkshop</title>
+  <meta name="description" content="Answers to common questions about motorcycle service intervals, booking procedures, parts policies, diagnostics, and workshop estimates.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- NAVBAR -->
+  <header class="navbar" role="banner">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__brand" aria-label="MotoWorkshop Home">
+        <div class="navbar__brand-icon">
+          <svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="16" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="18" r="6" stroke="var(--accent)" stroke-width="2"/><line x1="18" y1="2" x2="18" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18" y1="28" x2="18" y2="34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="2" y1="18" x2="8" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="28" y1="18" x2="34" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="navbar__brand-text">MotoWorkshop<span>Service & Repair</span></div>
+      </a>
+      <nav class="navbar__nav" aria-label="Main navigation">
+        <a href="index.html" class="navbar__link">Home</a>
+        <a href="about.html" class="navbar__link">About</a>
+        <a href="services.html" class="navbar__link">Services</a>
+        <a href="brands.html" class="navbar__link">Brands</a>
+        <a href="pricing.html" class="navbar__link">Pricing</a>
+        <a href="reviews.html" class="navbar__link">Reviews</a>
+        <a href="contact.html" class="navbar__link">Contact</a>
+      </nav>
+      <div class="navbar__actions">
+        <button class="navbar__toggle-btn" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="navbar__toggle-btn" data-rtl-toggle aria-label="Switch to RTL" aria-pressed="false"><span class="rtl-label" style="font-size:12px;font-weight:700;letter-spacing:.03em">RTL</span></button>
+        <a href="contact.html#booking" class="btn btn--primary btn--sm navbar__cta">Book Service</a>
+        <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="drawer" id="mobileDrawer" aria-label="Mobile navigation">
+    <div class="drawer__header">
+      <div class="navbar__brand-text">MotoWorkshop</div>
+      <button class="drawer__close" id="drawerCloseBtn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <nav class="drawer__nav" aria-label="Mobile navigation links">
+      <a href="index.html" class="drawer__link">Home</a>
+      <a href="about.html" class="drawer__link">About</a>
+      <a href="services.html" class="drawer__link">Services</a>
+      <a href="brands.html" class="drawer__link">Brands</a>
+      <a href="pricing.html" class="drawer__link">Pricing</a>
+      <a href="reviews.html" class="drawer__link">Reviews</a>
+      <a href="contact.html" class="drawer__link">Contact</a>
+      <div class="drawer__divider"></div>
+      <div class="drawer__controls">
+        <button class="navbar__toggle-btn" data-theme-toggle aria-label="Switch theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg>
+          <span>Theme</span>
+        </button>
+        <button class="navbar__toggle-btn" data-rtl-toggle aria-label="Switch RTL">
+          <span>RTL Mode</span>
+        </button>
+      </div>
+      <div class="drawer__footer">
+        <a href="contact.html#booking" class="btn btn--primary drawer__cta">Book Service</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main id="main">
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Clear Information</p>
+        <h1 class="page-hero__title">Frequently Asked Questions</h1>
+        <p class="page-hero__desc">Practical answers about booking appointments, service intervals, pricing estimates, and what to expect when visiting our workshop.</p>
+      </div>
+    </section>
+
+    <!-- FAQ LIST SECTION -->
+    <section class="section">
+      <div class="container container--narrow">
+        <div class="faq-list">
+          <!-- FAQ 1 -->
+          <div class="faq-item reveal">
+            <button class="faq-item__trigger" aria-expanded="false" id="faq-trigger-1" aria-controls="faq-content-1">
+              <span>How often should I service my motorcycle?</span>
+              <span class="faq-item__icon">+</span>
+            </button>
+            <div class="faq-item__content" id="faq-content-1" role="region" aria-labelledby="faq-trigger-1">
+              <div class="faq-item__answer">
+                Service intervals depend on your motorcycle manufacturer, engine displacement, and how the bike is ridden. Most modern street motorcycles require routine engine oil and general checks every 4,000 to 6,000 km (or at least once a year). Bikes used for daily stop-and-go commuting, dusty conditions, or short trips benefit from more frequent oil and chain inspections. Always consult your motorcycle's owner manual for factory-mandated schedules.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item reveal reveal-delay-1">
+            <button class="faq-item__trigger" aria-expanded="false" id="faq-trigger-2" aria-controls="faq-content-2">
+              <span>Can I book a specific service or only a full general service?</span>
+              <span class="faq-item__icon">+</span>
+            </button>
+            <div class="faq-item__content" id="faq-content-2" role="region" aria-labelledby="faq-trigger-2">
+              <div class="faq-item__answer">
+                You can book individual standalone jobs at any time. Whether you only need a chain clean and tension adjustment, new front brake pads fitted, tyre replacement, or an engine oil change, we handle targeted jobs just as carefully as comprehensive periodic services.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item reveal reveal-delay-2">
+            <button class="faq-item__trigger" aria-expanded="false" id="faq-trigger-3" aria-controls="faq-content-3">
+              <span>Do you service different motorcycle brands?</span>
+              <span class="faq-item__icon">+</span>
+            </button>
+            <div class="faq-item__content" id="faq-content-3" role="region" aria-labelledby="faq-trigger-3">
+              <div class="faq-item__answer">
+                Yes. We regularly work on everyday single and twin-cylinder motorcycles from Honda, Yamaha, Suzuki, Kawasaki, KTM, Royal Enfield, TVS, Bajaj, Hero, and BMW Motorrad. However, service capability can vary based on specific model years, proprietary tooling requirements, and replacement parts availability. If you ride a rare or vintage motorcycle, please contact us first so we can verify parts supply.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item reveal">
+            <button class="faq-item__trigger" aria-expanded="false" id="faq-trigger-4" aria-controls="faq-content-4">
+              <span>Can you diagnose warning lights and electrical problems?</span>
+              <span class="faq-item__icon">+</span>
+            </button>
+            <div class="faq-item__content" id="faq-content-4" role="region" aria-labelledby="faq-trigger-4">
+              <div class="faq-item__answer">
+                Yes. We diagnose check-engine indicators, ABS warning lamps, charging faults, weak starting conditions, and wiring harness gremlins. We use multi-brand diagnostic scan tools, digital multimeters, and battery conductance testers. Note that we do not claim dealership-level proprietary reprogramming for every brand, but we provide structured electrical fault tracing.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item reveal reveal-delay-1">
+            <button class="faq-item__trigger" aria-expanded="false" id="faq-trigger-5" aria-controls="faq-content-5">
+              <span>Do you install customer-supplied parts?</span>
+              <span class="faq-item__icon">+</span>
+            </button>
+            <div class="faq-item__content" id="faq-content-5" role="region" aria-labelledby="faq-trigger-5">
+              <div class="faq-item__answer">
+                We are happy to fit customer-supplied parts (such as aftermarket brake pads, tyres, chains, or exhaust slip-ons) provided the components are brand new, undamaged, and verified as correct for your motorcycle make and year. Our workshop warranty applies solely to our installation labor in these cases, not to the parts themselves.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq-item reveal reveal-delay-2">
+            <button class="faq-item__trigger" aria-expanded="false" id="faq-trigger-6" aria-controls="faq-content-6">
+              <span>How are repair costs confirmed?</span>
+              <span class="faq-item__icon">+</span>
+            </button>
+            <div class="faq-item__content" id="faq-content-6" role="region" aria-labelledby="faq-trigger-6">
+              <div class="faq-item__answer">
+                We provide an initial verbal or written estimate when you drop your motorcycle off. If additional work or replacement parts are discovered to be necessary during physical inspection, our technicians will pause, phone or message you with the exact cost breakdown, and wait for your explicit approval before carrying out any extra work.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 7 -->
+          <div class="faq-item reveal">
+            <button class="faq-item__trigger" aria-expanded="false" id="faq-trigger-7" aria-controls="faq-content-7">
+              <span>Can I request a preferred appointment date?</span>
+              <span class="faq-item__icon">+</span>
+            </button>
+            <div class="faq-item__content" id="faq-content-7" role="region" aria-labelledby="faq-trigger-7">
+              <div class="faq-item__answer">
+                Yes, our online booking form allows you to select your preferred date and time slot. Please note that online submissions are appointment requests that must be confirmed by the workshop based on technician capacity and bay availability. We contact you via phone or email to confirm your exact drop-off window.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 8 -->
+          <div class="faq-item reveal reveal-delay-1">
+            <button class="faq-item__trigger" aria-expanded="false" id="faq-trigger-8" aria-controls="faq-content-8">
+              <span>Should I bring previous service records?</span>
+              <span class="faq-item__icon">+</span>
+            </button>
+            <div class="faq-item__content" id="faq-content-8" role="region" aria-labelledby="faq-trigger-8">
+              <div class="faq-item__answer">
+                Previous service invoices or service book stamps are very helpful, especially if you have recently bought the motorcycle used. Knowing when valve clearances were last checked, when brake fluid was flushed, or when fork oil was replaced allows us to avoid duplicating work and focus on what is genuinely due.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 9 -->
+          <div class="faq-item reveal reveal-delay-2">
+            <button class="faq-item__trigger" aria-expanded="false" id="faq-trigger-9" aria-controls="faq-content-9">
+              <span>Do I need to leave the motorcycle at the workshop all day?</span>
+              <span class="faq-item__icon">+</span>
+            </button>
+            <div class="faq-item__content" id="faq-content-9" role="region" aria-labelledby="faq-trigger-9">
+              <div class="faq-item__answer">
+                Quick services like chain adjustments, battery conductance tests, or standard oil changes can often be completed while you wait if booked in advance for a dedicated slot. For periodic services, comprehensive overhauls, or diagnostic troubleshooting, bikes are typically dropped off in the morning and collected late afternoon once final road-testing and quality checks are finished.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 10 -->
+          <div class="faq-item reveal">
+            <button class="faq-item__trigger" aria-expanded="false" id="faq-trigger-10" aria-controls="faq-content-10">
+              <span>What happens if additional repairs are found during the service?</span>
+              <span class="faq-item__icon">+</span>
+            </button>
+            <div class="faq-item__content" id="faq-content-10" role="region" aria-labelledby="faq-trigger-10">
+              <div class="faq-item__answer">
+                We inspect critical safety components during every service. If we spot worn brake pads, cracked tyre sidewalls, leaking fork seals, or loose steering bearings, we will document the issue, explain the safety implications, provide an estimate, and let you decide whether to address it immediately or defer it for a future visit. We never proceed with unauthorized repairs.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHARED FINAL CTA -->
+    <section class="booking-cta">
+      <div class="container">
+        <div class="booking-cta__inner">
+          <p class="eyebrow" style="color:var(--accent)">Still Have Questions?</p>
+          <h2>Ready to get your bike checked?</h2>
+          <p>Book a service appointment and let our technicians take care of the maintenance your motorcycle needs.</p>
+          <a href="contact.html#booking" class="btn btn--primary btn--lg">Book Service</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="navbar__brand" aria-hidden="true">
+            <div class="navbar__brand-icon" style="color:var(--text-inverse)"><svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="16" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="18" r="6" stroke="var(--accent)" stroke-width="2"/><line x1="18" y1="2" x2="18" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18" y1="28" x2="18" y2="34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="2" y1="18" x2="8" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="28" y1="18" x2="34" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div class="navbar__brand-text" style="color:var(--white)">MotoWorkshop<span style="color:var(--text-inverse-secondary)">Service & Repair</span></div>
+          </div>
+          <p class="footer__brand-desc">Independent motorcycle workshop providing servicing, maintenance, repair and diagnostics for everyday motorcycles.</p>
+        </div>
+        <div>
+          <h4 class="footer__col-title">Workshop</h4>
+          <a href="about.html" class="footer__link">About</a>
+          <a href="contact.html" class="footer__link">Contact</a>
+          <a href="contact.html#booking" class="footer__link">Book Service</a>
+        </div>
+        <div>
+          <h4 class="footer__col-title">Services</h4>
+          <a href="service-details.html?service=routine-servicing" class="footer__link">Routine Service</a>
+          <a href="service-details.html?service=oil-filter" class="footer__link">Oil Change</a>
+          <a href="service-details.html?service=tyre-replacement" class="footer__link">Tyres</a>
+          <a href="service-details.html?service=brake-servicing" class="footer__link">Brakes</a>
+          <a href="service-details.html?service=diagnostics" class="footer__link">Diagnostics</a>
+        </div>
+        <div>
+          <h4 class="footer__col-title">Explore</h4>
+          <a href="brands.html" class="footer__link">Brands</a>
+          <a href="pricing.html" class="footer__link">Pricing</a>
+          <a href="reviews.html" class="footer__link">Reviews</a>
+          <a href="faq.html" class="footer__link">FAQ</a>
+          <a href="privacy.html" class="footer__link">Privacy</a>
+          <a href="terms.html" class="footer__link">Terms</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2024 MotoWorkshop. All rights reserved.</p>
+        <button class="btn--back-to-top" id="backToTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

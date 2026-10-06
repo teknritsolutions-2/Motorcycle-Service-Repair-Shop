@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found — MotoWorkshop</title>
+  <meta name="description" content="The page you requested could not be found. Navigate back to MotoWorkshop home or book a service appointment.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- NAVBAR -->
+  <header class="navbar" role="banner">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__brand" aria-label="MotoWorkshop Home">
+        <div class="navbar__brand-icon">
+          <svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="16" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="18" r="6" stroke="var(--accent)" stroke-width="2"/><line x1="18" y1="2" x2="18" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18" y1="28" x2="18" y2="34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="2" y1="18" x2="8" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="28" y1="18" x2="34" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="navbar__brand-text">MotoWorkshop<span>Service & Repair</span></div>
+      </a>
+      <nav class="navbar__nav" aria-label="Main navigation">
+        <a href="index.html" class="navbar__link">Home</a>
+        <a href="about.html" class="navbar__link">About</a>
+        <a href="services.html" class="navbar__link">Services</a>
+        <a href="brands.html" class="navbar__link">Brands</a>
+        <a href="pricing.html" class="navbar__link">Pricing</a>
+        <a href="reviews.html" class="navbar__link">Reviews</a>
+        <a href="contact.html" class="navbar__link">Contact</a>
+      </nav>
+      <div class="navbar__actions">
+        <button class="navbar__toggle-btn" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="navbar__toggle-btn" data-rtl-toggle aria-label="Switch to RTL" aria-pressed="false"><span class="rtl-label" style="font-size:12px;font-weight:700;letter-spacing:.03em">RTL</span></button>
+        <a href="contact.html#booking" class="btn btn--primary btn--sm navbar__cta">Book Service</a>
+        <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="drawer" id="mobileDrawer" aria-label="Mobile navigation">
+    <div class="drawer__header">
+      <div class="navbar__brand-text">MotoWorkshop</div>
+      <button class="drawer__close" id="drawerCloseBtn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <nav class="drawer__nav" aria-label="Mobile navigation links">
+      <a href="index.html" class="drawer__link">Home</a>
+      <a href="about.html" class="drawer__link">About</a>
+      <a href="services.html" class="drawer__link">Services</a>
+      <a href="brands.html" class="drawer__link">Brands</a>
+      <a href="pricing.html" class="drawer__link">Pricing</a>
+      <a href="reviews.html" class="drawer__link">Reviews</a>
+      <a href="contact.html" class="drawer__link">Contact</a>
+      <div class="drawer__divider"></div>
+      <div class="drawer__controls">
+        <button class="navbar__toggle-btn" data-theme-toggle aria-label="Switch theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg>
+          <span>Theme</span>
+        </button>
+        <button class="navbar__toggle-btn" data-rtl-toggle aria-label="Switch RTL">
+          <span>RTL Mode</span>
+        </button>
+      </div>
+      <div class="drawer__footer">
+        <a href="contact.html#booking" class="btn btn--primary drawer__cta">Book Service</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <div class="error-page">
+          <div class="error-page__code">404</div>
+          <h1 class="error-page__title">Off Course — Page Not Found</h1>
+          <p class="error-page__desc">It looks like the link or road you took doesn't exist. Head back to the workshop homepage or find the service you need below.</p>
+          <div class="btn-group" style="justify-content: center; gap: 1rem;">
+            <a href="index.html" class="btn btn--primary">Return Home</a>
+            <a href="services.html" class="btn btn--secondary">Explore Services</a>
+            <a href="contact.html#booking" class="btn btn--secondary">Book Service</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="navbar__brand" aria-hidden="true">
+            <div class="navbar__brand-icon" style="color:var(--text-inverse)"><svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="16" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="18" r="6" stroke="var(--accent)" stroke-width="2"/><line x1="18" y1="2" x2="18" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18" y1="28" x2="18" y2="34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="2" y1="18" x2="8" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="28" y1="18" x2="34" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div class="navbar__brand-text" style="color:var(--white)">MotoWorkshop<span style="color:var(--text-inverse-secondary)">Service & Repair</span></div>
+          </div>
+          <p class="footer__brand-desc">Independent motorcycle workshop providing servicing, maintenance, repair and diagnostics for everyday motorcycles.</p>
+        </div>
+        <div>
+          <h4 class="footer__col-title">Workshop</h4>
+          <a href="about.html" class="footer__link">About</a>
+          <a href="contact.html" class="footer__link">Contact</a>
+          <a href="contact.html#booking" class="footer__link">Book Service</a>
+        </div>
+        <div>
+          <h4 class="footer__col-title">Services</h4>
+          <a href="service-details.html?service=routine-servicing" class="footer__link">Routine Service</a>
+          <a href="service-details.html?service=oil-filter" class="footer__link">Oil Change</a>
+          <a href="service-details.html?service=tyre-replacement" class="footer__link">Tyres</a>
+          <a href="service-details.html?service=brake-servicing" class="footer__link">Brakes</a>
+          <a href="service-details.html?service=diagnostics" class="footer__link">Diagnostics</a>
+        </div>
+        <div>
+          <h4 class="footer__col-title">Explore</h4>
+          <a href="brands.html" class="footer__link">Brands</a>
+          <a href="pricing.html" class="footer__link">Pricing</a>
+          <a href="reviews.html" class="footer__link">Reviews</a>
+          <a href="faq.html" class="footer__link">FAQ</a>
+          <a href="privacy.html" class="footer__link">Privacy</a>
+          <a href="terms.html" class="footer__link">Terms</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2024 MotoWorkshop. All rights reserved.</p>
+        <button class="btn--back-to-top" id="backToTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
