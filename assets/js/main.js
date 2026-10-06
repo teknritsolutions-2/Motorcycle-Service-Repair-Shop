@@ -5,6 +5,8 @@
 (() => {
   'use strict';
 
+  document.documentElement.classList.add('js');
+
   /* ----------------------------------------
      UTILITY: Asset path resolver
      Works whether served from root or /pages/
@@ -186,33 +188,13 @@
   };
 
   /* ----------------------------------------
-     SHARED NAVIGATION + FOOTER ENHANCEMENT
+     SHARED CHROME INTERACTIONS
   ---------------------------------------- */
   const SharedChrome = {
     init() {
-      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-
       document.querySelectorAll('.navbar__nav').forEach(nav => {
-        let wrapper = nav.querySelector('.nav-home');
-
-        /* Backward-compatible fallback for any future page that omits the static menu. */
-        if (!wrapper) {
-          const homeLink = nav.querySelector('a[href$="index.html"]');
-          if (!homeLink) return;
-          wrapper = document.createElement('div');
-          wrapper.className = 'nav-home';
-          const isHome = currentPage === 'index.html' || currentPage === 'home2.html';
-          wrapper.innerHTML = `
-            <button class="navbar__link nav-home__trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="homeVariants"${isHome ? ' aria-current="page"' : ''}>
-              <span>Home</span>
-              <svg aria-hidden="true" viewBox="0 0 16 16"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <div class="nav-home__menu" id="homeVariants">
-              <a href="index.html"${currentPage === 'index.html' ? ' aria-current="page"' : ''}><span>01</span> Home 1</a>
-              <a href="home2.html"${currentPage === 'home2.html' ? ' aria-current="page"' : ''}><span>02</span> Home 2</a>
-            </div>`;
-          homeLink.replaceWith(wrapper);
-        }
+        const wrapper = nav.querySelector('.nav-home');
+        if (!wrapper) return;
 
         if (wrapper.dataset.menuBound === 'true') return;
         wrapper.dataset.menuBound = 'true';
@@ -245,109 +227,8 @@
         });
       });
 
-      document.querySelectorAll('.drawer__nav').forEach(nav => {
-        const homeLink = nav.querySelector('a[href$="index.html"]');
-        if (homeLink && !nav.querySelector('a[href$="home2.html"]')) {
-          homeLink.childNodes.forEach(node => {
-            if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) node.textContent = ' Home 1';
-          });
-          if (!homeLink.querySelector('svg')) homeLink.textContent = 'Home 1';
-          const home2 = homeLink.cloneNode(false);
-          home2.href = 'home2.html';
-          home2.textContent = 'Home 2';
-          home2.removeAttribute('aria-current');
-          if (currentPage === 'home2.html') home2.setAttribute('aria-current', 'page');
-          homeLink.after(home2);
-        }
-
-        if (!nav.querySelector('a[href$="faq.html"]')) {
-          const faqLink = document.createElement('a');
-          faqLink.href = 'faq.html';
-          faqLink.className = 'drawer__link';
-          faqLink.textContent = 'FAQ';
-          if (currentPage === 'faq.html') faqLink.setAttribute('aria-current', 'page');
-          const divider = nav.querySelector('.drawer__divider');
-          if (divider) divider.after(faqLink);
-          else nav.append(faqLink);
-        }
-      });
-
-      document.querySelectorAll('.footer').forEach(footer => {
-        if (!footer.querySelector('.footer__action')) {
-          const action = document.createElement('div');
-          action.className = 'footer__action';
-          action.innerHTML = `
-            <div class="container footer__action-inner">
-              <div><p class="eyebrow">Workshop bookings</p><h2>Keep the motorcycle ready for the next ride.</h2></div>
-              <div class="footer__action-links"><a href="services.html" class="btn btn--footer-secondary">View Services</a><a href="contact.html#booking" class="btn btn--primary">Book Service</a></div>
-            </div>`;
-          footer.prepend(action);
-        }
-
-        const serviceTitle = [...footer.querySelectorAll('.footer__col-title')]
-          .find(title => title.textContent.trim() === 'Services');
-        if (serviceTitle) {
-          const column = serviceTitle.parentElement;
-          const required = [
-            ['service-details.html?service=chain-service', 'Chain'],
-            ['service-details.html?service=battery-service', 'Battery']
-          ];
-          required.forEach(([href, label]) => {
-            if (column.querySelector(`a[href="${href}"]`)) return;
-            const link = document.createElement('a');
-            link.href = href;
-            link.className = 'footer__link';
-            link.textContent = label;
-            column.append(link);
-          });
-          const diagnostics = column.querySelector('a[href="service-details.html?service=diagnostics"]');
-          if (diagnostics) column.append(diagnostics);
-        }
-
-        const workshopTitle = [...footer.querySelectorAll('.footer__col-title')]
-          .find(title => title.textContent.trim() === 'Workshop');
-        if (workshopTitle && !workshopTitle.parentElement.querySelector('a[href$="faq.html"]')) {
-          const faq = document.createElement('a');
-          faq.href = 'faq.html';
-          faq.className = 'footer__link';
-          faq.textContent = 'FAQ';
-          workshopTitle.parentElement.append(faq);
-        }
-
-        const grid = footer.querySelector('.footer__grid');
-        const exploreTitle = [...footer.querySelectorAll('.footer__col-title')]
-          .find(title => title.textContent.trim() === 'Explore');
-        if (grid && exploreTitle && !grid.querySelector('.footer__legal')) {
-          const legal = document.createElement('div');
-          legal.className = 'footer__legal';
-          legal.innerHTML = '<h4 class="footer__col-title">Legal</h4>';
-          ['privacy.html', 'terms.html'].forEach(file => {
-            const link = exploreTitle.parentElement.querySelector(`a[href$="${file}"]`);
-            if (link) legal.append(link);
-          });
-          grid.append(legal);
-        }
-      });
-
-      document.querySelectorAll('.footer__col-title').forEach(title => {
-        if (title.textContent.trim() !== 'Explore') return;
-        const column = title.parentElement;
-        if (column.querySelector('a[href$="home2.html"]')) return;
-        const home1 = document.createElement('a');
-        home1.href = 'index.html';
-        home1.className = 'footer__link';
-        home1.textContent = 'Home 1';
-        if (currentPage === 'index.html') home1.setAttribute('aria-current', 'page');
-        const home2 = home1.cloneNode(true);
-        home2.href = 'home2.html';
-        home2.textContent = 'Home 2';
-        home2.removeAttribute('aria-current');
-        if (currentPage === 'home2.html') home2.setAttribute('aria-current', 'page');
-        title.after(home1, home2);
-      });
-
-      document.querySelectorAll('.footer__copy').forEach(copy => {
-        copy.innerHTML = copy.innerHTML.replace(/2024|2025|2026/g, String(new Date().getFullYear()));
+      document.querySelectorAll('[data-current-year]').forEach(year => {
+        year.textContent = String(new Date().getFullYear());
       });
     }
   };
@@ -944,12 +825,12 @@
     ThemeManager.init();
     RTLManager.init();
     Drawer.init();
+    ServiceDetails.init();
     RevealAnimations.init();
     FAQAccordion.init();
     ReviewsSlider.init();
     AppointmentForm.init();
     BackToTop.init();
     NavActive.init();
-    ServiceDetails.init();
   });
 })();
