@@ -735,13 +735,13 @@
       const service = this.services[serviceKey];
 
       const imageMap = {
-        'routine-servicing': ['routine-service.webp', 'Technicians carrying out a routine motorcycle service in a workshop bay', 1600, 1067],
-        'oil-filter': ['oil-service.webp', 'Mechanic adding fresh engine oil during a motorcycle service', 1600, 1067],
-        'tyre-replacement': ['tyre-service.webp', 'Mechanic working on a motorcycle wheel during tyre service', 1600, 1067],
-        'brake-servicing': ['brake-service.webp', 'Close view of a motorcycle brake disc and caliper', 1600, 1067],
-        'chain-service': ['chain-service.webp', 'Close view of a motorcycle drive chain and rear wheel', 1600, 1200],
-        'battery-service': ['battery-service.webp', 'Digital multimeter prepared for an electrical system test', 1600, 2400],
-        'diagnostics': ['diagnostics.webp', 'Technician inspecting motorcycle wiring and control cables', 1600, 1067]
+        'routine-servicing': ['detail-routine.webp', 'Mechanic carrying out a routine service in a working motorcycle repair shop', 1800, 1201],
+        'oil-filter': ['detail-engine.webp', 'Close view of motorcycle engine components during inspection', 1800, 2700],
+        'tyre-replacement': ['tyre-service.webp', 'Mechanic repairing motorcycle wheels and tyres in a workshop', 1800, 2400],
+        'brake-servicing': ['detail-brakes.webp', 'Close view of a yellow motorcycle brake caliper and disc', 1800, 2700],
+        'chain-service': ['detail-chain.webp', 'Hand applying lubricant to a motorcycle chain and rear wheel', 1800, 1201],
+        'battery-service': ['detail-cables.webp', 'Mechanic checking motorcycle cables and electrical connections', 1800, 1201],
+        'diagnostics': ['diagnostics.webp', 'Mechanic inspecting exposed motorcycle wiring during diagnosis', 1800, 1201]
       };
 
       if (!service) {

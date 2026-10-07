@@ -10,9 +10,9 @@
   <title>MotoWorkshop — Motorcycle Service &amp; Repair</title>
   <meta name="description" content="Professional motorcycle servicing, maintenance, repair and diagnostics. Routine service, oil changes, tyres, brakes, chain care and electrical diagnostics for everyday motorcycles.">
   <link rel="preload" as="image" href="../assets/images/home1-hero.webp" type="image/webp">
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/dark-mode.css">
-  <link rel="stylesheet" href="../assets/css/rtl.css">
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261007">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css?v=20261007">
+  <link rel="stylesheet" href="../assets/css/rtl.css?v=20261007">
 </head>
 <body class="home-one">
   <a href="#main" class="skip-link">Skip to main content</a>
@@ -60,7 +60,7 @@
 
   <!-- Mobile Drawer -->
   <div class="drawer-overlay" id="drawerOverlay"></div>
-  <aside class="drawer" id="mobileDrawer" aria-label="Mobile navigation">
+  <aside class="drawer" id="mobileDrawer" aria-label="Mobile navigation" aria-hidden="true" inert>
     <div class="drawer__header">
       <a href="index.html" class="drawer__brand" aria-label="MotoWorkshop Home">
         <img class="drawer__brand-mark" src="../assets/brand/logo-mark.svg" alt="" width="42" height="42">
@@ -156,7 +156,7 @@
           </div>
         </div>
         <div class="hero__image">
-          <img src="../assets/images/home1-hero.webp" alt="Mechanic working on a motorcycle inside a bright independent workshop" width="1600" height="1067" fetchpriority="high">
+          <img src="../assets/images/home1-hero.webp" alt="Mechanic working beside motorcycles at an independent repair shop entrance" width="1800" height="2700" fetchpriority="high">
         </div>
       </div>
     </section>
@@ -273,19 +273,19 @@
         </div>
         <div class="workshop-gallery__grid">
           <div class="workshop-gallery__item reveal">
-            <img src="../assets/images/workshop-panorama.webp" alt="Motorcycle positioned inside an independent workshop" width="1280" height="853" loading="lazy" decoding="async">
+            <img src="../assets/images/workshop-panorama.webp" alt="Two motorcycles parked inside a dimly lit repair workshop" width="1800" height="2400" loading="lazy" decoding="async">
             <div class="workshop-gallery__caption">
               <span>Service bays in action</span>
             </div>
           </div>
           <div class="workshop-gallery__item reveal reveal-delay-1">
-            <img src="../assets/images/brake-service.webp" alt="Close view of a motorcycle brake disc and caliper" width="1600" height="1067" loading="lazy" decoding="async">
+            <img src="../assets/images/brake-service.webp" alt="Close view of a motorcycle rear brake disc, hub and caliper" width="1800" height="2700" loading="lazy" decoding="async">
             <div class="workshop-gallery__caption">
               <span>Brake disc inspection</span>
             </div>
           </div>
           <div class="workshop-gallery__item reveal reveal-delay-2">
-            <img src="../assets/images/diagnostics.webp" alt="Technician inspecting motorcycle control cables and wiring" width="1600" height="1067" loading="lazy" decoding="async">
+            <img src="../assets/images/diagnostics.webp" alt="Mechanic inspecting exposed motorcycle wiring in a garage" width="1800" height="1201" loading="lazy" decoding="async">
             <div class="workshop-gallery__caption">
               <span>Electronic diagnostics</span>
             </div>
@@ -569,21 +569,11 @@
     </section>
 
     <!-- SECTION 10: FINAL CTA -->
-    <section class="booking-cta">
-      <div class="container">
-        <div class="booking-cta__inner">
-          <p class="eyebrow">Book an Appointment</p>
-          <h2>Ready to get your bike checked?</h2>
-          <p>Whether it's a routine service, a specific repair, or a diagnostic check — request an appointment and we'll take care of the rest.</p>
-          <a href="contact.html#booking" class="btn btn--primary btn--lg">Book Service</a>
-        </div>
-      </div>
-    </section>
 
   </main>
 
   <!-- ========== FOOTER ========== -->
-  <footer class="footer" role="contentinfo">
+  <footer class="footer" id="site-footer" role="contentinfo">
     <div class="footer__action">
       <div class="container footer__action-inner">
         <div>
@@ -606,6 +596,14 @@
           <p class="footer__brand-desc">Independent motorcycle workshop providing servicing, maintenance, repair and diagnostics for everyday motorcycles.</p>
         </div>
         <div>
+          <h4 class="footer__col-title">Explore</h4>
+          <a href="index.html" class="footer__link">Home 1</a>
+          <a href="home2.html" class="footer__link">Home 2</a>
+          <a href="brands.html" class="footer__link">Brands</a>
+          <a href="pricing.html" class="footer__link">Pricing</a>
+          <a href="reviews.html" class="footer__link">Reviews</a>
+        </div>
+        <div>
           <h4 class="footer__col-title">Workshop</h4>
           <a href="about.html" class="footer__link">About</a>
           <a href="contact.html" class="footer__link">Contact</a>
@@ -622,14 +620,6 @@
           <a href="service-details.html?service=battery-service" class="footer__link">Battery</a>
           <a href="service-details.html?service=diagnostics" class="footer__link">Diagnostics</a>
         </div>
-        <div>
-          <h4 class="footer__col-title">Explore</h4>
-          <a href="index.html" class="footer__link">Home 1</a>
-          <a href="home2.html" class="footer__link">Home 2</a>
-          <a href="brands.html" class="footer__link">Brands</a>
-          <a href="pricing.html" class="footer__link">Pricing</a>
-          <a href="reviews.html" class="footer__link">Reviews</a>
-        </div>
         <div class="footer__legal">
           <h4 class="footer__col-title">Legal</h4>
           <a href="privacy.html" class="footer__link">Privacy</a>
@@ -644,6 +634,6 @@
   </footer>
 
 
-  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/main.js?v=20261007"></script>
 </body>
 </html>

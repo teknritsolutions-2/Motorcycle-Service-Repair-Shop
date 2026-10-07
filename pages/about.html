@@ -9,9 +9,9 @@
   <link rel="manifest" href="../assets/brand/site.webmanifest">
   <title>About — MotoWorkshop</title>
   <meta name="description" content="Learn about our motorcycle workshop — our approach to service, the equipment we use, and why regular maintenance matters for your motorcycle.">
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/dark-mode.css">
-  <link rel="stylesheet" href="../assets/css/rtl.css">
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261007">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css?v=20261007">
+  <link rel="stylesheet" href="../assets/css/rtl.css?v=20261007">
 </head>
 <body class="page-about">
   <a href="#main" class="skip-link">Skip to main content</a>
@@ -49,7 +49,7 @@
     </div>
   </header>
   <div class="drawer-overlay" id="drawerOverlay"></div>
-  <aside class="drawer" id="mobileDrawer" aria-label="Mobile navigation">
+  <aside class="drawer" id="mobileDrawer" aria-label="Mobile navigation" aria-hidden="true" inert>
     <div class="drawer__header">
       <a href="index.html" class="drawer__brand" aria-label="MotoWorkshop Home">
         <img class="drawer__brand-mark" src="../assets/brand/logo-mark.svg" alt="" width="42" height="42">
@@ -108,7 +108,7 @@
             </ul>
           </div>
           <div class="about-split__image reveal reveal-delay-1">
-            <img src="../assets/images/workshop-inspection.webp" alt="Mechanic inspecting a motorcycle among workshop machines" width="1600" height="1067" loading="lazy" decoding="async">
+            <img src="../assets/images/workshop-inspection.webp" alt="Motorcycle secured on a red lift inside a working repair shop" width="1800" height="1202" loading="lazy" decoding="async">
           </div>
         </div>
       </div>
@@ -172,7 +172,7 @@
       <div class="container">
         <div class="about-split">
           <div class="about-split__image reveal">
-            <img src="../assets/images/engine-inspection.webp" alt="Hands using a wrench during a motorcycle engine inspection" width="1600" height="1200" loading="lazy" decoding="async">
+            <img src="../assets/images/engine-inspection.webp" alt="Mechanic servicing a removed motorcycle transmission on a workbench" width="1800" height="2706" loading="lazy" decoding="async">
           </div>
           <div class="reveal reveal-delay-1">
             <p class="eyebrow">Why It Matters</p>
@@ -180,6 +180,20 @@
             <p>Motorcycles are exposed to vibration, heat, weather and road conditions that gradually affect components. Oil breaks down, brake pads wear, chains stretch and tyres lose tread.</p>
             <p>Catching these things during a routine check is far simpler and cheaper than dealing with failures on the road. A well-maintained motorcycle is safer, more reliable and holds its value better over time.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-workbench" aria-labelledby="workbench-title">
+      <div class="container about-workbench__grid">
+        <figure class="about-workbench__image reveal">
+          <img src="../assets/images/about-tools.webp" alt="Workshop bench arranged with motorcycle engine parts, tools and cleaning spray" width="1800" height="3200" loading="lazy" decoding="async">
+          <figcaption>Tools and parts prepared before reassembly</figcaption>
+        </figure>
+        <div class="about-workbench__copy reveal reveal-delay-1">
+          <p class="eyebrow">Bench discipline</p>
+          <h2 id="workbench-title">A clean process supports careful work.</h2>
+          <p>Components are kept organized through inspection and service so condition, compatibility and the agreed scope remain clear before reassembly.</p>
         </div>
       </div>
     </section>
@@ -208,20 +222,10 @@
     </section>
 
     <!-- CTA -->
-    <section class="booking-cta">
-      <div class="container">
-        <div class="booking-cta__inner">
-          <p class="eyebrow">Get Started</p>
-          <h2>Ready to get your bike checked?</h2>
-          <p>Book a service appointment and let our technicians take care of the maintenance your motorcycle needs.</p>
-          <a href="contact.html#booking" class="btn btn--primary btn--lg">Book Service</a>
-        </div>
-      </div>
-    </section>
   </main>
 
   <!-- FOOTER -->
-  <footer class="footer" role="contentinfo">
+  <footer class="footer" id="site-footer" role="contentinfo">
     <div class="footer__action">
       <div class="container footer__action-inner">
         <div>
@@ -244,6 +248,14 @@
           <p class="footer__brand-desc">Independent motorcycle workshop providing servicing, maintenance, repair and diagnostics for everyday motorcycles.</p>
         </div>
         <div>
+          <h4 class="footer__col-title">Explore</h4>
+          <a href="index.html" class="footer__link">Home 1</a>
+          <a href="home2.html" class="footer__link">Home 2</a>
+          <a href="brands.html" class="footer__link">Brands</a>
+          <a href="pricing.html" class="footer__link">Pricing</a>
+          <a href="reviews.html" class="footer__link">Reviews</a>
+        </div>
+        <div>
           <h4 class="footer__col-title">Workshop</h4>
           <a href="about.html" class="footer__link">About</a>
           <a href="contact.html" class="footer__link">Contact</a>
@@ -260,14 +272,6 @@
           <a href="service-details.html?service=battery-service" class="footer__link">Battery</a>
           <a href="service-details.html?service=diagnostics" class="footer__link">Diagnostics</a>
         </div>
-        <div>
-          <h4 class="footer__col-title">Explore</h4>
-          <a href="index.html" class="footer__link">Home 1</a>
-          <a href="home2.html" class="footer__link">Home 2</a>
-          <a href="brands.html" class="footer__link">Brands</a>
-          <a href="pricing.html" class="footer__link">Pricing</a>
-          <a href="reviews.html" class="footer__link">Reviews</a>
-        </div>
         <div class="footer__legal">
           <h4 class="footer__col-title">Legal</h4>
           <a href="privacy.html" class="footer__link">Privacy</a>
@@ -281,6 +285,6 @@
     </div>
   </footer>
 
-  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/main.js?v=20261007"></script>
 </body>
 </html>

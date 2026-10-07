@@ -484,8 +484,9 @@ p:last-child {
   height: 100%;
   background: var(--bg-primary);
   z-index: var(--z-drawer);
+  visibility: hidden;
   transform: translateX(100%);
-  transition: transform 0.35s var(--ease-out);
+  transition: transform 0.35s var(--ease-out), visibility 0s linear 0.35s;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -496,7 +497,13 @@ p:last-child {
 }
 
 .drawer.active {
+  visibility: visible;
   transform: translateX(0);
+  transition-delay: 0s;
+}
+
+.drawer[aria-hidden="true"] {
+  display: none;
 }
 
 .drawer__header {
@@ -1040,21 +1047,6 @@ p:last-child {
 .pricing-card--featured {
   border-color: var(--accent);
   position: relative;
-}
-
-.pricing-card--featured::before {
-  content: 'Popular';
-  position: absolute;
-  top: -12px;
-  inset-inline-start: 1.5rem;
-  background: var(--accent);
-  color: var(--white);
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 0.25rem 0.75rem;
-  border-radius: var(--radius-sm);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
 }
 
 .pricing-card__header {
@@ -2706,7 +2698,7 @@ p:last-child {
 
 .philosophy-band { background: var(--graphite); }
 .philosophy-band__grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(3rem, 6vw, 6rem); align-items: center; }
-.philosophy-band__image { position: relative; }
+.philosophy-band__image { position: relative; min-width: 0; overflow: hidden; }
 .philosophy-band__image img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
 .philosophy-band__image figcaption { position: absolute; inset-inline-start: 1rem; inset-block-end: 1rem; padding: .5rem .7rem; background: var(--accent); color: #fff; font-size: .76rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
 .philosophy-band__copy h2 { color: #fff; }
@@ -4441,5 +4433,312 @@ img.navbar__brand-icon {
   .estimate-table td {
     grid-template-columns: 1fr;
     gap: .3rem;
+  }
+}
+
+/* ============================================
+   FINAL REAL-IMAGE + LAYOUT CORRECTION PASS
+   ============================================ */
+
+/* Featured pricing uses the same hierarchy as the other estimate rows. */
+.pricing-card--featured::before,
+.page-pricing .pricing-card--featured::before {
+  content: none;
+  display: none;
+}
+
+/* Home 2: compact the ledger and category wall without losing scan order. */
+.home-two .job-row {
+  min-height: 76px;
+  padding-block: .75rem;
+}
+
+.home-two .job-row b {
+  justify-self: end;
+}
+
+.home-two .machine-types__wall span {
+  min-height: 96px;
+  justify-content: center;
+  gap: .2rem;
+}
+
+/* Manufacturer artwork stays on a neutral plate in both themes. */
+.page-brands .brand-card {
+  min-height: 0;
+  align-items: stretch;
+  padding: 3.35rem 1.15rem 1.2rem;
+}
+
+.page-brands .brand-card > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-card__logo {
+  height: 70px;
+  display: grid;
+  place-items: center;
+  margin-block-end: 1.1rem;
+  padding: .85rem 1rem;
+  border: 1px solid #dedbd3;
+  background: #f7f6f2;
+}
+
+.brand-card__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.page-brands .brand-card__tag {
+  margin-block-start: auto;
+}
+
+/* Real map + visit guidance. The iframe itself is never transformed. */
+.page-contact .location-layout {
+  max-width: 1180px;
+  grid-template-columns: minmax(0, 1.45fr) minmax(270px, .55fr);
+  align-items: start;
+  gap: 1.5rem;
+}
+
+.page-contact .booking-layout > * {
+  min-width: 0;
+}
+
+.map-panel,
+.visit-column {
+  min-width: 0;
+}
+
+.location-map {
+  width: 100%;
+  height: 450px;
+  display: block;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+}
+
+.map-panel__details {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.25rem 0;
+  border-block-end: 1px solid var(--border-color);
+}
+
+.map-panel__details h3 {
+  margin-block-end: .35rem;
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+}
+
+.map-panel__details p:last-child {
+  max-width: 660px;
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--fs-small);
+}
+
+.map-panel__details .btn {
+  flex: 0 0 auto;
+}
+
+.contact-workshop-photo {
+  position: relative;
+  margin: 0 0 1rem;
+}
+
+.contact-workshop-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.contact-workshop-photo figcaption,
+.about-workbench__image figcaption {
+  position: absolute;
+  inset-inline-start: .75rem;
+  inset-block-end: .75rem;
+  padding: .4rem .55rem;
+  background: rgba(18, 20, 19, .88);
+  color: #fff;
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.page-contact .visit-tips {
+  grid-template-columns: 1fr;
+}
+
+.page-contact .visit-tip {
+  padding-inline: 0;
+  border-inline-end: 0;
+}
+
+/* Editorial support photography for content-heavy inner pages. */
+.about-workbench,
+.pricing-inspection {
+  background: var(--graphite);
+  color: var(--text-inverse);
+}
+
+.about-workbench__grid,
+.pricing-inspection__grid {
+  display: grid;
+  grid-template-columns: minmax(280px, .75fr) minmax(0, 1.25fr);
+  align-items: center;
+  gap: clamp(2rem, 7vw, 7rem);
+  padding-block: clamp(3rem, 7vw, 6rem);
+}
+
+.about-workbench__image,
+.pricing-inspection__image {
+  position: relative;
+  margin: 0;
+}
+
+.about-workbench__image img {
+  width: 100%;
+  height: clamp(360px, 48vw, 560px);
+  object-fit: cover;
+  object-position: center 58%;
+}
+
+.pricing-inspection__image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.about-workbench__copy h2,
+.pricing-inspection__copy h2 {
+  max-width: 720px;
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  line-height: 1;
+}
+
+.about-workbench__copy p:not(.eyebrow),
+.pricing-inspection__copy p:not(.eyebrow) {
+  max-width: 660px;
+  margin-block: 1rem 1.5rem;
+  color: #c5c0b8;
+}
+
+@media (max-width: 1024px) {
+  .page-contact .location-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .location-map {
+    height: 390px;
+  }
+
+  .visit-column {
+    display: grid;
+    grid-template-columns: minmax(250px, .7fr) minmax(0, 1.3fr);
+    gap: 1.5rem;
+  }
+
+  .page-contact .visit-tips {
+    align-content: start;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-two .job-row {
+    grid-template-columns: 34px minmax(0, 1fr) 24px;
+    align-items: start;
+    gap: .35rem .75rem;
+  }
+
+  .home-two .job-row > span:nth-child(3) {
+    grid-column: 2 / 3;
+  }
+
+  .home-two .job-row b {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    align-self: center;
+  }
+
+  .home-two .machine-types__wall span {
+    min-height: 78px;
+    padding: .9rem;
+  }
+
+  .about-workbench__grid,
+  .pricing-inspection__grid {
+    grid-template-columns: minmax(220px, .8fr) minmax(0, 1.2fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-brands .brands__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-brands .brand-card {
+    padding-block-end: 1.35rem;
+  }
+
+  .location-map {
+    height: 320px;
+  }
+
+  .map-panel__details,
+  .visit-column,
+  .about-workbench__grid,
+  .pricing-inspection__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .map-panel__details {
+    display: grid;
+    align-items: start;
+  }
+
+  .map-panel__details .btn {
+    width: 100%;
+  }
+
+  .contact-workshop-photo img,
+  .pricing-inspection__image img {
+    aspect-ratio: 16 / 10;
+  }
+
+  .about-workbench__image img {
+    height: 360px;
+  }
+}
+
+@media (max-width: 430px) {
+  .home-two .machine-types__wall {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .home-two .machine-types__wall span,
+  .home-two .machine-types__wall span:nth-child(2n) {
+    border-inline-end: 1px solid var(--border-color);
+  }
+
+  .home-two .machine-types__wall span:nth-child(2n) {
+    border-inline-end: 0;
+  }
+}
+
+@media (max-width: 340px) {
+  .home-two .machine-types__wall {
+    grid-template-columns: 1fr;
+  }
+
+  .home-two .machine-types__wall span {
+    border-inline-end: 0;
   }
 }

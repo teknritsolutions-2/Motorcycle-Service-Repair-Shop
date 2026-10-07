@@ -9,9 +9,9 @@
   <link rel="manifest" href="../assets/brand/site.webmanifest">
   <title>Contact &amp; Book Service — MotoWorkshop</title>
   <meta name="description" content="Prepare a motorcycle service request for routine maintenance, brake work, repairs, and diagnostics. Workshop contact details and availability require confirmation.">
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/dark-mode.css">
-  <link rel="stylesheet" href="../assets/css/rtl.css">
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261007">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css?v=20261007">
+  <link rel="stylesheet" href="../assets/css/rtl.css?v=20261007">
 </head>
 <body class="page-contact">
   <a href="#main" class="skip-link">Skip to main content</a>
@@ -51,7 +51,7 @@
 
   <!-- Mobile Drawer -->
   <div class="drawer-overlay" id="drawerOverlay"></div>
-  <aside class="drawer" id="mobileDrawer" aria-label="Mobile navigation">
+  <aside class="drawer" id="mobileDrawer" aria-label="Mobile navigation" aria-hidden="true" inert>
     <div class="drawer__header">
       <a href="index.html" class="drawer__brand" aria-label="MotoWorkshop Home">
         <img class="drawer__brand-mark" src="../assets/brand/logo-mark.svg" alt="" width="42" height="42">
@@ -258,27 +258,36 @@
     </section>
 
     <!-- SECTION: WORKSHOP LOCATION / MAP -->
-    <section class="section">
+    <section class="section" id="location">
       <div class="container">
         <div class="section-header reveal">
-          <p class="eyebrow">Workshop Location</p>
-          <h2 class="section-title">Confirm Your Workshop Visit</h2>
-          <p class="section-subtitle">No address has been supplied for this build. Replace this panel with verified location and arrival information before launch.</p>
+          <p class="eyebrow">Demonstration Location</p>
+          <h2 class="section-title">Preview the Workshop Visit Experience</h2>
+          <p class="section-subtitle">This template uses the Nürburgring Nordschleife in Nürburg, Germany as a clearly labelled demonstration location. Replace it with the verified workshop address before launch.</p>
         </div>
 
-        <div class="location-layout reveal">
-          <div class="location-placeholder" role="img" aria-label="Workshop location will be supplied with booking confirmation">
-            <div class="location-placeholder__marker" aria-hidden="true">+</div>
-            <p class="eyebrow">Location pending confirmation</p>
-            <h3>Contact the workshop to confirm location and service availability.</h3>
-            <p>No precise address or map is published until verified business details are supplied.</p>
+        <div class="location-layout">
+          <div class="map-panel">
+            <iframe class="location-map" title="Map showing the demonstration location at Nürburgring Nordschleife in Nürburg, Germany" src="https://www.google.com/maps?q=N%C3%BCrburgring%20Nordschleife%2C%20N%C3%BCrburg%2C%20Germany&amp;output=embed" width="800" height="450" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            <div class="map-panel__details">
+              <div>
+                <p class="eyebrow">Demo location only</p>
+                <h3>Nürburgring Nordschleife, Nürburg, Germany</h3>
+                <p>This map demonstrates the finished contact-page layout and is not the address of a represented workshop.</p>
+              </div>
+              <a class="btn btn--secondary" href="https://www.google.com/maps/search/?api=1&amp;query=N%C3%BCrburgring%20Nordschleife%2C%20N%C3%BCrburg%2C%20Germany" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+            </div>
           </div>
 
-          <!-- Drop-off Instructions -->
-          <div class="visit-tips">
+          <aside class="visit-column" aria-label="Workshop visit guidance">
+            <figure class="contact-workshop-photo">
+              <img src="../assets/images/contact-workshop.webp" alt="Motorcycle mechanic inspecting a bike in a working repair shop" width="1800" height="1201" loading="lazy" decoding="async">
+              <figcaption>Representative workshop photography</figcaption>
+            </figure>
+            <div class="visit-tips">
             <div class="visit-tip">
               <h4>Before You Travel</h4>
-              <p>Wait for the workshop to confirm the address, date and motorcycle drop-off instructions.</p>
+              <p>Confirm the real workshop address, date and motorcycle drop-off instructions.</p>
             </div>
             <div class="visit-tip">
               <h4>Bring Useful Details</h4>
@@ -289,13 +298,14 @@
               <p>Repair scope and completion timing depend on inspection findings and parts availability.</p>
             </div>
           </div>
+          </aside>
         </div>
       </div>
     </section>
   </main>
 
   <!-- FOOTER -->
-  <footer class="footer" role="contentinfo">
+  <footer class="footer" id="site-footer" role="contentinfo">
     <div class="footer__action">
       <div class="container footer__action-inner">
         <div>
@@ -318,6 +328,14 @@
           <p class="footer__brand-desc">Independent motorcycle workshop providing servicing, maintenance, repair and diagnostics for everyday motorcycles.</p>
         </div>
         <div>
+          <h4 class="footer__col-title">Explore</h4>
+          <a href="index.html" class="footer__link">Home 1</a>
+          <a href="home2.html" class="footer__link">Home 2</a>
+          <a href="brands.html" class="footer__link">Brands</a>
+          <a href="pricing.html" class="footer__link">Pricing</a>
+          <a href="reviews.html" class="footer__link">Reviews</a>
+        </div>
+        <div>
           <h4 class="footer__col-title">Workshop</h4>
           <a href="about.html" class="footer__link">About</a>
           <a href="contact.html" class="footer__link">Contact</a>
@@ -334,14 +352,6 @@
           <a href="service-details.html?service=battery-service" class="footer__link">Battery</a>
           <a href="service-details.html?service=diagnostics" class="footer__link">Diagnostics</a>
         </div>
-        <div>
-          <h4 class="footer__col-title">Explore</h4>
-          <a href="index.html" class="footer__link">Home 1</a>
-          <a href="home2.html" class="footer__link">Home 2</a>
-          <a href="brands.html" class="footer__link">Brands</a>
-          <a href="pricing.html" class="footer__link">Pricing</a>
-          <a href="reviews.html" class="footer__link">Reviews</a>
-        </div>
         <div class="footer__legal">
           <h4 class="footer__col-title">Legal</h4>
           <a href="privacy.html" class="footer__link">Privacy</a>
@@ -356,6 +366,6 @@
   </footer>
 
 
-  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/main.js?v=20261007"></script>
 </body>
 </html>

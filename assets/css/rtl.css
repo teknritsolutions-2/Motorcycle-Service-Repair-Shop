@@ -60,6 +60,12 @@
   direction: rtl;
 }
 
+/* The demo copy is English: keep sentence punctuation with the sentence while
+   the interface and component flow remain mirrored. */
+[dir="rtl"] :where(p, h1, h2, h3, h4, li, td, th, label, figcaption, blockquote) {
+  unicode-bidi: plaintext;
+}
+
 /* Final production components */
 [dir="rtl"] .nav-home__menu {
   inset-inline-start: 0;
