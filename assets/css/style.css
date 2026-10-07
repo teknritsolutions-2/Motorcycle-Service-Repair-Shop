@@ -618,10 +618,11 @@ p:last-child {
 .hero__inner {
   display: flex;
   align-items: center;
-  min-height: 600px;
+  min-height: 480px;
   max-width: var(--content-max);
   margin-inline: auto;
   padding-inline: var(--gutter-desktop);
+  padding-block: clamp(2rem, 4vw, 3.5rem);
 }
 
 .hero__content {
@@ -699,12 +700,16 @@ p:last-child {
   flex: 0 0 55%;
   max-width: 55%;
   position: relative;
-  align-self: stretch;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  max-height: 480px;
 }
 
 .hero__image img {
   width: 100%;
   height: 100%;
+  max-height: 480px;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   display: block;
 }
@@ -940,18 +945,23 @@ p:last-child {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1.25rem;
+  counter-reset: make-index;
 }
 
 .brand-card {
+  counter-increment: make-index;
+  position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem 1rem;
+  padding: 2.25rem 1rem 1.25rem;
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
   background: var(--bg-card);
   transition: all var(--transition-fast);
-  min-height: 100px;
+  min-height: 130px;
+  gap: 0.75rem;
 }
 
 .brand-card:hover {
@@ -960,9 +970,38 @@ p:last-child {
   transform: translateY(-2px);
 }
 
+.brand-card::before {
+  content: counter(make-index, decimal-leading-zero);
+  position: absolute;
+  inset-block-start: 0.75rem;
+  inset-inline-end: 0.85rem;
+  color: var(--text-tertiary);
+  font-family: var(--font-heading);
+  font-size: .78rem;
+  line-height: 1;
+}
+
+.brand-card__logo {
+  width: 100%;
+  max-width: 130px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  padding: .5rem .85rem;
+  border: 1px solid #dedbd3;
+  border-radius: var(--radius-sm);
+  background: #f7f6f2;
+}
+
+.brand-card__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .brand-card__name {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--text-primary);
   text-transform: uppercase;
@@ -981,13 +1020,8 @@ p:last-child {
 }
 
 .steps__grid::before {
-  content: '';
-  position: absolute;
-  top: 32px;
-  inset-inline-start: calc(12.5% + 16px);
-  width: calc(75% - 32px);
-  height: 2px;
-  background: var(--border-color);
+  display: none;
+  content: none;
 }
 
 .step-card {
@@ -1625,11 +1659,14 @@ p:last-child {
 .about-split__image {
   border-radius: var(--radius-lg);
   overflow: hidden;
+  max-height: 320px;
 }
 
 .about-split__image img {
   width: 100%;
-  height: 400px;
+  height: auto;
+  max-height: 320px;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
 }
 
@@ -2706,8 +2743,8 @@ p:last-child {
 
 .philosophy-band { background: var(--graphite); }
 .philosophy-band__grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(3rem, 6vw, 6rem); align-items: center; }
-.philosophy-band__image { position: relative; min-width: 0; overflow: hidden; }
-.philosophy-band__image img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+.philosophy-band__image { position: relative; min-width: 0; overflow: hidden; border-radius: var(--radius-md); max-height: 380px; }
+.philosophy-band__image img { width: 100%; height: auto; max-height: 380px; aspect-ratio: 16 / 10; object-fit: cover; }
 .philosophy-band__image figcaption { position: absolute; inset-inline-start: 1rem; inset-block-end: 1rem; padding: .5rem .7rem; background: var(--accent); color: #fff; font-size: .76rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
 .philosophy-band__copy h2 { color: #fff; }
 .philosophy-band__copy > p:not(.eyebrow) { color: #b8b3ab; margin-block: 1.25rem 2rem; }
@@ -3221,11 +3258,14 @@ p:last-child {
 
 :where(.page-about, .page-services) .about-split__image {
   border-radius: 0;
+  max-height: 300px;
+  overflow: hidden;
 }
 
 :where(.page-about, .page-services) .about-split__image img {
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 16 / 10;
   height: auto;
+  max-height: 300px;
   object-fit: cover;
 }
 
@@ -3429,7 +3469,8 @@ img.navbar__brand-icon {
   grid-template-columns: minmax(0, 1.65fr) minmax(220px, .7fr);
   grid-template-rows: 1fr 1fr;
   gap: 10px;
-  min-height: 610px;
+  min-height: 460px;
+  max-height: 520px;
 }
 
 .workshop-gallery__item {
@@ -3470,13 +3511,13 @@ img.navbar__brand-icon {
 
 .services__grid .service-card:first-child {
   grid-column: 1 / -1;
-  min-height: 430px;
+  min-height: 320px;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: center;
   overflow: hidden;
   isolation: isolate;
-  padding: clamp(2rem, 5vw, 4rem);
+  padding: clamp(2rem, 4vw, 3.5rem);
   background: #171815 url('../images/routine-service.webp') center 42% / cover no-repeat;
   color: #fff;
 }
@@ -3510,7 +3551,7 @@ img.navbar__brand-icon {
 }
 
 .services__grid .service-card:first-child:hover {
-  padding-inline-start: clamp(2rem, 5vw, 4rem);
+  padding-inline-start: clamp(2rem, 4vw, 3.5rem);
 }
 
 .steps__grid {
@@ -3522,7 +3563,8 @@ img.navbar__brand-icon {
 }
 
 .steps__grid::before {
-  inset-inline: 0;
+  display: none;
+  content: none;
 }
 
 .step-card {
@@ -3633,9 +3675,10 @@ img.navbar__brand-icon {
 }
 
 :where(.page-about, .page-services) main > .section > .container > .about-split {
-  min-height: 440px;
-  padding-block: clamp(2.5rem, 5vw, 4.5rem);
-  gap: clamp(2.5rem, 7vw, 7rem);
+  min-height: 0;
+  padding-block: clamp(2rem, 4vw, 3.5rem);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
 }
 
 :where(.page-about, .page-services) main > .section > .container > .about-split > div:not(.about-split__image) {
@@ -3690,23 +3733,9 @@ img.navbar__brand-icon {
   letter-spacing: .1em;
 }
 
-.brands__grid {
-  counter-reset: make-index;
-}
-
-.brand-card {
-  counter-increment: make-index;
-  position: relative;
-}
-
-.brand-card::before {
-  content: counter(make-index, decimal-leading-zero);
-  position: absolute;
+.page-brands .brand-card::before {
   inset-block-start: 1rem;
   inset-inline-end: 1rem;
-  color: var(--text-tertiary);
-  font-family: var(--font-heading);
-  font-size: .78rem;
 }
 
 .page-brands .brand-card {
@@ -4064,8 +4093,9 @@ img.navbar__brand-icon {
   }
 
   .about-split__image img {
-    height: 100%;
-    min-height: 330px;
+    height: auto;
+    max-height: 300px;
+    aspect-ratio: 16 / 10;
   }
 }
 
@@ -4525,11 +4555,16 @@ img.navbar__brand-icon {
 .contact-workshop-photo {
   position: relative;
   margin: 0 0 1rem;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  max-height: 240px;
 }
 
 .contact-workshop-photo img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: auto;
+  max-height: 240px;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
 }
 
@@ -4568,26 +4603,33 @@ img.navbar__brand-icon {
   display: grid;
   grid-template-columns: minmax(280px, .75fr) minmax(0, 1.25fr);
   align-items: center;
-  gap: clamp(2rem, 7vw, 7rem);
-  padding-block: clamp(3rem, 7vw, 6rem);
+  gap: clamp(2rem, 5vw, 5rem);
+  padding-block: clamp(2.5rem, 5vw, 4.5rem);
 }
 
 .about-workbench__image,
 .pricing-inspection__image {
   position: relative;
   margin: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  max-height: 320px;
 }
 
 .about-workbench__image img {
   width: 100%;
-  height: clamp(360px, 48vw, 560px);
+  height: auto;
+  max-height: 320px;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
   object-position: center 58%;
 }
 
 .pricing-inspection__image img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: auto;
+  max-height: 320px;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
 }
 
@@ -4690,7 +4732,8 @@ img.navbar__brand-icon {
   }
 
   .about-workbench__image img {
-    height: 360px;
+    max-height: 280px;
+    height: auto;
   }
 }
 
