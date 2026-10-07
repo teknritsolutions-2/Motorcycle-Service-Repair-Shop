@@ -69,10 +69,10 @@
   --font-heading: 'Barlow Condensed', 'Arial Narrow', sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-  --fs-hero: clamp(2.2rem, 4vw + 1rem, 3.6rem);
-  --fs-h1: clamp(1.8rem, 3vw + 0.5rem, 2.8rem);
-  --fs-h2: clamp(1.5rem, 2.5vw + 0.4rem, 2.2rem);
-  --fs-h3: clamp(1.2rem, 1.5vw + 0.3rem, 1.5rem);
+  --fs-hero: clamp(2.35rem, 4.2vw + 0.6rem, 3.85rem);
+  --fs-h1: clamp(1.85rem, 2.8vw + 0.5rem, 2.85rem);
+  --fs-h2: clamp(1.6rem, 2.2vw + 0.35rem, 2.35rem);
+  --fs-h3: clamp(1.25rem, 1.2vw + 0.3rem, 1.55rem);
   --fs-h4: 1.125rem;
   --fs-body: 1rem;
   --fs-body-lg: 1.0625rem;
@@ -144,6 +144,9 @@ a {
 
 button {
   font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
   cursor: pointer;
   border: none;
   background: none;
@@ -187,6 +190,7 @@ p:last-child {
   font-family: var(--font-body);
   font-size: var(--fs-eyebrow);
   font-weight: 600;
+  line-height: 1.2;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--accent);
@@ -547,7 +551,7 @@ p:last-child {
   align-items: center;
   gap: 0.75rem;
   padding: 0.875rem 1rem;
-  font-size: 1rem;
+  font-size: var(--fs-body);
   font-weight: 500;
   color: var(--text-secondary);
   border-radius: var(--radius-sm);
@@ -648,8 +652,12 @@ p:last-child {
   display: inline-block;
 }
 
-.hero__title {
+.hero__title,
+.panorama-hero h1 {
   font-size: var(--fs-hero);
+}
+
+.hero__title {
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 1.25rem;
@@ -891,7 +899,7 @@ p:last-child {
 }
 
 .service-card__title {
-  font-size: 1.125rem;
+  font-size: var(--fs-h4);
   font-weight: 600;
   margin-bottom: 0.625rem;
   color: var(--text-primary);
@@ -1057,7 +1065,7 @@ p:last-child {
 
 .pricing-card__title {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: var(--fs-h4);
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 0.375rem;
@@ -1070,7 +1078,7 @@ p:last-child {
 
 .pricing-card__price {
   font-family: var(--font-heading);
-  font-size: 1.75rem;
+  font-size: var(--fs-h3);
   font-weight: 700;
   color: var(--text-primary);
   margin-top: 0.75rem;
@@ -1806,7 +1814,7 @@ p:last-child {
 }
 
 .error-page__title {
-  font-size: var(--fs-h2);
+  font-size: var(--fs-h1);
   margin-bottom: 1rem;
 }
 
@@ -2419,7 +2427,7 @@ p:last-child {
   display: block;
   margin-block-start: 0.35rem;
   color: #b42318;
-  font-size: 0.82rem;
+  font-size: var(--fs-small);
   line-height: 1.45;
 }
 
@@ -2580,9 +2588,9 @@ p:last-child {
   max-width: 940px;
   margin-block-end: 1.25rem;
   color: #fff;
-  font-size: clamp(3rem, 5.5vw, 5.35rem);
-  line-height: 0.94;
-  letter-spacing: -0.025em;
+  font-size: var(--fs-hero);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
 }
 
@@ -2590,7 +2598,7 @@ p:last-child {
   max-width: 590px;
   margin-block-end: 2rem;
   color: rgba(255,255,255,.78);
-  font-size: 1.08rem;
+  font-size: var(--fs-body-lg);
 }
 
 .panorama-hero__index {
@@ -2639,8 +2647,8 @@ p:last-child {
 .machine-types h2,
 .philosophy-band h2,
 .feedback-ledger h2 {
-  font-size: clamp(2.2rem, 4vw, 4.2rem);
-  line-height: .98;
+  font-size: var(--fs-h2);
+  line-height: 1.08;
 }
 
 .job-row {
@@ -2689,7 +2697,7 @@ p:last-child {
   border-block-end: 1px solid var(--border-color);
   border-inline-end: 1px solid var(--border-color);
   font-family: var(--font-heading);
-  font-size: 1.65rem;
+  font-size: var(--fs-h4);
   font-weight: 700;
 }
 
@@ -2711,21 +2719,21 @@ p:last-child {
 .process-track__line::before { content: ''; position: absolute; inset-inline: 0; inset-block-start: 22px; height: 1px; background: var(--border-color); }
 .process-stop { position: relative; padding-inline-end: 1.25rem; }
 .process-stop > span { position: relative; z-index: 1; display: grid; place-items: center; width: 44px; height: 44px; margin-block-end: 1.25rem; border: 1px solid var(--border-color); border-radius: 50%; background: var(--bg-primary); color: var(--accent); font-family: var(--font-heading); font-weight: 700; }
-.process-stop h3 { font-size: 1.4rem; }
+.process-stop h3 { font-size: var(--fs-h4); }
 .process-stop p { font-size: .9rem; }
 
 .make-rail { background: var(--bg-secondary); }
 .make-rail__heading { display: flex; justify-content: space-between; align-items: end; gap: 2rem; margin-block-end: 2rem; }
 .make-rail__names { display: flex; flex-wrap: wrap; border-block-start: 1px solid var(--border-color); }
-.make-rail__names span { flex: 1 1 220px; padding: 1.2rem; border-block-end: 1px solid var(--border-color); border-inline-end: 1px solid var(--border-color); font-family: var(--font-heading); font-size: clamp(1.45rem, 2.5vw, 2.2rem); font-weight: 700; }
+.make-rail__names span { flex: 1 1 220px; padding: 1.2rem; border-block-end: 1px solid var(--border-color); border-inline-end: 1px solid var(--border-color); font-family: var(--font-heading); font-size: var(--fs-h3); font-weight: 700; }
 .make-rail__note { max-width: 760px; margin-block-start: 1.5rem; font-size: .82rem; }
 
 .feedback-ledger__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border-color); border: 1px solid var(--border-color); }
 .feedback-ledger__title, .feedback-quote { margin: 0; padding: clamp(1.5rem, 4vw, 3rem); background: var(--bg-primary); }
 .feedback-ledger__title { grid-row: span 2; }
 .feedback-ledger__title p { margin-block-start: 1rem; }
-.feedback-quote p { font-family: var(--font-heading); font-size: 1.45rem; line-height: 1.35; color: var(--text-primary); }
-.feedback-quote--large p { font-size: clamp(1.75rem, 3vw, 2.65rem); }
+.feedback-quote p { font-family: var(--font-body); font-size: var(--fs-body); font-style: italic; line-height: 1.7; color: var(--text-primary); }
+.feedback-quote--large p { font-size: var(--fs-body-lg); }
 .feedback-quote footer { display: flex; justify-content: space-between; gap: 1rem; margin-block-start: 2rem; color: var(--accent); font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
 .feedback-quote footer span { color: var(--text-tertiary); text-align: end; }
 
@@ -2734,7 +2742,7 @@ p:last-child {
 .workshop-booking > img { object-fit: cover; object-position: center 58%; }
 .workshop-booking__overlay { background: linear-gradient(90deg, rgba(15,17,16,.94), rgba(15,17,16,.55) 60%, rgba(15,17,16,.2)); }
 .workshop-booking__content { position: relative; z-index: 1; }
-.workshop-booking__content h2 { max-width: 620px; color: #fff; font-size: clamp(2.4rem, 5vw, 4.5rem); }
+.workshop-booking__content h2 { max-width: 620px; color: #fff; font-size: var(--fs-h2); }
 .workshop-booking__content p:not(.eyebrow) { max-width: 580px; color: #c5c0b8; }
 
 @media (max-width: 1200px) {
@@ -2764,7 +2772,6 @@ p:last-child {
   .panorama-hero__image { object-position: 60% center; }
   .panorama-hero__shade { background: linear-gradient(0deg, rgba(11,12,11,.97), rgba(11,12,11,.74) 60%, rgba(11,12,11,.2)); }
   .panorama-hero__content { text-align: center; }
-  .panorama-hero h1 { font-size: clamp(2.45rem, 10vw, 3.35rem); }
   .panorama-hero__content > p:not(.eyebrow) { margin-inline: auto; }
   .panorama-hero .btn-group { justify-content: center; }
   .panorama-hero__index { display: none; }
@@ -2777,7 +2784,7 @@ p:last-child {
   .job-row > span:nth-child(3) { grid-column: 2 / -1; }
   .job-row:hover { padding-inline: .5rem; }
   .machine-types__intro { position: static; }
-  .machine-types__wall span { min-height: 120px; font-size: 1.3rem; }
+  .machine-types__wall span { min-height: 120px; font-size: var(--fs-h4); }
   .philosophy-band__image img { aspect-ratio: 4/3; }
   .process-track__line { grid-template-columns: 1fr 1fr; }
   .feedback-ledger__title { grid-row: auto; }
@@ -2823,7 +2830,7 @@ p:last-child {
 }
 
 .location-placeholder__marker::first-letter { transform: rotate(45deg); }
-.location-placeholder h3 { max-width: 560px; font-size: clamp(1.6rem, 3vw, 2.35rem); }
+.location-placeholder h3 { max-width: 560px; font-size: var(--fs-h3); }
 .location-placeholder > p:last-child { max-width: 560px; }
 
 .pricing-card__label {
@@ -2981,7 +2988,7 @@ p:last-child {
 
 .page-pricing .pricing-card--featured::before { display: none; }
 .page-pricing .pricing-card__header { border: 0; padding: 0; }
-.page-pricing .pricing-card__price { font-size: 1.25rem; line-height: 1.25; color: var(--accent); }
+.page-pricing .pricing-card__price { line-height: 1.25; color: var(--accent); }
 .page-pricing .pricing-card__price .period { margin-block-start: .45rem; }
 .page-pricing .pricing-card__features { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem 1.5rem; margin: 0; }
 .page-pricing .pricing-card .btn { align-self: end; }
@@ -3009,7 +3016,7 @@ p:last-child {
 }
 
 .brand-card__name {
-  font-size: clamp(1.55rem, 2.2vw, 2.25rem);
+  font-size: var(--fs-h4);
 }
 
 .brand-card__summary {
@@ -3116,10 +3123,10 @@ p:last-child {
 
 .reviews-page__grid .review-card:first-child .review-card__text {
   color: #eeeae2;
-  font-family: var(--font-heading);
-  font-size: clamp(1.7rem, 3.5vw, 3.1rem);
-  font-style: normal;
-  line-height: 1.18;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-style: italic;
+  line-height: 1.7;
 }
 
 .reviews-page__grid .review-card:first-child .review-card__name { color: #fff; }
@@ -3256,7 +3263,6 @@ p:last-child {
   .reviews-page__grid .review-card:nth-child(4),
   .reviews-page__grid .review-card:nth-child(5),
   .reviews-page__grid .review-card:nth-child(6) { grid-column: span 12; min-height: 0; }
-  .reviews-page__grid .review-card:first-child .review-card__text { font-size: 1.7rem; }
 }
 
 @media (max-width: 360px) {
@@ -3611,8 +3617,8 @@ img.navbar__brand-icon {
 
 .page-hero__title {
   max-width: 900px;
-  font-size: clamp(2.5rem, 5vw, 4.8rem);
-  line-height: .98;
+  font-size: var(--fs-h1);
+  line-height: 1.08;
 }
 
 .page-hero.page-hero--dark {
@@ -3740,7 +3746,7 @@ img.navbar__brand-icon {
 
 .faq-intro h2 {
   margin-block-end: 1rem;
-  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  font-size: var(--fs-h2);
 }
 
 .faq-intro p {
@@ -3792,7 +3798,7 @@ img.navbar__brand-icon {
 
 .booking-guide h3 {
   margin-block-end: 1.5rem;
-  font-size: clamp(1.65rem, 3vw, 2.35rem);
+  font-size: var(--fs-h3);
 }
 
 .booking-guide ol {
@@ -3970,8 +3976,8 @@ img.navbar__brand-icon {
 .footer__action h2 {
   max-width: 720px;
   color: #fff;
-  font-size: clamp(2rem, 4vw, 3.6rem);
-  line-height: 1;
+  font-size: var(--fs-h2);
+  line-height: 1.08;
 }
 
 .footer__action-links {
@@ -4006,8 +4012,8 @@ img.navbar__brand-icon {
 .footer__col-title {
   margin-bottom: .85rem;
   color: #fff;
-  font-size: .78rem;
-  letter-spacing: .13em;
+  font-size: var(--fs-small);
+  letter-spacing: .08em;
 }
 
 .footer__link {
@@ -4066,12 +4072,6 @@ img.navbar__brand-icon {
 @media (min-width: 721px) and (max-width: 850px) {
   .home-one .hero__content .btn-group {
     gap: .5rem;
-  }
-
-  .home-one .hero__content .btn {
-    min-height: 44px;
-    padding-inline: .9rem;
-    font-size: .84rem;
   }
 }
 
@@ -4153,13 +4153,8 @@ img.navbar__brand-icon {
     justify-content: flex-start;
   }
 
-  .home-one .hero__title {
-    font-size: clamp(2.45rem, 11vw, 3.15rem);
-  }
-
   .home-one .hero__desc {
     max-width: 38rem;
-    font-size: 1rem;
     line-height: 1.6;
   }
 
@@ -4171,23 +4166,13 @@ img.navbar__brand-icon {
     padding-block: 3rem;
   }
 
-  .home-two .panorama-hero h1 {
-    font-size: clamp(2.1rem, 9vw, 2.8rem);
-    line-height: .97;
-  }
-
   .home-two .panorama-hero__content > p:not(.eyebrow) {
     margin-block-end: 1.5rem;
-    font-size: .98rem;
   }
 
   .page-hero {
     padding-block: 2.4rem 2.1rem;
     text-align: start;
-  }
-
-  .page-hero__title {
-    font-size: clamp(2.25rem, 11vw, 3.25rem);
   }
 
   .booking-layout {
@@ -4315,15 +4300,6 @@ img.navbar__brand-icon {
 
   .navbar__brand-text span {
     display: none;
-  }
-
-  .hero__title,
-  .page-hero__title {
-    font-size: clamp(2.25rem, 12vw, 3.25rem);
-  }
-
-  .home-one .hero__title {
-    font-size: clamp(2.35rem, 11vw, 2.85rem);
   }
 
   .home-one .hero__content {
@@ -4532,7 +4508,7 @@ img.navbar__brand-icon {
 
 .map-panel__details h3 {
   margin-block-end: .35rem;
-  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  font-size: var(--fs-h3);
 }
 
 .map-panel__details p:last-child {
@@ -4619,8 +4595,8 @@ img.navbar__brand-icon {
 .pricing-inspection__copy h2 {
   max-width: 720px;
   color: #fff;
-  font-size: clamp(2rem, 4vw, 3.8rem);
-  line-height: 1;
+  font-size: var(--fs-h2);
+  line-height: 1.08;
 }
 
 .about-workbench__copy p:not(.eyebrow),
