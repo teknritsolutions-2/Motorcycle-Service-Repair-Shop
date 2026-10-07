@@ -1450,15 +1450,27 @@ p:last-child {
   color: var(--neutral-400);
 }
 
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  display: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
 .form-select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B6E6C' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23888680' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 14px center;
-  padding-inline-start: 12px;
-  padding-inline-end: 40px;
+  background-size: 14px 14px;
+  padding-inline-start: 1rem;
+  padding-inline-end: 2.5rem;
 }
 
 [dir="rtl"] .form-select {
@@ -3064,72 +3076,84 @@ p:last-child {
 .estimate-factors {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  border-block-start: 1px solid var(--border-color);
+  gap: 1.5rem;
+  margin-block-start: 0.5rem;
 }
 
 .estimate-factor {
-  padding: 1.5rem;
-  border-inline-end: 1px solid var(--border-color);
-  border-block-end: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  padding: 2.25rem 1.75rem 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
 }
 
-.estimate-factor:last-child {
-  border-inline-end: 0;
+.estimate-factor:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .estimate-factor__icon {
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-block-end: 1rem;
-  border-radius: 8px;
-  background: var(--bg-surface);
+  margin-block-end: 1.25rem;
+  border-radius: var(--radius-sm);
+  background: var(--accent-light);
   color: var(--accent);
 }
 
 .estimate-factor h4 {
-  margin-block-end: 0.5rem;
+  margin-block-end: 0.65rem;
   font-size: var(--fs-h4);
+  line-height: 1.3;
 }
 
 .estimate-factor p {
   margin: 0;
   color: var(--text-secondary);
   font-size: var(--fs-small);
+  line-height: 1.6;
 }
 
 .page-pricing .pricing__grid {
-  grid-template-columns: 1fr;
-  gap: 0;
-  border-block-start: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 .page-pricing .pricing-card {
   display: grid;
-  grid-template-columns: minmax(240px, .8fr) minmax(360px, 1.4fr) max-content;
+  grid-template-columns: minmax(240px, .85fr) minmax(340px, 1.4fr) max-content;
   align-items: center;
-  gap: 2rem;
-  padding: 2rem 0;
-  border: 0;
-  border-block-end: 1px solid var(--border-color);
-  border-radius: 0;
-  box-shadow: none;
-  background: transparent;
+  gap: 2.5rem;
+  padding: 2.25rem 2rem;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  background: var(--bg-card);
+  transition: all var(--transition-fast);
 }
 
 .page-pricing .pricing-card:hover {
-  transform: none;
-  background: linear-gradient(90deg, transparent, var(--accent-light), transparent);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .page-pricing .pricing-card--featured::before { display: none; }
 .page-pricing .pricing-card__header { border: 0; padding: 0; }
 .page-pricing .pricing-card__price { line-height: 1.25; color: var(--accent); }
 .page-pricing .pricing-card__price .period { margin-block-start: .45rem; }
-.page-pricing .pricing-card__features { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem 1.5rem; margin: 0; }
-.page-pricing .pricing-card .btn { align-self: end; }
+.page-pricing .pricing-card__features { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem 1.5rem; margin: 0; }
+.page-pricing .pricing-card .btn { align-self: center; }
 
 .page-brands .brands__grid {
   grid-template-columns: repeat(5, 1fr);
@@ -3250,43 +3274,37 @@ p:last-child {
 }
 
 .reviews-page__grid {
-  grid-template-columns: repeat(12, 1fr);
-  grid-auto-flow: dense;
-  gap: 1px;
-  padding: 1px;
-  background: var(--border-color);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  background: transparent;
+  padding: 0;
 }
 
 .reviews-page__grid .review-card {
-  grid-column: span 4;
-  min-height: 300px;
-  border: 0;
-  border-radius: 0;
-  background: var(--bg-primary);
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.25rem 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
 }
 
-.reviews-page__grid .review-card:first-child {
-  grid-column: span 8;
-  grid-row: span 2;
-  min-height: 601px;
-  justify-content: end;
-  background: var(--graphite);
+.reviews-page__grid .review-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
-.reviews-page__grid .review-card:first-child .review-card__text {
-  color: #eeeae2;
-  font-family: var(--font-body);
+.reviews-page__grid .review-card__text {
   font-size: var(--fs-body);
-  font-style: italic;
-  line-height: 1.7;
-}
-
-.reviews-page__grid .review-card:first-child .review-card__name { color: #fff; }
-
-.reviews-page__grid .review-card:nth-child(4),
-.reviews-page__grid .review-card:nth-child(5),
-.reviews-page__grid .review-card:nth-child(6) {
-  grid-column: span 4;
+  line-height: 1.65;
+  color: var(--text-primary);
+  margin-block-end: 1.5rem;
 }
 
 .service-feedback-grid {
@@ -3386,24 +3404,22 @@ p:last-child {
 
 @media (max-width: 1024px) {
   .page-pricing .pricing-card {
-    grid-template-columns: 1fr 1.4fr;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  .page-pricing .pricing-card .btn { grid-column: 1 / -1; width: fit-content; }
+  .page-pricing .pricing-card .btn { width: fit-content; }
   .brands__grid { grid-template-columns: repeat(3, 1fr); }
   .estimate-factors { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .estimate-factor:nth-child(2) { border-inline-end: 0; }
-  .reviews-page__grid .review-card,
-  .reviews-page__grid .review-card:nth-child(4),
-  .reviews-page__grid .review-card:nth-child(5),
-  .reviews-page__grid .review-card:nth-child(6) { grid-column: span 6; }
-  .reviews-page__grid .review-card:first-child { grid-column: span 12; grid-row: auto; min-height: 420px; }
+  .reviews-page__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 768px) {
-  .page-pricing .pricing-card { grid-template-columns: 1fr; gap: 1.25rem; }
+  .page-pricing .pricing-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.75rem 1.5rem; }
   .page-pricing .pricing-card__features { grid-template-columns: 1fr; }
-  .page-pricing .pricing-card .btn { grid-column: auto; width: 100%; }
+  .page-pricing .pricing-card .btn { width: 100%; }
   .brands__grid { grid-template-columns: repeat(2, 1fr); }
+  .estimate-factors { grid-template-columns: 1fr; }
+  .reviews-page__grid { grid-template-columns: 1fr; }
   .form-panel { padding: 1.5rem; }
   .form-row--three { grid-template-columns: 1fr; }
   .make-approach__grid,
@@ -3413,11 +3429,6 @@ p:last-child {
   .service-feedback,
   .visit-tip { border-inline-end: 0; }
   .brand-card { min-height: 185px; }
-  .reviews-page__grid .review-card,
-  .reviews-page__grid .review-card:first-child,
-  .reviews-page__grid .review-card:nth-child(4),
-  .reviews-page__grid .review-card:nth-child(5),
-  .reviews-page__grid .review-card:nth-child(6) { grid-column: span 12; min-height: 0; }
 }
 
 @media (max-width: 360px) {

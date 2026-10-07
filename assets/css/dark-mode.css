@@ -131,6 +131,7 @@
 [data-theme="dark"] .benefit-card,
 [data-theme="dark"] .brand-card,
 [data-theme="dark"] .pricing-card,
+[data-theme="dark"] .estimate-factor,
 [data-theme="dark"] .review-card,
 [data-theme="dark"] .contact-info-card,
 [data-theme="dark"] .faq-item,
@@ -143,6 +144,7 @@
 [data-theme="dark"] .service-card:hover,
 [data-theme="dark"] .brand-card:hover,
 [data-theme="dark"] .pricing-card:hover,
+[data-theme="dark"] .estimate-factor:hover,
 [data-theme="dark"] .quick-service-item:hover {
   border-color: var(--accent);
 }
@@ -217,8 +219,13 @@
   color: var(--text-primary);
 }
 
+[data-theme="dark"] .estimate-factor h4 {
+  color: var(--text-primary);
+}
+
 [data-theme="dark"] .form-select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23A3A09A' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23A3A09A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-size: 14px 14px;
 }
 
 /* Steps */
