@@ -3850,7 +3850,9 @@ img.navbar__brand-icon {
 
 .page-brands .brand-card::before {
   inset-block-start: 1rem;
-  inset-inline-end: 1rem;
+  inset-inline-start: auto;
+  inset-inline-end: 1.25rem;
+  text-align: end;
 }
 
 .page-brands .brand-card {
@@ -3861,8 +3863,9 @@ img.navbar__brand-icon {
   content: attr(data-category);
   position: absolute;
   inset-block-start: 1rem;
-  inset-inline-start: 1rem;
-  max-width: calc(100% - 4.25rem);
+  inset-inline-start: 1.25rem;
+  inset-inline-end: auto;
+  max-width: calc(100% - 4.5rem);
   color: var(--accent);
   font-size: .64rem;
   font-weight: 700;
