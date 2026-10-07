@@ -123,7 +123,7 @@
 }
 
 [dir="rtl"] .workshop-booking__overlay {
-  background: linear-gradient(-90deg, rgba(15,17,16,.94), rgba(15,17,16,.55) 60%, rgba(15,17,16,.2));
+  background: radial-gradient(circle at center, rgba(16, 18, 17, 0.78) 0%, rgba(16, 18, 17, 0.92) 100%);
 }
 
 [dir="rtl"] .panorama-hero__index {
@@ -137,6 +137,6 @@
   }
 
   [dir="rtl"] .workshop-booking__overlay {
-    background: rgba(15,17,16,.78);
+    background: radial-gradient(circle at center, rgba(16, 18, 17, 0.82) 0%, rgba(16, 18, 17, 0.94) 100%);
   }
 }
