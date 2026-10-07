@@ -784,7 +784,7 @@ p:last-child {
   border-radius: var(--radius-md);
   background: var(--bg-card);
   border: 1px solid var(--border-light);
-  text-align: center;
+  text-align: start;
 }
 
 .benefit-card__icon {
@@ -796,7 +796,7 @@ p:last-child {
   border-radius: var(--radius-md);
   background: var(--accent-light);
   color: var(--accent);
-  margin-inline: auto;
+  margin-inline: 0;
   margin-bottom: 1.25rem;
 }
 
@@ -953,9 +953,10 @@ p:last-child {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2.25rem 1rem 1.25rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: start;
+  padding: 2.25rem 1.25rem 1.25rem;
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
   background: var(--bg-card);
@@ -984,19 +985,23 @@ p:last-child {
 .brand-card__logo {
   width: 100%;
   max-width: 130px;
-  height: 52px;
-  display: grid;
-  place-items: center;
-  padding: .5rem .85rem;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: .45rem .75rem;
   border: 1px solid #dedbd3;
   border-radius: var(--radius-sm);
   background: #f7f6f2;
+  margin-inline: 0;
+  align-self: flex-start;
 }
 
 .brand-card__logo img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  object-position: left center;
 }
 
 .brand-card__name {
@@ -1006,7 +1011,8 @@ p:last-child {
   color: var(--text-primary);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  text-align: center;
+  text-align: start;
+  width: 100%;
 }
 
 /* ============================================
@@ -1025,7 +1031,7 @@ p:last-child {
 }
 
 .step-card {
-  text-align: center;
+  text-align: start;
   position: relative;
 }
 
@@ -1041,7 +1047,7 @@ p:last-child {
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 700;
-  margin-inline: auto;
+  margin-inline: 0;
   margin-bottom: 1.25rem;
   position: relative;
   z-index: 2;
@@ -1614,7 +1620,7 @@ p:last-child {
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
   background: var(--bg-card);
-  text-align: center;
+  text-align: start;
 }
 
 .contact-info-card__icon {
@@ -1626,7 +1632,7 @@ p:last-child {
   border-radius: 50%;
   background: var(--accent-light);
   color: var(--accent);
-  margin-inline: auto;
+  margin-inline: 0;
   margin-bottom: 1rem;
 }
 
@@ -2957,7 +2963,7 @@ p:last-child {
   margin-block-start: 1rem;
   color: var(--text-muted);
   font-size: var(--fs-small);
-  text-align: center;
+  text-align: start;
 }
 
 .estimate-factors {
@@ -3030,40 +3036,53 @@ p:last-child {
 .page-pricing .pricing-card__features { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem 1.5rem; margin: 0; }
 .page-pricing .pricing-card .btn { align-self: end; }
 
-.brands__grid {
+.page-brands .brands__grid {
   grid-template-columns: repeat(5, 1fr);
-  gap: 1px;
-  padding: 1px;
-  background: var(--border-color);
+  gap: 1.25rem;
+  padding: 0;
+  background: transparent;
 }
 
-.brand-card {
-  min-height: 220px;
+.page-brands .brand-card {
+  min-height: 240px;
   display: flex;
-  align-items: end;
-  border: 0;
-  border-radius: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: start;
+  padding: 3.25rem 1.25rem 1.35rem;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
   box-shadow: none;
-  background: var(--bg-primary);
+  background: var(--bg-card);
 }
 
-.brand-card:hover {
-  transform: none;
-  background: var(--accent-light);
+.page-brands .brand-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  background: var(--bg-card);
 }
 
-.brand-card__name {
+.page-brands .brand-card__name {
   font-size: var(--fs-h4);
+  text-align: start;
+  width: 100%;
+  margin-block-end: 0.35rem;
 }
 
-.brand-card__summary {
-  margin-block: 0.5rem 0.75rem;
+.page-brands .brand-card__summary {
+  margin-block: 0 0.85rem;
   color: var(--text-secondary);
   font-size: var(--fs-small);
+  text-align: start;
+  line-height: 1.5;
 }
 
-.brand-card__tag {
+.page-brands .brand-card__tag {
+  margin-block-start: auto;
   display: inline-block;
+  align-self: flex-start;
   padding: 4px 8px;
   border: 1px solid var(--border-light);
   border-radius: 4px;
@@ -3074,6 +3093,7 @@ p:last-child {
   letter-spacing: 0.05em;
   line-height: 1.45;
   text-transform: uppercase;
+  text-align: start;
 }
 
 .independence-notice {
@@ -3103,7 +3123,7 @@ p:last-child {
 .make-approach__title {
   margin-block-end: 1.5rem;
   font-size: var(--fs-h3);
-  text-align: center;
+  text-align: start;
 }
 
 .make-approach__grid {
@@ -3756,8 +3776,8 @@ img.navbar__brand-icon {
   text-transform: uppercase;
 }
 
-.brand-card:nth-child(-n + 3) { background-image: linear-gradient(180deg, var(--accent-light), transparent 46%); }
-.brand-card:nth-child(n + 7) { background-image: linear-gradient(0deg, color-mix(in srgb, var(--bg-secondary) 70%, transparent), transparent 52%); }
+.page-brands .brand-card:nth-child(-n + 3) { background-image: linear-gradient(180deg, var(--accent-light), transparent 46%); }
+.page-brands .brand-card:nth-child(n + 7) { background-image: linear-gradient(0deg, color-mix(in srgb, var(--bg-secondary) 70%, transparent), transparent 52%); }
 
 .faq-layout {
   display: grid;
@@ -3799,6 +3819,8 @@ img.navbar__brand-icon {
   border-inline-end: 1px solid var(--border-color);
   border-radius: 0;
   background: transparent;
+  padding: 2.25rem 1.75rem;
+  text-align: start;
 }
 
 .contact-info-card:last-child {
@@ -4469,37 +4491,49 @@ img.navbar__brand-icon {
   gap: .2rem;
 }
 
-/* Manufacturer artwork stays on a neutral plate in both themes. */
+/* Manufacturer artwork stays on a neutral plate in both themes, cleanly left-aligned. */
 .page-brands .brand-card {
-  min-height: 0;
-  align-items: stretch;
-  padding: 3.35rem 1.15rem 1.2rem;
+  min-height: 240px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: start;
+  padding: 3.25rem 1.25rem 1.35rem;
 }
 
 .page-brands .brand-card > div {
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  text-align: start;
+  height: 100%;
 }
 
-.brand-card__logo {
-  height: 70px;
-  display: grid;
-  place-items: center;
-  margin-block-end: 1.1rem;
-  padding: .85rem 1rem;
+.page-brands .brand-card .brand-card__logo {
+  width: 100%;
+  max-width: 140px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-block-end: 0.85rem;
+  padding: .5rem .85rem;
   border: 1px solid #dedbd3;
+  border-radius: var(--radius-sm);
   background: #f7f6f2;
+  align-self: flex-start;
 }
 
-.brand-card__logo img {
+.page-brands .brand-card .brand-card__logo img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  object-position: left center;
 }
 
 .page-brands .brand-card__tag {
   margin-block-start: auto;
+  align-self: flex-start;
 }
 
 /* Real map + visit guidance. The iframe itself is never transformed. */
