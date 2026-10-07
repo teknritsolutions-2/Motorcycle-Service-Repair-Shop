@@ -735,9 +735,9 @@
       const service = this.services[serviceKey];
 
       const imageMap = {
-        'routine-servicing': ['detail-routine.webp', 'Mechanic carrying out a routine service in a working motorcycle repair shop', 1800, 1201],
+        'routine-servicing': ['detail-routine.webp', 'Technician servicing a motorcycle on a hydraulic scissor lift in an authorized service center', 1800, 1201],
         'oil-filter': ['detail-engine.webp', 'Close view of motorcycle engine components during inspection', 1800, 2700],
-        'tyre-replacement': ['tyre-service.webp', 'Mechanic repairing motorcycle wheels and tyres in a workshop', 1800, 2400],
+        'tyre-replacement': ['tyre-service.webp', 'Stack of new high-performance motorcycle street tyres in workshop showroom', 1800, 2400],
         'brake-servicing': ['detail-brakes.webp', 'Close view of a yellow motorcycle brake caliper and disc', 1800, 2700],
         'chain-service': ['detail-chain.webp', 'Hand applying lubricant to a motorcycle chain and rear wheel', 1800, 1201],
         'battery-service': ['detail-cables.webp', 'Mechanic checking motorcycle cables and electrical connections', 1800, 1201],
