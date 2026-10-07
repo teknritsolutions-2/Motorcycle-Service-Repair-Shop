@@ -96,7 +96,7 @@
   direction: rtl;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 850px) {
   [dir="rtl"] .process-track__line {
     padding-inline-start: 0;
     padding-inline-end: 32px;
