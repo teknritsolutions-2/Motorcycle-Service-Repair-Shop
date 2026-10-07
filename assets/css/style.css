@@ -975,7 +975,8 @@ p:last-child {
   content: counter(make-index, decimal-leading-zero);
   position: absolute;
   inset-block-start: 0.75rem;
-  inset-inline-end: 0.85rem;
+  inset-inline-start: 1.25rem;
+  inset-inline-end: auto;
   color: var(--text-tertiary);
   font-family: var(--font-heading);
   font-size: .78rem;
