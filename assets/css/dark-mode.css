@@ -34,6 +34,16 @@
 
 /* --- Specific dark-mode fixes --- */
 
+[data-theme="dark"] .navbar {
+  background: #141615;
+  border-bottom-color: var(--border-light);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .navbar.navbar--scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.65);
+}
+
 /* Navbar brand */
 [data-theme="dark"] .navbar__brand-text {
   color: var(--text-primary);

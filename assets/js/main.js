@@ -324,6 +324,8 @@
       const cards = track.querySelectorAll('.review-card');
       if (!cards.length) return;
 
+      cards.forEach(card => card.classList.add('visible'));
+
       let current = 0;
 
       const getVisibleCount = () => {
@@ -336,23 +338,28 @@
       const update = () => {
         const visible = getVisibleCount();
         const maxIndex = Math.max(0, cards.length - visible);
-        current = Math.min(current, maxIndex);
+        current = Math.min(Math.max(0, current), maxIndex);
 
+        const viewport = track.closest('.reviews-slider__viewport') || track.parentElement;
+        const containerWidth = viewport.clientWidth || track.parentElement.clientWidth;
         const gap = 24; // 1.5rem
-        const cardWidth = (track.offsetWidth - gap * (visible - 1)) / visible;
+        const cardWidth = Math.floor((containerWidth - gap * (visible - 1)) / visible);
 
         cards.forEach(card => {
           card.style.flex = `0 0 ${cardWidth}px`;
+          card.style.width = `${cardWidth}px`;
+          card.style.minWidth = `${cardWidth}px`;
+          card.style.maxWidth = `${cardWidth}px`;
         });
 
         const offset = current * (cardWidth + gap);
         track.style.transform = `translateX(${document.dir === 'rtl' ? offset : -offset}px)`;
-        track.style.transition = 'transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)';
+        track.style.transition = 'transform 0.45s cubic-bezier(0.22, 1, 0.36, 1)';
 
         prevBtn.disabled = current === 0;
         nextBtn.disabled = current >= maxIndex;
-        prevBtn.style.opacity = current === 0 ? '0.4' : '1';
-        nextBtn.style.opacity = current >= maxIndex ? '0.4' : '1';
+        prevBtn.style.opacity = current === 0 ? '0.35' : '1';
+        nextBtn.style.opacity = current >= maxIndex ? '0.35' : '1';
         const controls = prevBtn.closest('.reviews-slider__controls');
         if (controls) controls.hidden = cards.length <= visible;
       };
@@ -509,6 +516,27 @@
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
+    }
+  };
+
+  /* ----------------------------------------
+     NAVBAR STICKY SCROLL STATE
+  ---------------------------------------- */
+  const NavbarSticky = {
+    init() {
+      const navbar = document.querySelector('.navbar');
+      if (!navbar) return;
+
+      const handleScroll = () => {
+        if (window.scrollY > 4) {
+          navbar.classList.add('navbar--scrolled');
+        } else {
+          navbar.classList.remove('navbar--scrolled');
+        }
+      };
+
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll();
     }
   };
 
@@ -832,5 +860,6 @@
     AppointmentForm.init();
     BackToTop.init();
     NavActive.init();
+    NavbarSticky.init();
   });
 })();
