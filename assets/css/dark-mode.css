@@ -173,6 +173,15 @@
   color: var(--text-primary);
 }
 
+[data-theme="dark"] .page-pricing .pricing-card__price,
+[data-theme="dark"] .page-pricing .pricing-card__rate {
+  color: var(--accent);
+}
+
+[data-theme="dark"] .pricing-card__price .period {
+  color: var(--text-secondary);
+}
+
 [data-theme="dark"] .pricing-card__header {
   border-color: var(--border-light);
 }
