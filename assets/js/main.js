@@ -545,19 +545,31 @@
   ---------------------------------------- */
   const NavActive = {
     init() {
-      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-      
-      document.querySelectorAll('.navbar__link, .drawer__link').forEach(link => {
+      const rawCurrent = window.location.pathname.split('/').pop() || 'index.html';
+      const currentPage = rawCurrent.split('?')[0].split('#')[0] || 'index.html';
+      const isHome = currentPage === '' || currentPage === 'index.html';
+
+      document.querySelectorAll('.navbar__link, .drawer__link, .nav-home__menu a').forEach(link => {
         const href = link.getAttribute('href');
         if (!href) return;
-        const linkPage = href.split('/').pop();
+        const cleanHref = href.split('?')[0].split('#')[0];
+        const linkPage = cleanHref.split('/').pop();
         
-        if (linkPage === currentPage || 
-            (currentPage === '' && linkPage === 'index.html') ||
-            (currentPage === 'index.html' && linkPage === 'index.html')) {
+        if (linkPage === currentPage || (isHome && linkPage === 'index.html')) {
           link.setAttribute('aria-current', 'page');
+        } else if (link.tagName === 'A') {
+          link.removeAttribute('aria-current');
         }
       });
+
+      const homeTrigger = document.querySelector('.nav-home__trigger');
+      if (homeTrigger) {
+        if (isHome || currentPage === 'home2.html') {
+          homeTrigger.setAttribute('aria-current', 'page');
+        } else {
+          homeTrigger.removeAttribute('aria-current');
+        }
+      }
     }
   };
 

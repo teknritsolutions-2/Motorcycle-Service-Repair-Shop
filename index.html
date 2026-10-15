@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +7,662 @@
   <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
   <link rel="manifest" href="assets/brand/site.webmanifest">
-  <meta http-equiv="refresh" content="0; url=pages/index.html">
   <title>Apex Motoworks — Motorcycle Service &amp; Repair</title>
-  <script>window.location.replace("pages/index.html");</script>
+  <meta name="description" content="Professional motorcycle servicing, maintenance, repair and diagnostics. Routine service, oil changes, tyres, brakes, chain care and electrical diagnostics for everyday motorcycles.">
+  <link rel="preload" as="image" href="assets/images/home1-hero.webp" type="image/webp">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261007">
+  <link rel="stylesheet" href="assets/css/dark-mode.css?v=20261007">
+  <link rel="stylesheet" href="assets/css/rtl.css?v=20261007">
 </head>
-<body style="font-family: system-ui, -apple-system, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #0E100F; color: #F5F7F6;">
-  <p>Redirecting to <a href="pages/index.html" style="color: #C45D32;">Apex Motoworks</a>...</p>
+<body class="home-one">
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ========== NAVBAR ========== -->
+  <header class="navbar" role="banner">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__brand" aria-label="Apex Motoworks Home">
+        <img class="navbar__brand-icon" src="assets/brand/logo-mark.svg" alt="" width="48" height="48">
+        <div class="navbar__brand-text">Apex Motoworks</div>
+      </a>
+
+      <nav class="navbar__nav" aria-label="Main navigation">
+        <div class="nav-home">
+          <button class="navbar__link nav-home__trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="homeVariants" aria-current="page"><span>Home</span><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-home__menu" id="homeVariants"><a href="index.html" aria-current="page"><span>01</span> Home 1</a><a href="pages/home2.html"><span>02</span> Home 2</a></div>
+        </div>
+        <a href="pages/about.html" class="navbar__link">About</a>
+        <a href="pages/services.html" class="navbar__link">Services</a>
+        <a href="pages/brands.html" class="navbar__link">Brands</a>
+        <a href="pages/pricing.html" class="navbar__link">Pricing</a>
+        <a href="pages/reviews.html" class="navbar__link">Reviews</a>
+        <a href="pages/contact.html" class="navbar__link">Contact</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <button class="navbar__toggle-btn" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="navbar__toggle-btn" data-rtl-toggle aria-label="Switch to RTL" aria-pressed="false">
+          <span class="rtl-label">RTL</span>
+        </button>
+        <a href="pages/contact.html#booking" class="btn btn--primary btn--sm navbar__cta">Book Service</a>
+
+        <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="drawer" id="mobileDrawer" aria-label="Mobile navigation" aria-hidden="true" inert>
+    <div class="drawer__header">
+      <a href="index.html" class="drawer__brand" aria-label="Apex Motoworks Home">
+        <img class="drawer__brand-mark" src="assets/brand/logo-mark.svg" alt="" width="42" height="42">
+        <span>Apex Motoworks</span>
+      </a>
+
+      <button class="drawer__close" id="drawerCloseBtn" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="drawer__nav" aria-label="Mobile navigation links">
+      <a href="index.html" class="drawer__link" aria-current="page">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Home 1
+      </a>
+      <a href="pages/home2.html" class="drawer__link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18h16M6 18V9l6-4 6 4v9M9 18v-5h6v5"/></svg>
+        Home 2
+      </a>
+      <a href="pages/about.html" class="drawer__link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        About
+      </a>
+      <a href="pages/services.html" class="drawer__link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        Services
+      </a>
+      <a href="pages/brands.html" class="drawer__link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        Brands
+      </a>
+      <a href="pages/pricing.html" class="drawer__link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Pricing
+      </a>
+      <a href="pages/reviews.html" class="drawer__link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Reviews
+      </a>
+      <a href="pages/contact.html" class="drawer__link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Contact
+      </a>
+      <div class="drawer__divider"></div>
+      <a href="pages/faq.html" class="drawer__link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        FAQ
+      </a>
+    </nav>
+    <div class="drawer__footer">
+      <div class="drawer__controls">
+        <button class="navbar__toggle-btn" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          Theme
+        </button>
+        <button class="navbar__toggle-btn" data-rtl-toggle aria-label="Toggle RTL" aria-pressed="false">
+          <span class="rtl-label">RTL</span>
+          Direction
+        </button>
+      </div>
+      <a href="pages/contact.html#booking" class="btn btn--primary drawer__cta">Book Service</a>
+    </div>
+  </aside>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="main">
+
+    <!-- SECTION 1: HERO -->
+    <section class="hero">
+      <div class="hero__inner">
+        <div class="hero__content">
+          <p class="hero__eyebrow">Motorcycle Service &amp; Repair</p>
+          <h1 class="hero__title">Keep your motorcycle ready for every ride.</h1>
+          <p class="hero__desc">Routine maintenance, tyre and brake work, electrical checks and workshop diagnostics from technicians who focus on the details that matter.</p>
+          <div class="btn-group">
+            <a href="pages/contact.html#booking" class="btn btn--primary">Book a Service</a>
+            <a href="pages/services.html" class="btn btn--secondary">Explore Services</a>
+          </div>
+          <div class="hero__trust">
+            <div class="hero__trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Routine Maintenance
+            </div>
+            <div class="hero__trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Repairs
+            </div>
+            <div class="hero__trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Diagnostics
+            </div>
+          </div>
+        </div>
+        <div class="hero__image">
+          <img src="assets/images/home1-hero.webp" alt="Motorcycle service bay with organized tool wall, precision spanners, diagnostic screen, and motorcycle on lift" width="1800" height="2700" fetchpriority="high">
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: QUICK SERVICE SELECTOR -->
+    <section class="section quick-services">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Quick Access</p>
+          <h2>What does your motorcycle need?</h2>
+        </div>
+        <div class="quick-services__grid">
+          <a href="pages/service-details.html?service=routine-servicing" class="quick-service-item reveal reveal-delay-1">
+            <div class="quick-service-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <span class="quick-service-item__label">Routine Service</span>
+          </a>
+          <a href="pages/service-details.html?service=oil-filter" class="quick-service-item reveal reveal-delay-2">
+            <div class="quick-service-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            </div>
+            <span class="quick-service-item__label">Oil &amp; Filter</span>
+          </a>
+          <a href="pages/service-details.html?service=tyre-replacement" class="quick-service-item reveal reveal-delay-3">
+            <div class="quick-service-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
+            </div>
+            <span class="quick-service-item__label">Tyres</span>
+          </a>
+          <a href="pages/service-details.html?service=brake-servicing" class="quick-service-item reveal reveal-delay-4">
+            <div class="quick-service-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+            </div>
+            <span class="quick-service-item__label">Brakes</span>
+          </a>
+          <a href="pages/service-details.html?service=chain-service" class="quick-service-item reveal reveal-delay-5">
+            <div class="quick-service-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </div>
+            <span class="quick-service-item__label">Chain</span>
+          </a>
+          <a href="pages/service-details.html?service=battery-service" class="quick-service-item reveal reveal-delay-6">
+            <div class="quick-service-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="18" height="12" rx="2" ry="2"/><line x1="23" y1="13" x2="23" y2="11"/></svg>
+            </div>
+            <span class="quick-service-item__label">Battery</span>
+          </a>
+          <a href="pages/service-details.html?service=diagnostics" class="quick-service-item reveal reveal-delay-7">
+            <div class="quick-service-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <span class="quick-service-item__label">Diagnostics</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: WORKSHOP TRUST -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Why Riders Trust Us</p>
+          <h2>Service built around the bike, not the guesswork.</h2>
+          <p class="section-subtitle">We focus on what matters — proper inspection, quality parts, and honest recommendations for your motorcycle.</p>
+        </div>
+        <div class="benefits__grid">
+          <div class="benefit-card reveal reveal-delay-1">
+            <div class="benefit-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <div>
+              <h3 class="benefit-card__title">Clear Inspection Process</h3>
+              <p class="benefit-card__desc">Every motorcycle goes through a structured check. We document what we find and explain it before recommending any work.</p>
+            </div>
+          </div>
+          <div class="benefit-card reveal reveal-delay-2">
+            <div class="benefit-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h3 class="benefit-card__title">Quality Replacement Parts</h3>
+              <p class="benefit-card__desc">We source parts that meet the standard your motorcycle needs. No guessing, no cutting corners on what goes back in.</p>
+            </div>
+          </div>
+          <div class="benefit-card reveal reveal-delay-3">
+            <div class="benefit-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <h3 class="benefit-card__title">Experienced Technicians</h3>
+              <p class="benefit-card__desc">Our team works on motorcycles daily. That hands-on experience means faster diagnosis and more reliable repairs.</p>
+            </div>
+          </div>
+          <div class="benefit-card reveal reveal-delay-4">
+            <div class="benefit-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div>
+              <h3 class="benefit-card__title">Honest Recommendations</h3>
+              <p class="benefit-card__desc">We tell you what your motorcycle actually needs — not what inflates the bill. If it can wait, we'll say so.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: WORKSHOP IN ACTION -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Workshop Floor</p>
+          <h2>See the workshop in action.</h2>
+        </div>
+        <div class="workshop-gallery__grid">
+          <div class="workshop-gallery__item reveal">
+            <img src="assets/images/workshop-panorama.webp" alt="High-angle panoramic view of custom motorcycle workshop floor and service bays with motorcycles" width="1800" height="2400" loading="lazy" decoding="async">
+            <div class="workshop-gallery__caption">
+              <span>Service bays in action</span>
+            </div>
+          </div>
+          <div class="workshop-gallery__item reveal reveal-delay-1">
+            <img src="assets/images/brake-service.webp" alt="Close view of a motorcycle rear brake disc, hub and caliper" width="1800" height="2700" loading="lazy" decoding="async">
+            <div class="workshop-gallery__caption">
+              <span>Brake disc inspection</span>
+            </div>
+          </div>
+          <div class="workshop-gallery__item reveal reveal-delay-2">
+            <img src="assets/images/diagnostics.webp" alt="Mechanic inspecting exposed motorcycle wiring in a garage" width="1800" height="1201" loading="lazy" decoding="async">
+            <div class="workshop-gallery__caption">
+              <span>Electronic diagnostics</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: SERVICES OVERVIEW -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Our Services</p>
+          <h2>Everything your motorcycle needs.</h2>
+          <p class="section-subtitle">From routine checks to complex diagnostics — we cover the maintenance and repair work that keeps your bike running well.</p>
+        </div>
+        <div class="services__grid">
+          <div class="service-card reveal reveal-delay-1">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <h3 class="service-card__title">Routine Servicing</h3>
+            <p class="service-card__desc">General inspection covering fluids, fasteners, tyres, brakes, chain and battery. Keeps your motorcycle in check between major services.</p>
+            <a href="pages/service-details.html?service=routine-servicing" class="service-card__link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+          <div class="service-card reveal reveal-delay-2">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            </div>
+            <h3 class="service-card__title">Engine Oil &amp; Filter Change</h3>
+            <p class="service-card__desc">Engine oil drainage and replacement with filter change. Includes leak inspection and oil level verification.</p>
+            <a href="pages/service-details.html?service=oil-filter" class="service-card__link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+          <div class="service-card reveal reveal-delay-3">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
+            </div>
+            <h3 class="service-card__title">Tyre Replacement</h3>
+            <p class="service-card__desc">Tyre inspection, wear assessment, replacement and pressure check. Valve and rim condition also inspected.</p>
+            <a href="pages/service-details.html?service=tyre-replacement" class="service-card__link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+          <div class="service-card reveal reveal-delay-4">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+            </div>
+            <h3 class="service-card__title">Brake Servicing</h3>
+            <p class="service-card__desc">Pad and disc inspection, fluid check, lever adjustment and caliper assessment. Keeps your stopping power consistent.</p>
+            <a href="pages/service-details.html?service=brake-servicing" class="service-card__link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+          <div class="service-card reveal reveal-delay-5">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </div>
+            <h3 class="service-card__title">Chain Adjustment &amp; Lubrication</h3>
+            <p class="service-card__desc">Chain tension, cleaning, lubrication and sprocket condition check. Essential for drivetrain longevity.</p>
+            <a href="pages/service-details.html?service=chain-service" class="service-card__link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+          <div class="service-card reveal reveal-delay-6">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="18" height="12" rx="2" ry="2"/><line x1="23" y1="13" x2="23" y2="11"/></svg>
+            </div>
+            <h3 class="service-card__title">Battery Testing &amp; Replacement</h3>
+            <p class="service-card__desc">Battery voltage and load testing, terminal inspection, charging system check and replacement recommendation.</p>
+            <a href="pages/service-details.html?service=battery-service" class="service-card__link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+          <div class="service-card reveal reveal-delay-7">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h3 class="service-card__title">Engine &amp; Electrical Diagnostics</h3>
+            <p class="service-card__desc">Fault code reading, electrical testing, sensor inspection and systematic investigation of engine and electrical issues.</p>
+            <a href="pages/service-details.html?service=diagnostics" class="service-card__link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: BRANDS SERVICED -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Brands</p>
+          <h2>Motorcycles we regularly service.</h2>
+          <p class="section-subtitle">Our workshop handles a range of popular motorcycle brands. This is not an exhaustive list — contact us about your specific motorcycle.</p>
+        </div>
+        <div class="brands__grid">
+          <div class="brand-card reveal reveal-delay-1">
+            <div class="brand-card__logo"><img src="assets/brands/honda.svg" alt="Honda logo" width="300" height="68" loading="lazy"></div>
+            <span class="brand-card__name">Honda</span>
+          </div>
+          <div class="brand-card reveal reveal-delay-2">
+            <div class="brand-card__logo"><img src="assets/brands/yamaha.svg" alt="Yamaha Motor logo" width="1280" height="285" loading="lazy"></div>
+            <span class="brand-card__name">Yamaha</span>
+          </div>
+          <div class="brand-card reveal reveal-delay-3">
+            <div class="brand-card__logo"><img src="assets/brands/suzuki.svg" alt="Suzuki logo" width="512" height="100" loading="lazy"></div>
+            <span class="brand-card__name">Suzuki</span>
+          </div>
+          <div class="brand-card reveal reveal-delay-4">
+            <div class="brand-card__logo"><img src="assets/brands/kawasaki.svg" alt="Kawasaki logo" width="168" height="30" loading="lazy"></div>
+            <span class="brand-card__name">Kawasaki</span>
+          </div>
+          <div class="brand-card reveal reveal-delay-5">
+            <div class="brand-card__logo"><img src="assets/brands/ktm.svg" alt="KTM logo" width="710" height="222" loading="lazy"></div>
+            <span class="brand-card__name">KTM</span>
+          </div>
+          <div class="brand-card reveal reveal-delay-1">
+            <div class="brand-card__logo"><img src="assets/brands/royal-enfield.svg" alt="Royal Enfield logo" width="512" height="69" loading="lazy"></div>
+            <span class="brand-card__name">Royal Enfield</span>
+          </div>
+          <div class="brand-card reveal reveal-delay-2">
+            <div class="brand-card__logo"><img src="assets/brands/tvs.svg" alt="TVS Motor logo" width="180" height="70" loading="lazy"></div>
+            <span class="brand-card__name">TVS</span>
+          </div>
+          <div class="brand-card reveal reveal-delay-3">
+            <div class="brand-card__logo"><img src="assets/brands/bajaj.svg" alt="Bajaj Auto logo" width="512" height="202" loading="lazy"></div>
+            <span class="brand-card__name">Bajaj</span>
+          </div>
+          <div class="brand-card reveal reveal-delay-4">
+            <div class="brand-card__logo"><img src="assets/brands/hero.svg" alt="Hero MotoCorp logo" width="500" height="162" loading="lazy"></div>
+            <span class="brand-card__name">Hero</span>
+          </div>
+          <div class="brand-card reveal reveal-delay-5">
+            <div class="brand-card__logo"><img src="assets/brands/bmw-motorrad.svg" alt="BMW Motorrad logo" width="512" height="109" loading="lazy"></div>
+            <span class="brand-card__name">BMW Motorrad</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: HOW BOOKING WORKS -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">How It Works</p>
+          <h2>Booking your service is straightforward.</h2>
+        </div>
+        <div class="steps__grid">
+          <div class="step-card reveal reveal-delay-1">
+            <div class="step-card__number">1</div>
+            <h3 class="step-card__title">Choose Your Service</h3>
+            <p class="step-card__desc">Browse our services and select the type of maintenance or repair your motorcycle needs.</p>
+          </div>
+          <div class="step-card reveal reveal-delay-2">
+            <div class="step-card__number">2</div>
+            <h3 class="step-card__title">Request a Date</h3>
+            <p class="step-card__desc">Fill out the appointment form with your preferred date and motorcycle details.</p>
+          </div>
+          <div class="step-card reveal reveal-delay-3">
+            <div class="step-card__number">3</div>
+            <h3 class="step-card__title">Bring In Your Motorcycle</h3>
+            <p class="step-card__desc">Drop your motorcycle at the workshop on your confirmed date. We'll take it from there.</p>
+          </div>
+          <div class="step-card reveal reveal-delay-4">
+            <div class="step-card__number">4</div>
+            <h3 class="step-card__title">Review &amp; Collect</h3>
+            <p class="step-card__desc">We'll share our findings and recommendations. Once approved, we complete the work.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: PRICING PREVIEW -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Service Pricing</p>
+          <h2>Transparent, practical pricing.</h2>
+          <p class="section-subtitle">These are sample service categories to give you an idea. Final pricing is confirmed after inspection.</p>
+        </div>
+        <div class="pricing__grid">
+          <div class="pricing-card reveal reveal-delay-1">
+            <div class="pricing-card__header">
+              <h3 class="pricing-card__title">Essential Service</h3>
+              <p class="pricing-card__subtitle">Routine inspection and basic maintenance</p>
+              <div class="pricing-card__price">Estimate after inspection <span>Labour and materials depend on the motorcycle</span></div>
+            </div>
+            <div class="pricing-card__features">
+              <div class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                General condition inspection
+              </div>
+              <div class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Fluid level check
+              </div>
+              <div class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Chain &amp; tyre inspection
+              </div>
+              <div class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Basic adjustment
+              </div>
+            </div>
+            <a href="pages/pricing.html" class="btn btn--secondary btn--sm btn--full">View Estimate Guide</a>
+          </div>
+          <div class="pricing-card pricing-card--featured reveal reveal-delay-2">
+            <div class="pricing-card__header">
+              <h3 class="pricing-card__title">Complete Service</h3>
+              <p class="pricing-card__subtitle">Broader maintenance inspection</p>
+              <div class="pricing-card__price">Scope confirmed first <span>Parts and fluids are quoted as required</span></div>
+            </div>
+            <div class="pricing-card__features">
+              <div class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Everything in Essential
+              </div>
+              <div class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Oil &amp; filter change
+              </div>
+              <div class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Brake inspection
+              </div>
+              <div class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Battery check
+              </div>
+              <div class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Electrical system check
+              </div>
+            </div>
+            <a href="pages/pricing.html" class="btn btn--primary btn--sm btn--full">View Estimate Guide</a>
+          </div>
+          <div class="pricing-card reveal reveal-delay-3">
+            <div class="pricing-card__header">
+              <h3 class="pricing-card__title">Diagnostics</h3>
+              <p class="pricing-card__subtitle">Inspection &amp; diagnostic assessment</p>
+              <div class="pricing-card__price">Inspection required <span>— contact workshop</span></div>
+            </div>
+            <div class="pricing-card__features">
+              <div class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Fault code reading
+              </div>
+              <div class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Electrical circuit testing
+              </div>
+              <div class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Warning light investigation
+              </div>
+              <div class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Repair recommendation
+              </div>
+            </div>
+            <a href="pages/pricing.html" class="btn btn--secondary btn--sm btn--full">View Estimate Guide</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: CUSTOMER REVIEWS -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Workshop Feedback</p>
+          <h2>Sample rider experiences.</h2>
+        </div>
+        <div class="reviews-slider">
+          <div class="reviews-slider__viewport">
+            <div class="reviews-slider__track">
+              <div class="review-card reveal">
+                <p class="review-card__category">Sample rider note</p>
+                <p class="review-card__text">"Took my commuter bike in for a routine service. They found a brake issue I hadn't noticed and explained it clearly before doing any extra work. Fair pricing, no surprises."</p>
+                <div class="review-card__author">
+                  <div class="review-card__avatar">R</div>
+                  <div>
+                    <div class="review-card__name">Rahul S.</div>
+                    <div class="review-card__service">Routine Service &amp; Brake Check</div>
+                  </div>
+                </div>
+              </div>
+              <div class="review-card reveal">
+                <p class="review-card__category">Sample rider note</p>
+                <p class="review-card__text">"My motorcycle had an intermittent starting problem. They traced it to a charging issue, explained what was happening, and sorted it the same week. Solid workshop."</p>
+                <div class="review-card__author">
+                  <div class="review-card__avatar">A</div>
+                  <div>
+                    <div class="review-card__name">Arjun M.</div>
+                    <div class="review-card__service">Electrical Diagnostics</div>
+                  </div>
+                </div>
+              </div>
+              <div class="review-card reveal">
+                <p class="review-card__category">Sample rider note</p>
+                <p class="review-card__text">"Been coming here for oil changes and tyre work for over a year now. They remember the bike, keep things efficient, and don't try to upsell unnecessary services."</p>
+                <div class="review-card__author">
+                  <div class="review-card__avatar">P</div>
+                  <div>
+                    <div class="review-card__name">Priya K.</div>
+                    <div class="review-card__service">Oil Change &amp; Tyres</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="reviews-slider__controls">
+            <button class="reviews-slider__btn reviews-slider__btn--prev" aria-label="Previous review">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="reviews-slider__btn reviews-slider__btn--next" aria-label="Next review">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: FINAL CTA -->
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" id="site-footer" role="contentinfo">
+    <div class="footer__action">
+      <div class="container footer__action-inner">
+        <div>
+          <p class="eyebrow">Workshop bookings</p>
+          <h2>Keep the motorcycle ready for the next ride.</h2>
+        </div>
+        <div class="footer__action-links">
+          <a href="pages/services.html" class="btn btn--footer-secondary">View Services</a>
+          <a href="pages/contact.html#booking" class="btn btn--primary">Book Service</a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand-area">
+          <a href="index.html" class="navbar__brand" aria-label="Apex Motoworks Home">
+            <img class="navbar__brand-icon" src="assets/brand/logo-mark.svg" alt="" width="48" height="48">
+            <span class="navbar__brand-text">Apex Motoworks</span>
+          </a>
+          <p class="footer__brand-desc">Independent motorcycle workshop providing servicing, maintenance, repair and diagnostics for everyday motorcycles.</p>
+        </div>
+        <div>
+          <h4 class="footer__col-title">Explore</h4>
+          <a href="index.html" class="footer__link">Home 1</a>
+          <a href="pages/home2.html" class="footer__link">Home 2</a>
+          <a href="pages/brands.html" class="footer__link">Brands</a>
+          <a href="pages/pricing.html" class="footer__link">Pricing</a>
+          <a href="pages/reviews.html" class="footer__link">Reviews</a>
+        </div>
+        <div>
+          <h4 class="footer__col-title">Workshop</h4>
+          <a href="pages/about.html" class="footer__link">About</a>
+          <a href="pages/contact.html" class="footer__link">Contact</a>
+          <a href="pages/contact.html#booking" class="footer__link">Book Service</a>
+          <a href="pages/faq.html" class="footer__link">FAQ</a>
+        </div>
+        <div>
+          <h4 class="footer__col-title">Services</h4>
+          <a href="pages/service-details.html?service=routine-servicing" class="footer__link">Routine Service</a>
+          <a href="pages/service-details.html?service=oil-filter" class="footer__link">Oil Change</a>
+          <a href="pages/service-details.html?service=tyre-replacement" class="footer__link">Tyres</a>
+          <a href="pages/service-details.html?service=brake-servicing" class="footer__link">Brakes</a>
+          <a href="pages/service-details.html?service=chain-service" class="footer__link">Chain</a>
+          <a href="pages/service-details.html?service=battery-service" class="footer__link">Battery</a>
+          <a href="pages/service-details.html?service=diagnostics" class="footer__link">Diagnostics</a>
+        </div>
+        <div class="footer__legal">
+          <h4 class="footer__col-title">Legal</h4>
+          <a href="pages/privacy.html" class="footer__link">Privacy</a>
+          <a href="pages/terms.html" class="footer__link">Terms</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; <span data-current-year>2026</span> Apex Motoworks. All rights reserved.</p>
+        <button class="btn--back-to-top" id="backToTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="assets/js/main.js?v=20261007"></script>
 </body>
 </html>

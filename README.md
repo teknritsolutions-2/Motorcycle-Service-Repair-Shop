@@ -4,7 +4,7 @@ A responsive static website for an independent motorcycle service and repair wor
 
 ## Pages
 
-- [Home 1](pages/index.html) — practical workshop homepage with a split hero, horizontal service selector, workshop imagery, service overview, booking process, estimates and review slider.
+- [Home 1](index.html) — practical workshop homepage with a split hero, horizontal service selector, workshop imagery, service overview, booking process, estimates and review slider.
 - [Home 2](pages/home2.html) — alternate editorial homepage with a photographic panorama, symptom-led job board, motorcycle types, workshop philosophy, process track and rider-feedback ledger.
 - [About](pages/about.html) — inspection-first philosophy, standards and mechanical approach.
 - [Services](pages/services.html) — seven service categories with symptoms, scope and detail links.
@@ -14,9 +14,9 @@ A responsive static website for an independent motorcycle service and repair wor
 - [Reviews](pages/reviews.html) — editorial sample-feedback layout without verification claims.
 - [FAQ](pages/faq.html) — accessible accordion for practical workshop questions.
 - [Contact](pages/contact.html) — service-request form and neutral location guidance.
-- [Privacy](pages/privacy.html), [Terms](pages/terms.html), [page-level 404](pages/404.html), and [GitHub Pages 404](404.html).
+- [Privacy](pages/privacy.html), [Terms](pages/terms.html), and [404 Error Page](404.html).
 
-The root [index.html](index.html) redirects to `pages/index.html` so repository subpath deployment continues to work.
+The primary landing page [index.html](index.html) and custom [404.html](404.html) are positioned at the root of the project, while inner pages reside cleanly inside the `pages/` directory.
 
 ## Service detail routes
 
@@ -52,6 +52,17 @@ Example: `pages/service-details.html?service=brake-servicing`
 ├── index.html
 ├── 404.html
 ├── pages/
+│   ├── about.html
+│   ├── brands.html
+│   ├── contact.html
+│   ├── faq.html
+│   ├── home2.html
+│   ├── pricing.html
+│   ├── privacy.html
+│   ├── reviews.html
+│   ├── service-details.html
+│   ├── services.html
+│   └── terms.html
 ├── assets/
 │   ├── brand/
 │   │   ├── logo-mark.svg
@@ -61,9 +72,12 @@ Example: `pages/service-details.html?service=brake-servicing`
 │   │   ├── style.css
 │   │   ├── dark-mode.css
 │   │   └── rtl.css
-│   ├── images/ (optimized WebP photography)
-│   └── js/main.js
-└── documentation/ARCHITECTURE.md
+│   ├── images/
+│   └── js/
+│       └── main.js
+├── documentation/
+│   └── ARCHITECTURE.md
+└── README.md
 ```
 
 All internal links and assets use relative paths so the site works from a GitHub Pages project subpath.
