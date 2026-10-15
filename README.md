@@ -14,9 +14,9 @@ A responsive static website for an independent motorcycle service and repair wor
 - [Reviews](pages/reviews.html) — editorial sample-feedback layout without verification claims.
 - [FAQ](pages/faq.html) — accessible accordion for practical workshop questions.
 - [Contact](pages/contact.html) — service-request form and neutral location guidance.
-- [Privacy](pages/privacy.html), [Terms](pages/terms.html), and [404 Error Page](404.html).
+- [Privacy](pages/privacy.html), [Terms](pages/terms.html), and [404 Error Page](pages/404.html).
 
-The primary landing page [index.html](index.html) and custom [404.html](404.html) are positioned at the root of the project, while inner pages reside cleanly inside the `pages/` directory.
+The primary landing page [index.html](index.html) is positioned at the root of the project outside of all folders, while all inner pages (including [404.html](pages/404.html)) reside cleanly inside the `pages/` directory.
 
 ## Service detail routes
 
@@ -50,8 +50,8 @@ Example: `pages/service-details.html?service=brake-servicing`
 ```text
 .
 ├── index.html
-├── 404.html
 ├── pages/
+│   ├── 404.html
 │   ├── about.html
 │   ├── brands.html
 │   ├── contact.html

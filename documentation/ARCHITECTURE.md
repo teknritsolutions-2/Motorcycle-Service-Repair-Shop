@@ -52,7 +52,7 @@ All clientside logic is encapsulated within a self-executing IIFE in `assets/js/
 
 - `index.html` is Home 1: the primary workshop landing page with quick service navigation, situated at the project root.
 - `pages/home2.html` is Home 2: a distinct editorial landing page built around symptoms, motorcycle types, process, and booking.
-- `404.html` is the custom 404 error page, located at the project root.
+- `pages/404.html` is the custom 404 error page, located in the `pages/` directory.
 - All inner pages reside cleanly inside the `pages/` directory.
 - Both home pages reuse the same header, drawer, theme/RTL behavior, footer, and enquiry route.
 
