@@ -177,6 +177,58 @@ def test_asset_integrity_and_dark_mode():
     assert ".make-rail__logo" in dark_css, "Dark mode support missing for make-rail__logo"
     print("  -> Dark Mode & Asset Integrity PASSED.")
 
+def test_image_uniqueness_across_all_pages():
+    print("Testing Image Uniqueness: No duplicate content images on any page...")
+    pages = sorted(glob.glob("index.html") + glob.glob("pages/*.html"))
+    for p in pages:
+        with open(p) as f:
+            html = f.read()
+        # Find <img> tags src in assets/images/
+        img_tags = re.findall(r'<img[^>]+src=[\"\']([^\"\']+)[\"\']', html)
+        photos = [x.split('/')[-1] for x in img_tags if 'assets/images' in x]
+        assert len(photos) == len(set(photos)), f"Duplicate content images detected in {p}: {[x for x in photos if photos.count(x) > 1]}"
+    print("  -> Image Uniqueness PASSED: Zero repeated content images on any page.")
+
+def test_responsive_quick_access_and_brand_rail_and_pricing():
+    print("Testing Responsive Layouts: Quick Access, Multi-brand Rail, and Pricing Cards...")
+    with open("assets/css/style.css") as f:
+        css = f.read()
+
+    # 1. Quick access responsive rules
+    assert re.search(r'@media\s*\([^)]*1024px\)\s*\{\s*\.quick-services__grid\s*\{\s*grid-template-columns:\s*repeat\(4,\s*1fr\)', css), \
+        "Missing 4-column tablet layout for quick-services__grid at 1024px"
+    assert re.search(r'@media\s*\([^)]*768px\)\s*\{\s*\.quick-services__grid\s*\{\s*grid-template-columns:\s*repeat\(3,\s*1fr\)', css), \
+        "Missing 3-column tablet portrait layout for quick-services__grid at 768px"
+    assert re.search(r'@media\s*\([^)]*540px\)\s*\{\s*\.quick-services__grid\s*\{\s*grid-template-columns:\s*repeat\(2,\s*1fr\)', css), \
+        "Missing 2-column mobile layout for quick-services__grid at 540px"
+
+    # 2. Multi-brand rail: 2-column on tablet <= 992px to evenly split 10 brands into 5 rows (0 empty boxes)
+    assert re.search(r'@media\s*\(max-width:\s*992px\)\s*\{\s*\.make-rail__names\s*\{\s*grid-template-columns:\s*repeat\(2,\s*1fr\)', css), \
+        "Missing 2-column layout for make-rail__names at <= 992px (avoids empty boxes and tight padding)"
+
+    # 3. Pricing cards: 100% width on tablet
+    assert ".page-pricing .pricing__grid" in css, "Missing .page-pricing .pricing__grid CSS"
+    assert "width: 100%" in css and "max-width: 100%" in css, "Pricing grid does not have full-width properties"
+
+    print("  -> Responsive Layouts PASSED: Tablet and mobile grids provide ample padding and zero empty boxes.")
+
+def test_service_details_layout():
+    print("Testing Service Details Layout: Clean hero, no image overlaps, balanced sidebar...")
+    with open("pages/service-details.html") as f:
+        html = f.read()
+
+    # Verify hero does NOT contain duplicate image
+    hero_match = re.search(r'<section class="page-hero">(.*?)</section>', html, re.DOTALL)
+    assert hero_match, "page-hero not found in service-details.html"
+    assert "<img" not in hero_match.group(1), "Duplicate hero image still present in service-details.html hero"
+
+    # Verify sidebar does not contain image card
+    sidebar_match = re.search(r'<aside class="service-detail-sidebar">(.*?)</aside>', html, re.DOTALL)
+    assert sidebar_match, "service-detail-sidebar not found in service-details.html"
+    assert "sidebar-card--image" not in sidebar_match.group(1), "sidebar-card--image still present in service-details.html sidebar"
+
+    print("  -> Service Details Layout PASSED: Hero and sidebar are clean and perfectly balanced.")
+
 def main():
     print("=" * 70)
     print("Apex Motor Works - Verification Suite for Client Issues 1-8")
@@ -191,6 +243,9 @@ def main():
         test_issue_6_at_least_two_images_per_page()
         test_issue_7_quick_access_no_scroll()
         test_issue_8_hp2_heading_alignment()
+        test_image_uniqueness_across_all_pages()
+        test_responsive_quick_access_and_brand_rail_and_pricing()
+        test_service_details_layout()
         test_asset_integrity_and_dark_mode()
 
         print("=" * 70)

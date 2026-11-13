@@ -777,11 +777,11 @@
       const imageMap = {
         'routine-servicing': ['detail-routine.webp', 'Technician servicing a motorcycle on a hydraulic scissor lift in an authorized service center', 1800, 1201],
         'oil-filter': ['detail-engine.webp', 'Close view of motorcycle engine components during inspection', 1800, 2700],
-        'tyre-replacement': ['tyre-service.webp', 'Stack of new high-performance motorcycle street tyres in workshop showroom', 1800, 2400],
+        'tyre-replacement': ['tyre-fitting.webp', 'Technician mounting fresh street tyre on workshop machine', 1200, 896],
         'brake-servicing': ['detail-brakes.webp', 'Close view of a yellow motorcycle brake caliper and disc', 1800, 2700],
         'chain-service': ['detail-chain.webp', 'Hand applying lubricant to a motorcycle chain and rear wheel', 1800, 1201],
         'battery-service': ['detail-cables.webp', 'Mechanic checking motorcycle cables and electrical connections', 1800, 1201],
-        'diagnostics': ['diagnostics.webp', 'Mechanic inspecting exposed motorcycle wiring during diagnosis', 1800, 1201]
+        'diagnostics': ['diagnostic-scanner.webp', 'Mechanic troubleshooting motorcycle electrical and engine diagnostics with electronic scanner', 1200, 896]
       };
 
       if (!service) {
@@ -845,6 +845,12 @@
         <p class="eyebrow">Service note</p>
         <h2>Service Notes</h2>
         <p>${service.notes}</p>
+        </div>
+        <div class="service-detail-assurance">
+          <figure class="service-detail-assurance__figure">
+            <img src="${getBasePath()}assets/images/about-tools.webp" alt="Workshop workbench with calibrated torque tools and diagnostic instruments" width="1200" height="800" loading="lazy" decoding="async">
+            <figcaption>Calibrated workshop tools and torque equipment used across every service procedure.</figcaption>
+          </figure>
         </div>
         <div class="related-services">
           <p class="eyebrow">Continue exploring</p>
