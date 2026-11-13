@@ -1,17 +1,124 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="title desc">
-  <title id="title">Apex Motor Works Badge</title>
-  <desc id="desc">A precision mechanical apex emblem representing precision motorcycle service and repair.</desc>
-  <g fill="none" stroke="#C45D32" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Outer precision hexagon with corner accents -->
-    <path d="M24 3.5 L42.5 14.2 V35.8 L24 46.5 L5.5 35.8 V14.2 Z" stroke-width="2.8"/>
-    <!-- Apex Chevron / Letter A -->
-    <path d="M24 10.5 L36 29 H12 Z" stroke-width="2.6"/>
-    <!-- Mechanical Motor V-Angle / Letter M linkage -->
-    <path d="M12 29 L24 39.5 L36 29" stroke-width="2.6"/>
-    <!-- Central mechanical hub -->
-    <circle cx="24" cy="22.5" r="2.8" fill="#C45D32" stroke="none"/>
-    <path d="M24 29 V35.5" stroke-width="2.4"/>
-    <path d="M17.5 21 L10 25.5" stroke-width="2.2"/>
-    <path d="M30.5 21 L38 25.5" stroke-width="2.2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">Apex Motor Works Crest</title>
+  <desc id="logoDesc">Apex Motor Works official motorcycle workshop crest featuring an aerodynamic apex chevron, precision engine piston, and crossed mechanics spanners.</desc>
+  <defs>
+    <!-- PREMIUM MOTORSPORT ORANGE GRADIENT -->
+    <linearGradient id="apexOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF7A3D"/>
+      <stop offset="45%" stop-color="#E85A1E"/>
+      <stop offset="100%" stop-color="#AA380D"/>
+    </linearGradient>
+
+    <!-- CHROME / SILVER RACING HIGHLIGHT -->
+    <linearGradient id="apexChrome" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="50%" stop-color="#E2E5DC"/>
+      <stop offset="100%" stop-color="#A2A79C"/>
+    </linearGradient>
+
+    <!-- DARK GRAPHITE CREST PLATE -->
+    <linearGradient id="apexPlate" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#242621"/>
+      <stop offset="100%" stop-color="#121310"/>
+    </linearGradient>
+
+    <!-- BOLD SYMMETRICAL COMBINATION MECHANIC WRENCH (Center at 0,0) -->
+    <g id="wrench">
+      <!-- Ergonomic Shank -->
+      <rect x="-3" y="-18" width="6" height="38" rx="2" fill="url(#apexOrange)"/>
+      <rect x="-1.2" y="-14" width="2.4" height="30" rx="1" fill="#121310" opacity="0.45"/>
+      
+      <!-- Top Open-End Jaw: Heavy-duty 15-degree mechanic spanner -->
+      <path d="M -3 -18
+               C -5.2 -18.5, -9 -21.5, -9 -27
+               C -9 -32.5, -6 -36, -3.2 -36.8
+               L -1 -28.2
+               C 0.3 -27.7, 1.7 -27.7, 3 -28.2
+               L 6.2 -36.5
+               C 9 -35, 9.5 -31.5, 9.5 -27
+               C 9.5 -21.5, 5.2 -18.5, 3 -18
+               Z" fill="url(#apexOrange)"/>
+
+      <!-- Bottom Box/Ring End (Heavy Hex Profile) -->
+      <circle cx="0" cy="26" r="7.5" fill="url(#apexOrange)"/>
+      <polygon points="0,22.2 3.3,24.1 3.3,27.9 0,29.8 -3.3,27.9 -3.3,24.1" fill="#121310"/>
+    </g>
+  </defs>
+
+  <!-- 1. MOTORSPORT CREST SHIELD -->
+  <!-- Top apex peak at (50, 3), corners at (90, 15), straight sides down to (90, 47), sweeping aerodynamic curve to bottom point at (50, 96) -->
+  <path d="M 50 3 
+           L 90 15 
+           V 47 
+           C 90 72, 73 88, 50 96 
+           C 27 88, 10 72, 10 47 
+           V 15 
+           Z" 
+        fill="url(#apexPlate)" stroke="url(#apexOrange)" stroke-width="4" stroke-linejoin="round"/>
+
+  <!-- Inner precision pinstripe border -->
+  <path d="M 50 8.5 
+           L 84 19 
+           V 46 
+           C 84 67, 69.5 82, 50 89.5 
+           C 30.5 82, 16 67, 16 46 
+           V 19 
+           Z" 
+        fill="none" stroke="#3D4037" stroke-width="1.2" stroke-linejoin="round"/>
+
+  <!-- 2. TOP APEX CHEVRON (APEX) -->
+  <g id="apex-chevron">
+    <!-- Outer Orange Peak -->
+    <polygon points="50,7 72,22 61.5,22 50,13.5 38.5,22 28,22" fill="url(#apexOrange)"/>
+    <!-- Inner Chrome Reflection Peak -->
+    <polygon points="50,9.8 65,20 60,20 50,13 40,20 35,20" fill="url(#apexChrome)"/>
+  </g>
+
+  <!-- 3. BILATERALLY SYMMETRICAL CROSSED MECHANIC WRENCHES (WORKS) -->
+  <!-- Left Wrench (slanted up-left at -46 deg) -->
+  <g transform="translate(50, 54) rotate(-46)">
+    <use href="#wrench"/>
+  </g>
+  <!-- Right Wrench (slanted up-right, mirrored horizontally) -->
+  <g transform="translate(50, 54) scale(-1, 1) rotate(-46)">
+    <use href="#wrench"/>
+  </g>
+
+  <!-- 4. MOTORCYCLE ENGINE PISTON & CON-ROD (MOTOR) -->
+  <g id="piston" transform="translate(50, 54)">
+    <!-- Connecting Rod (Behind piston skirt) -->
+    <path d="M -4.5 -4 L -5.2 23 L 5.2 23 L 4.5 -4 Z" fill="url(#apexOrange)" stroke="#121310" stroke-width="1.2"/>
+    <!-- Recessed I-beam channel -->
+    <path d="M -2.4 -1 L -2.8 20 L 2.8 20 L 2.4 -1 Z" fill="#121310" opacity="0.45"/>
+    
+    <!-- Big-End Rod Journal (Crankshaft Mount) -->
+    <circle cx="0" cy="24" r="8" fill="url(#apexOrange)" stroke="#121310" stroke-width="1.4"/>
+    <circle cx="0" cy="24" r="3.8" fill="#121310"/>
+    <!-- Rod Cap Bolts -->
+    <circle cx="-5.5" cy="22.2" r="1.1" fill="url(#apexChrome)"/>
+    <circle cx="5.5" cy="22.2" r="1.1" fill="url(#apexChrome)"/>
+
+    <!-- Piston Body (High-Compression Dome & Slipper Skirt) -->
+    <path d="M -16 -22 
+             C -16 -24.5, -14 -25.5, -11 -25.5 
+             L 11 -25.5 
+             C 14 -25.5, 16 -24.5, 16 -22 
+             L 16 -3 
+             C 16 -2, 15 -2, 14 -2 
+             C 12 -5.5, 8 -7.5, 0 -7.5 
+             C -8 -7.5, -12 -5.5, -14 -2 
+             C -15 -2, -16 -2, -16 -3 
+             Z" 
+          fill="url(#apexOrange)" stroke="#121310" stroke-width="1.4" stroke-linejoin="round"/>
+
+    <!-- Compression Ring Lands (Negative Space) -->
+    <line x1="-16" y1="-19.5" x2="16" y2="-19.5" stroke="#121310" stroke-width="1.6"/>
+    <line x1="-16" y1="-15.8" x2="16" y2="-15.8" stroke="#121310" stroke-width="1.6"/>
+    <line x1="-16" y1="-12" x2="16" y2="-12" stroke="#121310" stroke-width="1.6"/>
+
+    <!-- Pin Boss & Wrist Pin (Gudgeon Pin) with Chrome Bevel -->
+    <circle cx="0" cy="-6.5" r="5" fill="#121310"/>
+    <circle cx="0" cy="-6.5" r="3" fill="url(#apexChrome)"/>
+    <circle cx="0" cy="-6.5" r="1.3" fill="#121310"/>
   </g>
 </svg>
