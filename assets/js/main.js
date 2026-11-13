@@ -790,7 +790,7 @@
       }
 
       // Update page title
-      document.title = `${service.title} — Apex Motoworks`;
+      document.title = `${service.title} — Apex Motor Works`;
 
       // Update hero title
       const heroTitle = document.querySelector('.page-hero__title');

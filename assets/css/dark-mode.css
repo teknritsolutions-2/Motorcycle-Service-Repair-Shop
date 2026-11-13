@@ -160,9 +160,11 @@
 }
 
 /* Preserve manufacturer artwork on a neutral plate without recoloring it. */
-[data-theme="dark"] .brand-card__logo {
+[data-theme="dark"] .brand-card__logo,
+[data-theme="dark"] .make-rail__logo {
   border-color: #dedbd3;
   background: #f7f6f2;
+  border-radius: var(--radius-sm);
 }
 
 /* Card text */

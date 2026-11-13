@@ -1,4 +1,4 @@
-# Apex Motoworks
+# Apex Motor Works
 
 A responsive static website for an independent motorcycle service and repair workshop. It uses semantic HTML, a CSS design system, and scoped vanilla JavaScript with no runtime framework.
 

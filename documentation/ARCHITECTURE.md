@@ -1,4 +1,4 @@
-# Apex Motoworks — Design System & Technical Architecture
+# Apex Motor Works — Design System & Technical Architecture
 
 ## 1. Design System & CSS Architecture
 
