@@ -395,6 +395,12 @@
     var(--bg-secondary);
 }
 
+@media (max-width: 992px) {
+  [data-theme="dark"] .page-hero {
+    background-image: none !important;
+  }
+}
+
 [data-theme="dark"] .services__grid .service-card:first-child,
 [data-theme="dark"] .services__grid .service-card:first-child:hover {
   background: #111 url('../images/routine-service.webp') center 42% / cover no-repeat;

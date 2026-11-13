@@ -229,6 +229,30 @@ def test_service_details_layout():
 
     print("  -> Service Details Layout PASSED: Hero and sidebar are clean and perfectly balanced.")
 
+def test_back_to_top_sticky():
+    print("Testing Click to Top Button: Fixed / sticky position across scrolling...")
+    with open("assets/css/style.css") as f:
+        css = f.read()
+
+    btn_rule = re.search(r'\.btn--back-to-top\s*\{([^}]+)\}', css)
+    assert btn_rule, "Missing .btn--back-to-top rule in style.css"
+    body = btn_rule.group(1)
+    assert "position: fixed" in body, "btn--back-to-top is not position: fixed"
+    assert "z-index" in body, "btn--back-to-top missing z-index"
+    print("  -> Click to Top PASSED: Button is sticky / fixed in position permanently.")
+
+def test_hero_banner_mobile_spacing():
+    print("Testing Hero Banner Mobile Spacing & Watermark Removal...")
+    with open("assets/css/style.css") as f:
+        css = f.read()
+
+    # Must hide page-hero::after when image is present or <= 992px
+    assert ".page-hero:has(.page-hero__image)::after" in css, "Missing .page-hero:has(.page-hero__image)::after rule"
+    assert re.search(r'@media\s*\(max-width:\s*992px\)\s*\{[^}]*\.page-hero::after', css), \
+        "Missing mobile/tablet rule hiding page-hero::after at <= 992px"
+
+    print("  -> Hero Banner Mobile Spacing PASSED: Watermark removed and spacing resolved on mobile.")
+
 def main():
     print("=" * 70)
     print("Apex Motor Works - Verification Suite for Client Issues 1-8")
@@ -246,6 +270,8 @@ def main():
         test_image_uniqueness_across_all_pages()
         test_responsive_quick_access_and_brand_rail_and_pricing()
         test_service_details_layout()
+        test_back_to_top_sticky()
+        test_hero_banner_mobile_spacing()
         test_asset_integrity_and_dark_mode()
 
         print("=" * 70)
